@@ -21,6 +21,6 @@ app.get("/", (req, res) => {
     var result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
     console.log(result1);
-    res.render(__dirname+"/test.html", {result:result1});
+    res.render(__dirname+"/webcaculator.html", {result:result1});
     
 });
