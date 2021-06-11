@@ -14,12 +14,13 @@ app.listen(port, () => {
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
     var q="";
+    var result1=0;
     q = url.parse(req.url, true);
     var data=q.query;
     const a =parseInt(data.a);
     const b= parseInt(data.b);
     const p =data.p;
-    var result1 = dt.calc(a,b,p);
+    result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
     res.end(`
     <style>
