@@ -28,7 +28,7 @@ const calc = (a,b,p) => {
                 return;
                 }
         }
-    }else  return "please provide all pẩmeters";
+    }else  return "please provide all parameters";
     }
 }
         exports.calc=calc;
