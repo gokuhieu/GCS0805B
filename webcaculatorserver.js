@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 var url = require('url');
 const bodyParser = require('body-parser');
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.listen(port, () => {
