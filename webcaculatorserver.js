@@ -11,11 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
-app.post("",(req,res) => {
-req.send("/webcalculator.html");
-});
 
-app.all(__dirname+"/", (req, res) => {
+app.get(__dirname+"/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
@@ -24,6 +21,5 @@ app.all(__dirname+"/", (req, res) => {
     const p =data.p;
     var result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-    console.log(result1);
     res.render(__dirname+"/webcaculator.html", {result:result1});
 });
