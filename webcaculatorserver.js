@@ -11,6 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
+app.post("",(req,res) => {
+req.send("/webcalculator.html");
+
+});
+
 app.get(__dirname+"/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);
