@@ -13,10 +13,9 @@ app.listen(port, () => {
 });
 app.post("",(req,res) => {
 req.send("/webcalculator.html");
-
 });
 
-app.get(__dirname+"/", (req, res) => {
+app.all(__dirname+"/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
