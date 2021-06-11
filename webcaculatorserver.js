@@ -5,11 +5,11 @@ const express = require("express");
 const app = express();
 var url = require('url');
 const bodyParser = require('body-parser');
-const port =80;
+const port = process.env.PORT;
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.listen(port, () => {
-  console.log("Application started and Listening on port 3000");
+  console.log(`Application started and Listening on port ${port}`);
 });
 app.get("/", (req, res) => {
     var q="";
@@ -22,5 +22,4 @@ app.get("/", (req, res) => {
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
     console.log(result1);
     res.render(__dirname+"/webcaculator.html", {result:result1});
-    
 });
