@@ -1,1 +1,1 @@
-web : node webcaculatorserver.js
+web : node ./webcaculatorserver.js
