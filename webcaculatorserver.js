@@ -6,13 +6,14 @@ const app = express();
 var url = require('url');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+app.use(express.static("public"));
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
 
-app.get(__dirname+"/", (req, res) => {
+app.get("/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
