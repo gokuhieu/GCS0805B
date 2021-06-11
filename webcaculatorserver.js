@@ -1,6 +1,5 @@
 
 var dt = require('./mymodule.js');
-
 const express = require("express");
 const app = express();
 var url = require('url');
