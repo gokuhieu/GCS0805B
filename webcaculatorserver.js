@@ -1,6 +1,6 @@
 
 var dt = require('./mymodule.js');
-const hostname = 'localhost';
+
 const express = require("express");
 const app = express();
 var url = require('url');
@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const port =80;
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.listen(port,hostname, () => {
+app.listen(port, () => {
   console.log("Application started and Listening on port 3000");
 });
 app.get("/", (req, res) => {
