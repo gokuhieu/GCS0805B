@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
-app.get("/", (req, res) => {
+app.get(__dirname+"/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
