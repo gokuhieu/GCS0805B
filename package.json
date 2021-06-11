@@ -7,10 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node webcaculatorserver.js"
   },
-  "dependencies": {
-    "express": "3.0.0rc4",
-    "jade": "*"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gokuhieu/GCS0805B.git"
