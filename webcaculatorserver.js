@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
-
+app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
     var q="";
     q = url.parse(req.url, true);

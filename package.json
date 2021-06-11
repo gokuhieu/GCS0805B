@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/gokuhieu/GCS0805B.git"
   },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
