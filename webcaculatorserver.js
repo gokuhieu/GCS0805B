@@ -12,30 +12,42 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
-fs.readFile('./webcaculator.html',(err,data)=>{
+fs.readFile('./home.html',(err,data)=>{
 if(err){
     return console.log("error loading file");
     
-}console.log(data.toString());
-
+}
+fs.readFile('./webcaculator.html',(err,data1)=>{
+    if(err){
+        return console.log("error loading file");
+    }
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.post("./webcaculator.html",(req,res) =>{
+app.all("",(req,res) =>{
+    switch (req.url)
+    {
+        case "/home":
+            res.writeHead(200,{ 'Content-Type': 'text/html'});
+            res.write(data.toString());
+            break;
+        case "/home/webcaculator":
+            res.writeHead(200,{ 'Content-Type': 'text/html'});
+            res.write(data1.toString());
+            break;
+    //         var q="";
+    //         var result1=0;
+    //         q = url.parse(req.url, true);
+    //         var data=q.query;
+    //         var a =parseInt(data.a);
+    //         var b= parseInt(data.b);
+    //         var p =data.p;
+    //         result1 = dt.calc(a,b,p);
+    //         result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
+    //         res.render(__dirname+"/webcaculator.html",{result:result1}); 
 
-    res.writeHead(200,{ 'Content-Type': 'text/html'});
-    res.write(data.toString());
+    // }
 
-req.get("/", (req, res) => { 
 
-            var q="";
-            var result1=0;
-            q = url.parse(req.url, true);
-            var data=q.query;
-            var a =parseInt(data.a);
-            var b= parseInt(data.b);
-            var p =data.p;
-            result1 = dt.calc(a,b,p);
-            result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-            res.render(__dirname+"/webcaculator.html",{result:result1}); 
-        })
+    }  
+
 });
