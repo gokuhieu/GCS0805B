@@ -12,7 +12,7 @@ app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.get("wecaculator/", (req, res) => {
+app.get("/wecaculator/", (req, res) => {
     if(req.url=="/webcaculator")
     {
         res.send("webcaculator.html")
