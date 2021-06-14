@@ -4,25 +4,25 @@ const express = require("express");
 const app = express();
 var url = require('url');
 const path = require('path');
+var router=express.Router();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.listen(port, () => {
-  console.log(`Application started and Listening on port ${port}`);
-});
-fs.readFile('./home.html',(err,data)=>{
-if(err){
-    return console.log("error loading file");
-    
-}
-
-});
 app.use(express.static(path.join(__dirname, 'public')))
-app.set("/home", (req,res) =>{
+
+app.get('/home',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'./home.html'))
+
+})
+
+router.get("/home", (req,res) =>{
 res.render("./home.html");
 
+});
+app.listen(port, () => {
+    console.log(`Application started and Listening on port ${port}`);
 });
 
           
