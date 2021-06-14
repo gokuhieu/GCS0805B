@@ -20,15 +20,14 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.post("./webcaculator.html",(req,res)=>{
+
+app.all("/", (req, res) => { 
     if(req.url=="/webcaculator.html")
     {
         res.writeHead(200,{ 'Content-Type': 'text/html'});
     res.end(data.toString());
     
-    }
-    });
-app.get(__dirname+"/", (req, res) => {   
+    }  
             var q="";
             var result1=0;
             q = url.parse(req.url, true);
