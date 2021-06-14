@@ -20,7 +20,7 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.post("./webcaculator",(req,res) =>{
+app.post("./webcaculator.html",(req,res) =>{
 
     res.writeHead(200,{ 'Content-Type': 'text/html'});
     res.write(data.toString());
