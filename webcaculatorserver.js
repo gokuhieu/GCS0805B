@@ -13,6 +13,10 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
+    if(req.url="\webcaculator")
+    {
+        res.redirect(__dirname+"/webcaculator.html")
+    }
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
