@@ -14,7 +14,7 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-
+    res.sendFile(__dirname+"/webcaculator.html")
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
@@ -22,14 +22,8 @@ app.get("/", (req, res) => {
     var a =parseInt(data.a);
     var b= parseInt(data.b);
     var p =data.p;
-   
-    if(a==null&&b==null)
-    {
-    }else{
-        result1 = dt.calc(a,b,p);
+    result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-    }
-    
-    res.render  (__dirname+"/webcaculator.html",{result:result1});
+
     
 });
