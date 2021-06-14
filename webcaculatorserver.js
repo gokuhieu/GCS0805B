@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
     if(req.url=="/webcaculator")
     {
-        res.redirect("/webcaculator.html")
+        res.redirect("./webcaculator.html")
     }
     var q="";
     var result1=0;
