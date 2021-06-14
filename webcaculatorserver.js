@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
     const b= parseInt(data.b);
     const p =data.p;
     result1 = dt.calc(a,b,p);
-    if(a==0&&b==0)
+    if(a==null&&b==null)
     {
        result1= result1.toString();
     }else{
