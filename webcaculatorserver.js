@@ -21,9 +21,9 @@ fs.readFile('./webcaculator.html',(err,data1)=>{
     if(err){
         return console.log("error loading file");
     }
-});
+
 app.use(express.static(path.join(__dirname, 'public')))
-app.all("",(req,res) =>{
+app.all("/",(req,res) =>{
     switch (req.url)
     {
         case "/home":
@@ -48,6 +48,8 @@ app.all("",(req,res) =>{
     // }
 
 
-    }  
+    }
 
+});
+});
 });
