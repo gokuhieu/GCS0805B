@@ -14,8 +14,7 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+'/webcaculator.html')
-    res.write(data);
+    res.sendFile(path.join(__dirname, '/webcaculator.html'))
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
