@@ -16,14 +16,14 @@ fs.readFile('./webcaculator.html',(err,data)=>{
 if(err){
     return console.log("error loading file");
     
-}console.log(data.toString);
+}console.log(data.toString.toString());
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/webcaculator/", (req, res) => {
     switch(req.url){
         case "/webcaculator":
-            res.end(data);
+            res.end(data.toString());
             break;
         default:
             var q="";
