@@ -24,16 +24,7 @@ fs.readFile('./webcaculator.html',(err,data1)=>{
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.all("",(req,res) =>{
-    switch (req.url)
-    {
-        case "/home":
-            res.writeHead(200,{ 'Content-Type': 'text/html'});
-            res.write(data.toString());
-            break;
-        case "/home/webcaculator":
-            res.writeHead(200,{ 'Content-Type': 'text/html'});
-            res.write(data1.toString());
-            break;
+console.log(req.url)
     //         var q="";
     //         var result1=0;
     //         q = url.parse(req.url, true);
@@ -48,7 +39,7 @@ app.all("",(req,res) =>{
     // }
 
 
-    }
+    
 
 });
 });
