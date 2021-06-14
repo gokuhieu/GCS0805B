@@ -20,7 +20,7 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.get("/home/", (req,res) =>{
+app.set("/home/", (req,res) =>{
 res.render("./home.html");
 
 });
