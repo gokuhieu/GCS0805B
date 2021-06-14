@@ -6,6 +6,7 @@ var url = require('url');
 const path = require('path');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.listen(port, () => {
@@ -13,7 +14,8 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-    res.send(webcaculator.html);
+    fs.readFile('webcaculator.html', function(err, data) {
+    res.send(data);
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
@@ -24,4 +26,5 @@ app.get("/", (req, res) => {
     result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
     res.render  (__dirname+"/webcaculator.html",{result:result1});
+    });
 });
