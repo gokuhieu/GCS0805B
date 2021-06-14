@@ -13,7 +13,7 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-    res.send("/webcaculator.html");
+    res.send(webcaculator.html);
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
