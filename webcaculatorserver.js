@@ -20,17 +20,16 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-
-app.get("/", (req, res) => {
-if(req.url=="/webcaculator.html")
-{
-    app.post("./webcaculator.html",(req,res)=>{
-
+app.post("./webcaculator.html",(req,res)=>{
+    if(req.url=="/webcaculator.html")
+    {
         res.writeHead(200,{ 'Content-Type': 'text/html'});
-        res.end(data.toString());
-        
-        });
-}
+    res.end(data.toString());
+    
+    }
+    });
+app.get("/", (req, res) => {
+
             
             
             var q="";
