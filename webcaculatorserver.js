@@ -20,9 +20,9 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.get("/webcaculator/", (req, res) => {
+app.get("/webcaculator.html/", (req, res) => {
     switch(req.url){
-        case "/webcaculator/":
+        case "/webcaculator.html":
             res.writeHead(200,{ 'Content-Type': 'text/html'})
             res.end(data.toString());
             break;
