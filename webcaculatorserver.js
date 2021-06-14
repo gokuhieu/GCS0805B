@@ -26,15 +26,16 @@ app.get("/", (req, res) => {
             res.end(data);
             break;
         default:
-    var q="";
-    var result1=0;
-    q = url.parse(req.url, true);
-    var data=q.query;
-    var a =parseInt(data.a);
-    var b= parseInt(data.b);
-    var p =data.p;
-    result1 = dt.calc(a,b,p);
-    result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-    res.render(__dirname+"/webcaculator.html",{result:result1});
+            var q="";
+            var result1=0;
+            q = url.parse(req.url, true);
+            var data=q.query;
+            var a =parseInt(data.a);
+            var b= parseInt(data.b);
+            var p =data.p;
+            result1 = dt.calc(a,b,p);
+            result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
+            res.render(__dirname+"/webcaculator.html",{result:result1});
+            break;
 }
 });
