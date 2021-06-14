@@ -28,10 +28,7 @@ app.post("./webcaculator.html",(req,res)=>{
     
     }
     });
-app.get("/", (req, res) => {
-
-            
-            
+app.get(__dirname+"/", (req, res) => {   
             var q="";
             var result1=0;
             q = url.parse(req.url, true);
