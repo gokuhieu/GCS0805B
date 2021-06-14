@@ -12,9 +12,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
+fs.readFile('./webcaculator.html',(err,data)=>{
+if(err){
+    return console.log("error loading file");
+    
+}console.log(data.toString);
+
+});
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-    res.sendFile(__dirname+"/webcaculator.html")
+    switch(req.url){
+        case "/webcaculator":
+            res.end(data.toString);
+            break;
+        default:
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
@@ -24,6 +35,6 @@ app.get("/", (req, res) => {
     var p =data.p;
     result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-    res.render({result:result1});
-    
+    res.render(__dirname+"/webcaculator.html",{result:result1});
+}
 });
