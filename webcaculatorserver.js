@@ -20,7 +20,7 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.get("/", (req, res) => {
+app.get("/webcaculator/", (req, res) => {
     switch(req.url){
         case "/webcaculator":
             res.end(data);
