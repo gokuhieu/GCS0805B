@@ -26,7 +26,7 @@ res.writeHead(200,{ 'Content-Type': 'text/html'});
 res.end(data.toString());
 
 });
-app.get("/webcaculator.html/", (req, res) => {
+app.get("/", (req, res) => {
 
             
             
