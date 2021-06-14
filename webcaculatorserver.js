@@ -21,7 +21,7 @@ if(err){
 });
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get("/", (req, res) => { 
+app.get("/webcaculator.html", (req, res) => { 
     if(req.url=="webcaculator.html")
     {
         res.writeHead(200,{ 'Content-Type': 'text/html'});
