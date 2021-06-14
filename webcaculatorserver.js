@@ -16,7 +16,7 @@ fs.readFile('./webcaculator.html',(err,data)=>{
 if(err){
     return console.log("error loading file");
     
-}
+}console.log(data.toString());
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
