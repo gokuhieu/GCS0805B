@@ -16,6 +16,18 @@ app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
+app.get('/webcaculator',(req,res)=>{
+var q="";
+q = url.parse(req.url, true);
+var data=q.query;
+const a =parseInt(data.a);
+const b= parseInt(data.b);
+const p =data.p;
+var result1 = dt.calc(a,b,p);
+result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
+console.log(result1);
+res.render(path.resolve(__dirname,'./webcaculator.html'), {result:result1});
+})
 
 router.get("/home", (req,res) =>{
 res.render("./home.html");
