@@ -12,11 +12,8 @@ app.listen(port, () => {
   console.log(`Application started and Listening on port ${port}`);
 });
 app.use(express.static(path.join(__dirname, 'public')))
-app.get("/wecaculator/", (req, res) => {
-    if(req.url=="/webcaculator")
-    {
-        res.send("webcaculator.html")
-    }
+app.get("/", (req, res) => {
+    res.send("/webcaculator.html");
     var q="";
     var result1=0;
     q = url.parse(req.url, true);
