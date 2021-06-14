@@ -17,30 +17,13 @@ if(err){
     return console.log("error loading file");
     
 }
-fs.readFile('./webcaculator.html',(err,data1)=>{
-    if(err){
-        return console.log("error loading file");
-    }
 
+});
 app.use(express.static(path.join(__dirname, 'public')))
-app.all("",(req,res) =>{
-console.log(req.url)
-    //         var q="";
-    //         var result1=0;
-    //         q = url.parse(req.url, true);
-    //         var data=q.query;
-    //         var a =parseInt(data.a);
-    //         var b= parseInt(data.b);
-    //         var p =data.p;
-    //         result1 = dt.calc(a,b,p);
-    //         result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-    //         res.render(__dirname+"/webcaculator.html",{result:result1}); 
+app.get("/home/", (req,res) =>{
+res.render("./home.html");
 
-    // }
+});
 
-
+          
     
-
-});
-});
-});
