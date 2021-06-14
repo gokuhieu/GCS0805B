@@ -23,7 +23,13 @@ app.get("/", (req, res) => {
     const b= parseInt(data.b);
     const p =data.p;
     result1 = dt.calc(a,b,p);
+    if(a==0&&b==0)
+    {
+       result1= result1.toString();
+    }else{
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
+    }
+    
     res.render  (__dirname+"/webcaculator.html",{result:result1});
     
 });
