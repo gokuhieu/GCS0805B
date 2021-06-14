@@ -24,8 +24,8 @@ app.post("./webcaculator.html",(req,res) =>{
 
     res.writeHead(200,{ 'Content-Type': 'text/html'});
     res.write(data.toString());
-})
-app.get("/", (req, res) => { 
+
+req.get("/", (req, res) => { 
 
             var q="";
             var result1=0;
@@ -37,4 +37,5 @@ app.get("/", (req, res) => {
             result1 = dt.calc(a,b,p);
             result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
             res.render(__dirname+"/webcaculator.html",{result:result1}); 
+        })
 });
