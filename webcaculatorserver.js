@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get("/webcaculator", (req, res) => {
     switch(req.url){
         case "/webcaculator":
-            res.end(data.toString);
+            res.end(data);
             break;
         default:
     var q="";
