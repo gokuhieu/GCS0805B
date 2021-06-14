@@ -15,6 +15,7 @@ app.listen(port, () => {
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
     fs.readFile('webcaculator.html', function(err, data) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
     var q="";
     var result1=0;
