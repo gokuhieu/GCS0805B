@@ -14,7 +14,7 @@ app.listen(port, () => {
 });
 app.use(express.static(path.join(__dirname, 'public')))
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/webcaculator.html'))
+    res.sendFile(__dirname+'/webcaculator.html')
     res.write(data);
     var q="";
     var result1=0;
@@ -25,5 +25,6 @@ app.get("/", (req, res) => {
     const p =data.p;
     result1 = dt.calc(a,b,p);
     result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-
+    res.render  (__dirname+"/webcaculator.html",{result:result1});
+    
 });
