@@ -20,13 +20,16 @@ if(err){
 
 });
 app.use(express.static(path.join(__dirname, 'public')))
+app.post("/webcaculator.html",(req,res)=>{
+
+res.writeHead(200,{ 'Content-Type': 'text/html'});
+res.end(data.toString());
+
+});
 app.get("/webcaculator.html/", (req, res) => {
-    switch(req.url){
-        case "/webcaculator.html":
-            res.writeHead(200,{ 'Content-Type': 'text/html'})
-            res.end(data.toString());
-            break;
-        default:
+
+            
+            
             var q="";
             var result1=0;
             q = url.parse(req.url, true);
@@ -36,7 +39,6 @@ app.get("/webcaculator.html/", (req, res) => {
             var p =data.p;
             result1 = dt.calc(a,b,p);
             result1= a.toString()+" "+p+" "+b.toString()+" = " + result1.toString();
-
-            break;
-}
+            res.render(__dirname+"/webcaculator.html",{result:result1});
+            
 });
