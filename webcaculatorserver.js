@@ -12,11 +12,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 
-router.get("/", (req,res) =>{
-    res.render("./home.html");
-    
-    });
-app.get('/home',(req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
