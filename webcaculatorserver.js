@@ -12,6 +12,10 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 
+router.get("/", (req,res) =>{
+    res.render("./home.html");
+    
+    });
 app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
@@ -29,10 +33,7 @@ console.log(result1);
 res.render(path.resolve(__dirname,'./webcaculator.html'), {result:result1});
 })
 
-router.get("/", (req,res) =>{
-res.render("./home.html");
 
-});
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
