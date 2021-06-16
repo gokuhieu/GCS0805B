@@ -29,7 +29,7 @@ console.log(result1);
 res.render(path.resolve(__dirname,'./webcaculator.html'), {result:result1});
 })
 
-router.get("/home", (req,res) =>{
+router.get("/", (req,res) =>{
 res.render("./home.html");
 
 });
