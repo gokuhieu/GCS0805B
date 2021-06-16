@@ -16,7 +16,7 @@ app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
-app.get('/webcaculator',(req,res)=>{
+app.get('/webcaculator.html',(req,res)=>{
 var q="";
 q = url.parse(req.url, true);
 var data=q.query;
