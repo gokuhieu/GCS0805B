@@ -12,15 +12,15 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.get('/',(req,res)=>{
+router.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
-app.get('/home.html',(req,res)=>{
+router.get('/home.html',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
-app.get('/webcaculator.html',(req,res)=>{
+router.get('/webcaculator.html',(req,res)=>{
 var q="";
 q = url.parse(req.url, true);
 var data=q.query;
