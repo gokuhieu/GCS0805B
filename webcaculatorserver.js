@@ -19,11 +19,11 @@ app.get('/',(req,res)=>{
 app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-app.get('/product',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./product.html'))
+app.get('/addproduct',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'./addproduct.html'))
 })
-app.get('/customer',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./customer.html'))
+app.get('/addcustomer',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
 
 
