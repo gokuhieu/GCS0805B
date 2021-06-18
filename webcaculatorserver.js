@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 var url = require('url');
 const path = require('path');
-const router=express.Router();
+var router=express.Router();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 var fs = require('fs');
@@ -12,14 +12,14 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 
-router.get('/',(req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
-router.get('/home.html',(req,res)=>{
+app.get('/home.html',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-router.get('/webcaculator.html',(req,res)=>{
+app.get('/webcaculator.html',(req,res)=>{
 var q="";
 q = url.parse(req.url, true);
 var data=q.query;
