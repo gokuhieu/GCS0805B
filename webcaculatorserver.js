@@ -16,10 +16,10 @@ app.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
-app.get('/home.html',(req,res)=>{
+app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-app.get('/webcaculator.html',(req,res)=>{
+app.get('/product',(req,res)=>{
 var q="";
 q = url.parse(req.url, true);
 var data=q.query;
