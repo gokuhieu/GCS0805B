@@ -22,6 +22,10 @@ app.get('/home',(req,res)=>{
 app.get('/product',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./product.html'))
 })
+app.get('/customer',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'./customer.html'))
+})
+
 
 
 app.listen(port, () => {
