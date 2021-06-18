@@ -18,7 +18,6 @@ app.get('/',(req,res)=>{
 })
 app.get('/home.html',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
-
 })
 app.get('/webcaculator.html',(req,res)=>{
 var q="";

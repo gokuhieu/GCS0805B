@@ -1,13 +1,100 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin page</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+  <style>
+  .row1{
+    display: inline;
+  }
+ #img_div{
+   	width: 80%;
+   	padding: 5px;
+   	margin: 15px auto;
+   	border: 1px solid #cbcbcb;
+   }
+   #img_div:after{
+   	content: "";
+   	display: block;
+   	clear: both;
+   }
+   img {
+  max-width:75px;}
+  .border1 {border-style: double;}
+  th,td{
+    border-style: double;
+  }
+
+}
+
+
+</style>
 </head>
+
 <body>
 
-    <h1>this is home page</h1>
-    <h1>press button to go to caculator</h1>
-    <button><a href="/webcaculator.html">webcaculator</a></button>
-    
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="admin_index.php">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <span class="sr-only">(current)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">Hai Son</h1>
+        <div class="list-group">
+          <a href="admin_index.php" class="list-group-item">Category</a>
+        </div>
+        <div class="list-group">
+          <a href="admin_index.php" class="list-group-item">Product</a>
+        </div>
+        <div class="list-group">
+            <a href="admin_index.php" class="list-group-item">Customer</a>
+          </div>
+          <div class="list-group">
+            <a href="admin_index.php" class="list-group-item">check-out/invoice</a>
+          </div>
+      </div>
+      
+
+    </div>
+
+</div>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
+
+
