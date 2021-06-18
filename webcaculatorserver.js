@@ -25,7 +25,7 @@ app.get('/addproduct',(req,res)=>{
 app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
-app.get('/addcustomer',(req,res)=>{
+app.get('/addcategory',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcategory.html'))
 })
 
