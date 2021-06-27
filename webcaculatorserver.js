@@ -11,9 +11,8 @@ const { connectsql } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-
 app.get('/',(req,res)=>{
-    myconect.connect();
+
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
