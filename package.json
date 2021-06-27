@@ -1,7 +1,6 @@
 {
   "name": "GCS0805B",
   "version": "1.0.0",
-  "description": "",
   "main": "product.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,5 +22,7 @@
   "bugs": {
     "url": "https://github.com/gokuhieu/GCS0805B/issues"
   },
-  "homepage": "https://github.com/gokuhieu/GCS0805B#readme"
+  "homepage": "https://github.com/gokuhieu/GCS0805B#readme",
+  "devDependencies": {},
+  "description": ""
 }
