@@ -22,7 +22,7 @@ const myconect = new connection({
     port : 5432,
     ssl : on
     });
-myconect.connect();
+
 app.get('/',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
