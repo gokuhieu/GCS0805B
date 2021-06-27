@@ -12,10 +12,10 @@ const { connect } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-const [Pool,client] = require('pg');
+const [Pool,Client] = require('pg');
 const { on } = require("events");
 connectionString = 'postgres://zzdduyaaxgfqab:0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151@ec2-174-129-225-160.compute-1.amazonaws.com:5432/dfd8gcsog7njl7'
-const client = new client({
+const client = new Client({
     connectionString:connectionString
 })
 
