@@ -8,19 +8,9 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 var fs = require('fs');
 const { connect } = require('./product.js');
-const connection = require('pg').Pool;
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-const { on } = require("events");
-const myconect = new connection({
-    host : 'ec2-174-129-225-160.compute-1.amazonaws.com',
-    database : 'public.dfd8gcsog7njl7',
-    user : 'zzdduyaaxgfqab',
-    password : '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
-    port : 5432,
-    ssl : on
-    });
 
 app.get('/',(req,res)=>{
     myconect.connect();
@@ -33,10 +23,7 @@ app.get('/',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    myconect.query(query1,(err,res) =>{
-console.log(err,res)
-    myconect.end()
-        });
+    connect(query1)
     res.sendFile(path.resolve(__dirname,'./home.html'));
 
 })

@@ -8,16 +8,12 @@ const connect =(query1) =>{
         user : 'zzdduyaaxgfqab',
         password : '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
         port : 5432,
+        ssl : on
         });
-    myconect.query(query1,err,result =>{
-        if(err)
-        {
-        console.log(err);
-        return;
-        }
-        queryresult=result;
-        console.log(result)
-        });
-        return result;
-    }
+    myconect.query(query1,(err,result) =>{
+    console.log(err,result)
+    myconect.end()
+    })
+    
+}
 exports.connect=connect;
