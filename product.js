@@ -8,11 +8,11 @@ const myconect = new connection({
     password : '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
     port : 5432,
     });
-const connect =(query1) =>{
+const connectsql =(query1) =>{
     myconect.query(query1,(err,result) =>{
     console.log(err,result)
     myconect.end()
     })
     
 }
-exports.connect=connect;
+exports.connectsql=connectsql;

@@ -7,7 +7,7 @@ var router=express.Router();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 var fs = require('fs');
-const { connect } = require('./product.js');
+const { connectsql } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    connect(query1);
+    connectsql(query1);
     res.sendFile(path.resolve(__dirname,'./home.html'));
 
 })
