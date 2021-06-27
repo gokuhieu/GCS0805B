@@ -30,14 +30,7 @@ app.get('/',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    myconect.query(query1,err,result =>{
-        if(err)
-        {
-        console.log(err);
-        return;
-        }
-        queryresult=result;
-        console.log(result)
+    myconect.query(query1 =>{
         });
     res.sendFile(path.resolve(__dirname,'./home.html'));
 
