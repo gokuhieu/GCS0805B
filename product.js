@@ -8,7 +8,8 @@ port=5432,
 ssl=true
 });
 var queryresult;
-myconect.query("insert into product values('ab','iphone','phone','1000')",err,result =>{
+const connect =(query) =>{
+myconect.query(query,err,result =>{
 if(err)
 {
 console.log(err);
@@ -17,3 +18,5 @@ return;
 queryresult=result;
 console.log(result)
 });
+}
+exports.connect=connect;
