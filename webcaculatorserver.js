@@ -46,7 +46,6 @@ app.get('/addproduct/',(req,res)=>{
 })
 
 
-
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });

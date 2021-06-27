@@ -10,7 +10,6 @@ const connect =(query1) =>{
         port : 5432,
         ssl : on
         });
-        myconect.connect();
     myconect.query(query1,(err,result) =>{
     console.log(err,result)
     myconect.end()
