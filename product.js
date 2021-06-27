@@ -17,5 +17,6 @@ return;
 queryresult=result;
 console.log(result)
 });
+return result;
 }
 exports.connect=connect;
