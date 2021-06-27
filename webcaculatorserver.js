@@ -12,14 +12,16 @@ const { connect } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-const [Pool,Client] = require('pg');
+const connection = require('pg');
 const { on } = require("events");
-connectionString = 'postgres://zzdduyaaxgfqab:0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151@ec2-174-129-225-160.compute-1.amazonaws.com:5432/dfd8gcsog7njl7'
-const client = new Client({
-    connectionString:connectionString
-})
+const myconect = new connection({
+    host : 'ec2-174-129-225-160.compute-1.amazonaws.com',
+    database : 'public.dfd8gcsog7njl7',
+    user : 'zzdduyaaxgfqab',
+    password : '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
+    port : 5432,
+    });
 
-client.connect()
 app.get('/',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -30,10 +32,10 @@ app.get('/',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    client.query(query1,(err,res)=>{
-        console.log(err,res)
-        client.end()
-    })
+    myconect.query(query1,(err,res) =>{
+    console.log(err,res)
+    myconect.end()
+        });
     res.sendFile(path.resolve(__dirname,'./home.html'));
 
 })
