@@ -1,5 +1,4 @@
 
-
 var queryresult;
 const connect =(query) =>{
     const connection = require('pg').Pool;

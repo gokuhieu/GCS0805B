@@ -39,7 +39,7 @@ app.get('/addproduct/',(req,res)=>{
     const pname= data.pname;
     const pprice =data.pprice;
     const cateid= data.cateid;
-    query ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
+    var query ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
     connect(query);
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
