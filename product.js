@@ -1,8 +1,8 @@
-const connection = require('pg').Pool;
+
 
 var queryresult;
 const connect =(query) =>{
-
+    const connection = require('pg').Pool;
     const myconect = new connection({
         host : 'ec2-174-129-225-160.compute-1.amazonaws.com',
         database : 'dfd8gcsog7njl7',
