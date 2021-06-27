@@ -14,6 +14,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    const pid =data.pid;
+    const pname= data.pname;
+    const pprice =data.pprice;
+    const cateid= data.cateid;
+    console.log(pid);
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
@@ -32,14 +40,7 @@ app.get('/addcategory',(req,res)=>{
 
 app.get('/addproduct/',(req,res)=>{
 
-    var q="";
-    q = url.parse(req.url, true);
-    var data=q.query;
-    const pid =data.pid;
-    const pname= data.pname;
-    const pprice =data.pprice;
-    const cateid= data.cateid;
-    console.log(pid);
+
 
 })
 
