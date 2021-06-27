@@ -23,6 +23,7 @@ const myconect = new connection({
     });
 
 app.get('/',(req,res)=>{
+    myconect.connect();
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
