@@ -12,7 +12,6 @@ const connection = require('pg').Pool;
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-const connection = require('pg');
 const { on } = require("events");
 const myconect = new connection({
     host : 'ec2-174-129-225-160.compute-1.amazonaws.com',
