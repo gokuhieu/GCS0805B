@@ -12,7 +12,7 @@ const { connect } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
-const {pool,client} = require('pg');
+const connection = require('pg').Pool;
 const myconect = new connection({
     host : 'ec2-174-129-225-160.compute-1.amazonaws.com',
     database : 'dfd8gcsog7njl7',
