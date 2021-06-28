@@ -18,7 +18,7 @@ const myconect = new connection({
     database: 'dfd8gcsog7njl7',
     password: '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
     port: 5432,
-    ssl: true
+    ssl: { rejectUnauthorized: false }
     });
     var queryresult;
 app.get('/',(req,res)=>{
