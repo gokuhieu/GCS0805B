@@ -53,9 +53,9 @@ app.get('/addcustomer',(req,res)=>{
 app.get('/addcategory',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcategory.html'))
 })
-var id
+
 app.get('/viewproduct',(req,res)=>{
-    res.render(path.join(__dirname,'./viewproduct.html'),{id = queryresult.id})
+    res.render(path.join(__dirname,'./viewproduct.html'),{id = queryresult})
 })
 
 app.listen(port, () => {
