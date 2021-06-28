@@ -21,7 +21,7 @@ const myconect = new connection({
     ssl: { rejectUnauthorized: false }
     });
     var queryresult;
-app.get('/',(req,res)=>{
+app.get('/addproduct/',(req,res)=>{
 
     var q="";
     q = url.parse(req.url, true);
