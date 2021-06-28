@@ -55,12 +55,7 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
-    var query ="select * from public.product";
-    myconect.query(query,(err,result) =>{
-        console.log(err,result)
-        queryresult=result;
-    })
-    res.send(queryresult)
+    res.render(path.join(__dirname,'./viewproduct.html'),queryresult)
 })
 
 app.listen(port, () => {
