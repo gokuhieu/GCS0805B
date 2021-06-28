@@ -1,32 +1,26 @@
 
 
 <style>
-    body{
-    background: #ee9ca7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-        }
-    .form-group{
-    padding: 2px;
-    
-    
-    }
-    .form-control
-    {
-    
-        max-width: 100%;
-        
-    }
-    .form
-    {
-        padding-left: 40%;
-        padding-right: 40%;
-    }
-    .item
-    {
-        
-    }
+.row1{
+    display: inline;
+  }
+ #img_div{
+   	width: 80%;
+   	padding: 5px;
+   	margin: 15px auto;
+   	border: 1px solid #cbcbcb;
+   }
+   #img_div:after{
+   	content: "";
+   	display: block;
+   	clear: both;
+   }
+   img {
+  max-width:75px;}
+  .border1 {border-style: double;}
+  th,td{
+    border-style: double;
+  }
     </style>
     <html>
         <body>
@@ -44,12 +38,12 @@
 <th></th>
 <th></th>
 </tr>
-    <tr> 
-        <td><%= rowid%> </td> 
-        <td><%= rowname%></td>
-        <td><%= rowcateid%></td>
-        <td><%= rowprice%></td>
-    </tr>
+<tr> 
+    <td><%= rowid%> </td> 
+    <td><%= rowname%></td>
+    <td><%= rowcateid%></td>
+    <td><%= rowprice%></td>
+ </tr>
 
     </table>
 </body>
