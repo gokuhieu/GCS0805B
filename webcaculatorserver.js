@@ -21,8 +21,8 @@ const myconect = new connection({
     ssl: { rejectUnauthorized: false }
     });
     var queryresult;
-app.get('/addproduct/',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./addproduct.html'))
+app.get('/addproduct/add',(req,res)=>{
+
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
@@ -44,7 +44,9 @@ app.get('/',(req,res)=>{
 app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-
+app.get('/addproduct',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'./addproduct.html'))
+})
 app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
