@@ -39,7 +39,6 @@ app.get('/',(req,res)=>{
     })
     res.send(queryresult)
 
-
 })
 app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
@@ -54,8 +53,8 @@ app.get('/addcategory',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcategory.html'))
 })
 
-app.get('/addproduct/',(req,res)=>{
-
+app.get('/viewproduct',(req,res)=>{
+    res.send(queryresult)
 
 })
 
