@@ -36,7 +36,6 @@ app.get('/',(req,res)=>{
     myconect.query('select * from public.product',(err,result) =>{
         console.log(err,result)
         queryresult=result;
-        myconect.end()
     })
 
 
