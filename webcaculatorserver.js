@@ -55,7 +55,7 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
-    res.render(path.join(__dirname,'./viewproduct.html'),{id = queryresult})
+    res.render(path.join(__dirname,'./viewproduct.html'),{id = queryresult.id})
 })
 
 app.listen(port, () => {
