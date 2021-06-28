@@ -12,6 +12,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 const connection = require('pg').Pool;
+const { connect } = require("http2");
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
     host: 'ec2-174-129-225-160.compute-1.amazonaws.com',
@@ -32,9 +33,7 @@ app.get('/addproduct/add',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    myconect.query(query1,(err,result) =>{
-        console.log(err,result)
-    })
+    connectsql(query1);
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
