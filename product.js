@@ -16,9 +16,9 @@ const myconect = new connection({
         {
             return err;
         }
-        else 
-        return result;
+        
+        queryresult=result
     })
-
+    return queryresult;
 }
 exports.connectsql=connectsql;
