@@ -12,6 +12,14 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 const connection = require('pg').Pool;
+const myconect = new connection({
+    user: 'zzdduyaaxgfqab',
+    host: 'ec2-174-129-225-160.compute-1.amazonaws.com',
+    database: 'dfd8gcsog7njl7',
+    password: '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
+    port: 5432,
+    ssl : {rejectUnauthorized: false},
+    });
 app.get('/addproduct/add',(req,res)=>{
 
     var q="";
@@ -23,7 +31,13 @@ app.get('/addproduct/add',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    connectsql(query1);
+    myconect.query(query1,(err,result) =>{
+        if(err)
+        {
+            console.log(err)
+            return;
+        }      
+    })
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
@@ -45,8 +59,17 @@ app.get('/addcategory',(req,res)=>{
 
 app.get('/viewproduct',(req,res)=>{
     query="select * from public.product";
-    var result = connectsql(query);
-    res.send(result);
+    var queryresult;
+    myconect.query(query,(err,result) =>{
+        if(err)
+        {
+            console.log(err)
+            return;
+        }      
+        queryresult=result;
+    })
+    
+    res.send(queryresult);
     // res.render(path.join(__dirname,'./viewproduct.html'),result)
 })
 
