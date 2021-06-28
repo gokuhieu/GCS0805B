@@ -34,7 +34,6 @@ app.get('/',(req,res)=>{
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
     myconect.query(query1,(err,result) =>{
         console.log(err,result)
-        queryresult=result;
     })
     res.sendFile(path.resolve(__dirname,'./home.html'))
 
@@ -53,10 +52,13 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
+    var query ="select * from pulic.product";
+    myconect.query(query,(err,result) =>{
+        console.log(err,result)
+        queryresult=result;
+    })
     res.send(queryresult)
-
 })
-
 
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
