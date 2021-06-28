@@ -44,7 +44,7 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
-    query='select * form public.product'
+    query='select * from public.product'
     var result = connectsql(query)
     res.send(result)
     // res.render(path.join(__dirname,'./viewproduct.html'),result)
