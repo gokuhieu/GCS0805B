@@ -31,13 +31,12 @@ app.get('/',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     console.log(pid);
-
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    myconect.query('select * from public.product',(err,result) =>{
+    myconect.query(query1,(err,result) =>{
         console.log(err,result)
         queryresult=result;
     })
-
+    res.sendFile(path.resolve(__dirname,'./home.html'))
 
 })
 app.get('/home',(req,res)=>{
