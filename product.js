@@ -1,6 +1,6 @@
 
-var queryresult;
 
+var queryresult
 const connectsql =(query1) =>{
     const connection = require('pg').Pool;
 const myconect = new connection({
@@ -12,8 +12,9 @@ const myconect = new connection({
     });
     myconect.query(query1,(err,result) =>{
     console.log(err,result)
+    queryresult=result;
     myconect.end()
     })
-    
+    return queryresult;
 }
 exports.connectsql=connectsql;

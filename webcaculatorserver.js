@@ -22,7 +22,7 @@ app.get('/',(req,res)=>{
     const cateid= data.cateid;
     console.log(pid);
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    connectsql(query1);
+    res.send(connectsql(query1));
     res.sendFile(path.resolve(__dirname,'./home.html'));
 
 })
