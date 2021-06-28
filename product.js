@@ -1,8 +1,6 @@
 
-
-
 const connectsql =(query1) =>{
-    var queryresult
+    var queryresult;
     const connection = require('pg').Pool;
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
@@ -18,7 +16,7 @@ const myconect = new connection({
             return err;
         }
         
-        queryresult=result
+        queryresult=result;
     })
     return queryresult;
 }
