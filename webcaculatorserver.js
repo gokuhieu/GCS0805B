@@ -61,11 +61,7 @@ app.get('/viewproduct',(req,res)=>{
     query="select * from public.product";
     var queryresult;
     myconect.query(query,(err,result) =>{
-        if(err)
-        {
-            console.log(err)
-            return;
-        }      
+    
         queryresult=result;
     })
     
