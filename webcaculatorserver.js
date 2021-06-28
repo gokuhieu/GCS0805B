@@ -63,8 +63,7 @@ app.get('/viewproduct',(req,res)=>{
     var queryresult;
     myconect.query(query,(err,result) =>{
     
-        var product =[{nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name}]
-        res.render(path.resolve(__dirname,'./viewproduct.html'),{product: product})
+        res.render(path.join(__dirname,'./viewproduct.html'),{nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name})
     })
     
     
