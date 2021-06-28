@@ -12,16 +12,6 @@ app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
 const connection = require('pg').Pool;
-const { connect } = require("http2");
-const myconect = new connection({
-    user: 'zzdduyaaxgfqab',
-    host: 'ec2-174-129-225-160.compute-1.amazonaws.com',
-    database: 'dfd8gcsog7njl7',
-    password: '0493727bcbcc2f72994bbedb01f5bfe1360109bc5c66505f7c18dc47e2a1f151',
-    port: 5432,
-    ssl: { rejectUnauthorized: false }
-    });
-    var queryresult;
 app.get('/addproduct/add',(req,res)=>{
 
     var q="";
@@ -54,7 +44,10 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
-    res.render(path.join(__dirname,'./viewproduct.html'),queryresult)
+    query='select * form public.product'
+    var result = connectsql(query)
+    res.send(result)
+    // res.render(path.join(__dirname,'./viewproduct.html'),result)
 })
 
 app.listen(port, () => {
