@@ -29,8 +29,9 @@ app.get('/addproduct/add',(req,res)=>{
     const pname= data.pname;
     const pprice =data.pprice;
     const cateid= data.cateid;
+    const decription=data.pdecription;
     console.log(pid);
-    var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
+    var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
     myconect.query(query1,(err,result) =>{
         if(err)
         {
@@ -63,7 +64,7 @@ app.get('/viewproduct',(req,res)=>{
     myconect.query(query,(err,result) =>{
     
         var product =[{nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name}]
-        res.render(path.join(__dirname,'./viewproduct.html'),product)
+        res.render(path.resolve(__dirname,'./viewproduct.html'),{product: product})
     })
     
     
