@@ -38,7 +38,7 @@ app.get('/',(req,res)=>{
         myconect.end()
     })
     res.send(queryresult)
-    res.sendFile(path.resolve(__dirname,'./home.html'));
+
 
 })
 app.get('/home',(req,res)=>{
