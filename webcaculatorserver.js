@@ -62,8 +62,9 @@ app.get('/viewproduct',(req,res)=>{
     query="SELECT * FROM public.product";
     var queryresult;
     myconect.query(query,(err,result) =>{
-    var product = {nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name,
-    rowid: result.rows[0].id,rowname: result.rows[0].name,rowcateid: result.rows[0].cateid,rowprice: result.rows[0].price
+
+    var product = {nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name,prodecription: result.fields[4].name,
+    rowid: result.rows[0].id,rowname: result.rows[0].name,rowcateid: result.rows[0].category,rowprice: result.rows[0].price,rowdeps: result.rows[0].description
     }
         res.render(path.join(__dirname,'./viewproduct.html'),product)
     })
