@@ -31,8 +31,9 @@ app.get('/',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     console.log(pid);
+    var query= "select * from public.product";
     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"')";
-    myconect.query(query1,(err,result) =>{
+    myconect.query(query,(err,result) =>{
         console.log(err,result)
         queryresult=result;
         myconect.end()
