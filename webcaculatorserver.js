@@ -62,10 +62,10 @@ app.get('/viewproduct',(req,res)=>{
     var queryresult;
     myconect.query(query,(err,result) =>{
     
-        queryresult=result;
+        res.send(result);
     })
     
-    res.send(queryresult);
+    
     // res.render(path.join(__dirname,'./viewproduct.html'),result)
 })
 
