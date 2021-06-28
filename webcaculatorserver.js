@@ -20,9 +20,9 @@ const myconect = new connection({
     port: 5432,
     ssl: true
     });
-
-app.get('/',(req,res)=>{
     var queryresult;
+app.get('/',(req,res)=>{
+
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
@@ -37,7 +37,7 @@ app.get('/',(req,res)=>{
         queryresult=result;
         myconect.end()
     })
-    res.send(queryresult)
+
 
 })
 app.get('/home',(req,res)=>{
