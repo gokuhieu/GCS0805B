@@ -58,7 +58,7 @@ app.get('/addcategory',(req,res)=>{
 })
 
 app.get('/viewproduct',(req,res)=>{
-    query="select * from public.product";
+    query="SELECT * FROM public.product";
     var queryresult;
     myconect.query(query,(err,result) =>{
     
