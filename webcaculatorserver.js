@@ -70,10 +70,10 @@ app.get('/viewproduct',(req,res)=>{
 
     for(var i;i<=result.rowCount;i++){
         var product= {nameid: result.fields[0].name, nameproduct: result.fields[1].name,cateidname: result.fields[2].name,productprice: result.fields[3].name,prodecription: result.fields[4].name,rowid: result.rows[i].id,rowname: result.rows[i].name,rowcateid: result.rows[i].category,rowprice: result.rows[i].price,rowdeps: result.rows[i].description}
-        res.render(path.join(__dirname,'./viewproduct.html'),result)
+        
     }
     
-       
+    res.render(path.join(__dirname,'./viewproduct.html'),result)
 }
     })
     
