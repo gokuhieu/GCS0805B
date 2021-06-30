@@ -73,7 +73,7 @@ app.get('/viewproduct',(req,res)=>{
         
     }
     
-    res.render(path.join(__dirname,'./viewproduct.html'),result)
+    res.render(path.join(__dirname,'./viewproduct.html'),{result: result})
 }
     })
     
