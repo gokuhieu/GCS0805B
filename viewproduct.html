@@ -40,9 +40,8 @@
 <th></th>
 </tr>
 <% for(var i=0;i<=result.rowCount;i++){ %>
-<% rowid= result.rows[i].id,rowname= result.rows[i].name,rowcateid= result.rows[i].category,rowprice= result.rows[i].price,rowdeps= result.rows[i].description; %>
+<% rowname= result.rows[i].name,rowcateid= result.rows[i].category,rowprice= result.rows[i].price,rowdeps= result.rows[i].description; %>
 <tr> 
-    <td><%= rowid;%> </td> 
     <td><%= rowname;%></td>
     <td><%= rowcateid;%></td>
     <td><%= rowprice;%></td>
