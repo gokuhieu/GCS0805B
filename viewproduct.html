@@ -39,14 +39,14 @@
 <th></th>
 <th></th>
 </tr>
-<% var i; %> 
-<% for( i=0;i <= result.rowCount;i++){%>
+<% var x; %> 
+<% for( x=0;x <= result.rowCount;x++){%>
 <tr> 
-    <td><%= result.rows[0].id%> </td> 
-    <td><%= result.rows[0].name;%></td>
-    <td><%= result.rows[0].category;%></td>
-    <td><%= result.rows[0].price;%></td>
-    <td><%= result.rows[0].description;%></td>
+    <td><%= result.rows[x].id%> </td> 
+    <td><%= result.rows[x].name;%></td>
+    <td><%= result.rows[x].category;%></td>
+    <td><%= result.rows[x].price;%></td>
+    <td><%= result.rows[x].description;%></td>
  </tr>
 <%} %>
     </table>
