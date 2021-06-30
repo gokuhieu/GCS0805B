@@ -42,11 +42,11 @@
 <% var i; %> 
 <% for( i=0;i <= result.rowCount;i++){%>
 <tr> 
-    <td><%= result.rows[$i].id%> </td> 
-    <td><%= result.rows[$i].name;%></td>
-    <td><%= result.rows[$i].category;%></td>
-    <td><%= result.rows[$i].price;%></td>
-    <td><%= result.rows[$i].description;%></td>
+    <td><%= result.rows[0].id%> </td> 
+    <td><%= result.rows[0].name;%></td>
+    <td><%= result.rows[0].category;%></td>
+    <td><%= result.rows[0].price;%></td>
+    <td><%= result.rows[0].description;%></td>
  </tr>
 <%} %>
     </table>
