@@ -41,13 +41,12 @@
 </tr>
 <% var i; %> 
 <% for( i=0;i<=result.rowCount;i++){%>
-<% rowid= result.rows[i].id,rowname= result.rows[i].name,rowcateid= result.rows[i].category,rowprice= result.rows[i].price,rowdeps= result.rows[i].description; %>
 <tr> 
-    <td><%= rowid;%> </td> 
-    <td><%= rowname;%></td>
-    <td><%= rowcateid;%></td>
-    <td><%= rowprice;%></td>
-    <td><%= rowdeps;%></td>
+    <td><%= result.rows[i].id%> </td> 
+    <td><%= result.rows[i].name;%></td>
+    <td><%= result.rows[i].category;%></td>
+    <td><%= result.rows[i].price;%></td>
+    <td><%= result.rows[i].description;%></td>
  </tr>
 <%} %>
     </table>
