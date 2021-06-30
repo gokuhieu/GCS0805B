@@ -71,7 +71,7 @@ app.get('/viewproduct',(req,res)=>{
     }
     for(var i;i<=result.rowCount;i++){
         var product1= {rowid: result.rows[i].id,rowname: result.rows[i].name,rowcateid: result.rows[i].category,rowprice: result.rows[i].price,rowdeps: result.rows[i].description}
-        res.render(res.render(path.join(__dirname,'./viewproduct.html'),product1))
+        res.render(path.join(__dirname,'./viewproduct.html'),product1)
     }
     
         res.render(path.join(__dirname,'./viewproduct.html'),product)
