@@ -108,7 +108,41 @@ app.get('/viewproduct',(req,res)=>{
 }
     })
 })
-
+app.get('/home/',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    const ID = data.id;
+    if(id==1){
+        query="SELECT * FROM public.product";
+        myconect.query(query,(err,result) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+    
+        console.log(result)
+        res.render(path.join(__dirname,'./viewproduct.html'),{result: result})
+        }
+    })
+}
+    else if(id==2){
+        query="SELECT * FROM public.category";
+        myconect.query(query,(err,result) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+    
+        console.log(result)
+        res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
+    }
+        })  
+    }
+     
+})
 app.get('/viewcategory',(req,res)=>{
     query="SELECT * FROM public.category";
     myconect.query(query,(err,result) =>{
