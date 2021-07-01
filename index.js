@@ -58,7 +58,29 @@ app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
 app.get('/addcategory',(req,res)=>{
-    
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    const cateid = data.cateid;
+    const catename= data.catename;
+    const cateid= data.cateid;
+    const decription=data.catedecription;
+    if(pid)
+    {
+        var query1 ="insert into public.category values('"+cateid+"'"+",'"+catename+"'"+",'"+decription+"')";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+        })
+        res.sendFile(path.resolve(__dirname,'./home.html'))
+        
+    }
+    else{
+        res.sendFile(path.resolve(__dirname,'./addcategory.html'))
+    }
 })
 
 app.get('/viewproduct',(req,res)=>{
