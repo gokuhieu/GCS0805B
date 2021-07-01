@@ -68,7 +68,7 @@
 
               <div class="col-lg-9" id="<?php echo $id?>" >
                 <div class="row1">
-                  <% if($id==2){%>
+                  <% if($idp==2){%>
                     <h2>Product FORM </h2>
                     <div class="row1"><p><a href="/addproduct"> New Product</a></p></div>
                     <table class="border1" style="width:100%" >
@@ -90,7 +90,7 @@
                         <td><%= result.rows[x].price;%></td>
                         <td><%= result.rows[x].description;%></td>
                      </tr>
-                    <%} }elseif($id==1){%>
+                    <%} }elseif($idp==1){%>
         
                         <h2>Category FORM </h2>
                         <div class="row1"><p><a href="/addcategory"> New Category</a></p></div>
