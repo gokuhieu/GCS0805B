@@ -46,7 +46,6 @@ app.get('/addproduct',(req,res)=>{
     else{
         res.sendFile(path.resolve(__dirname,'./addproduct.html'))
     }
-
 })
 app.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
@@ -76,9 +75,6 @@ app.get('/viewproduct',(req,res)=>{
     res.render(path.join(__dirname,'./viewproduct.html'),{result: result})
 }
     })
-    
-    
-    // 
 })
 
 app.listen(port, () => {
