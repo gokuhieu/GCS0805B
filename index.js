@@ -121,7 +121,7 @@ app.get('/home',(req,res)=>{
         else{
     
         console.log(result)
-        res.render(path.join(__dirname,'./home.html'),{result: result,idp:id})
+        res.render(path.join(__dirname,'./home.html'),{result: result,idp: id})
         }
     })
 }
