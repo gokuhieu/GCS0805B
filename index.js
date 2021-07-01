@@ -51,7 +51,7 @@ app.get('/addproduct',(req,res)=>{
                 return;
             }      
             else{
-                res.render(path.resolve(__dirname,'./addproduct.html'),{result : result});
+                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
             }
             
         })
