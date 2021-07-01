@@ -23,14 +23,14 @@ const myconect = new connection({
 app.get('/addproduct',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
-    var pid=""
+    var pid="";
     var data=q.query;
-     pid =data.pid;
+    pid =data.pid;
     const pname= data.pname;
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    if(pid == "")
+    if(pid="")
     {
         res.sendFile(path.resolve(__dirname,'./addproduct.html'))
     }
@@ -53,9 +53,7 @@ app.get('/',(req,res)=>{
 app.get('/home',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-app.get('/addproduct',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./addproduct.html'))
-})
+
 app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
