@@ -20,8 +20,7 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-app.get('/addproduct/add',(req,res)=>{
-
+app.get('/addproduct',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
@@ -30,16 +29,21 @@ app.get('/addproduct/add',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    console.log(pid);
-    var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
-    myconect.query(query1,(err,result) =>{
-        if(err)
-        {
-            console.log(err)
-            return;
-        }      
-    })
-    res.sendFile(path.resolve(__dirname,'./home.html'))
+    if(pid == "")
+    {
+        res.sendFile(path.resolve(__dirname,'./addproduct.html'))
+    }
+    else{
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+        })
+        res.sendFile(path.resolve(__dirname,'./home.html'))
+    }
 
 })
 app.get('/',(req,res)=>{
@@ -55,7 +59,7 @@ app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
 })
 app.get('/addcategory',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./addcategory.html'))
+    
 })
 
 app.get('/viewproduct',(req,res)=>{
