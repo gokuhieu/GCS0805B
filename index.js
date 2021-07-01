@@ -65,7 +65,7 @@ app.get('/addcategory',(req,res)=>{
     const catename= data.catename;
     const cateid= data.cateid;
     const decription=data.catedecription;
-    if(pid)
+    if(cateid)
     {
         var query1 ="insert into public.category values('"+cateid+"'"+",'"+catename+"'"+",'"+decription+"')";
         myconect.query(query1,(err,result) =>{
