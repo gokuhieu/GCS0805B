@@ -67,7 +67,7 @@
                 <div class="row1">
                   <% if(idp==1){%>
                     <h2>Product FORM </h2>
-                    <div class="row1"><p><a href="/addproduct"> New Product</a></p></div>
+                    <div class="row1"><p><a href="/addproduct" class="btn btn-primary"> New Product</a></p></div>
                     <table class="border1" style="width:100%" >
                       <% nameid= result.fields[0].name, nameproduct= result.fields[1].name,cateidname= result.fields[2].name,productprice= result.fields[3].name,prodecription= result.fields[4].name%>
                     <tr class="border1">
@@ -90,7 +90,7 @@
                     <%} }else if(idp==2){%>
         
                         <h2>Category FORM </h2>
-                        <div class="row1"><p><a href="/addcategory"> New Category</a></p></div>
+                        <div class="row1"><p><a href="/addcategory" class="btn btn-primary"> New Category</a></p></div>
                         <table class="border1" style="width:100%" >
                           <% namecateid= result1.fields[0].name, namecategory= result1.fields[1].name,decription= result1.fields[2].name %>
                         <tr class="border1">
@@ -115,18 +115,7 @@
             <!-- /.row -->
         
           </div>
-        <div class="menu">
-            <div >
-                <a href="/addproduct"class="btn btn-primary">add product</a>
-            </div>
-            <div >
-                <a href="/addcategory" class="btn btn-primary">add category</a> 
-            </div >            
-            <div >
-                <a href="/addcustomer"class="btn btn-primary">add customer</a>
-            </div>
 
-        </div>
         <!-- Footer-->
         <!-- <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
