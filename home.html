@@ -15,7 +15,7 @@
        }
        img {
       max-width:75px;}
-      .border {border-style: double;}
+      .border1 {border-style: double;}
       th,td{
         border-style: double;
       }
@@ -90,24 +90,24 @@
                   <% if(idp==1){%>
                     <h2>Product FORM </h2>
                     <div class="row1"><p><a href="/addproduct" class="btn btn-primary"> New Product</a></p></div>
-                    <table class="border" style="width:100%" >
+                    <table class="border1" style="width:100%" >
                       <% nameid= result.fields[0].name, nameproduct= result.fields[1].name,cateidname= result.fields[2].name,productprice= result.fields[3].name,prodecription= result.fields[4].name%>
                     <tr class="border1">
-                    <th class="border"><%= nameid%></th>
-                    <th class="border"><%= nameproduct%></th> 
-                    <th class="border"><%= cateidname%></th>
-                    <th class="border"><%= productprice%></th>
-                    <th class="border"><%= prodecription%></th>
-                    <th class="border"></th>
-                    <th class="border"></th>
+                    <th class="border1"><%= nameid%></th>
+                    <th class="border1"><%= nameproduct%></th> 
+                    <th class="border1"><%= cateidname%></th>
+                    <th class="border1"><%= productprice%></th>
+                    <th class="border1"><%= prodecription%></th>
+                    <th class="border1"></th>
+                    <th class="border1"></th>
                     </tr>
                     <% for(var x=0;x < result.rowCount;x++){%>
                     <tr> 
-                        <td class="border"><%= result.rows[x].id%> </td> 
-                        <td class="border"><%= result.rows[x].name;%></td>
-                        <td class="border"><%= result.rows[x].category;%></td>
-                        <td class="border"><%= result.rows[x].price;%></td>
-                        <td class="border"><%= result.rows[x].description;%></td>
+                        <td class="border1"><%= result.rows[x].id%> </td> 
+                        <td class="border1"><%= result.rows[x].name;%></td>
+                        <td class="border1"><%= result.rows[x].category;%></td>
+                        <td class="border1"><%= result.rows[x].price;%></td>
+                        <td class="border1"><%= result.rows[x].description;%></td>
                      </tr>
                     <%} }else if(idp==2){%>
         
@@ -116,17 +116,17 @@
                         <table class="border" style="width:100%" >
                           <% namecateid= result1.fields[0].name, namecategory= result1.fields[1].name,decription= result1.fields[2].name %>
                         <tr class="border1">
-                        <th class="border"><%= namecateid%></th>
-                        <th class="border"><%= namecategory%></th> 
-                        <th class="border"><%= decription%></th>
-                        <th class="border"></th>
-                        <th class="border"></th>
+                        <th class="border1"><%= namecateid%></th>
+                        <th class="border1"><%= namecategory%></th> 
+                        <th class="border1"><%= decription%></th>
+                        <th class="border1"></th>
+                        <th class="border1"></th>
                         </tr>
                         <% for(var x=0;x < result1.rowCount;x++){%>
                         <tr> 
-                            <td class="border"><%= result1.rows[x].cateid%> </td> 
-                            <td class="border"><%= result1.rows[x].catename;%></td>
-                            <td class="border"><%= result1.rows[x].catedecs;%></td>
+                            <td class="border1"><%= result1.rows[x].cateid%> </td> 
+                            <td class="border1"><%= result1.rows[x].catename;%></td>
+                            <td class="border1"><%= result1.rows[x].catedecs;%></td>
                          </tr>
                         <%} } else {}%>
                   </div>
