@@ -61,13 +61,13 @@ app.get('/addcategory',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    const cateid = data.cateid;
+    const cateID = data.cateid;
     const catename= data.catename;
     const cateid= data.cateid;
     const decription=data.catedecription;
-    if(cateid)
+    if(cateID)
     {
-        var query1 ="insert into public.category values('"+cateid+"'"+",'"+catename+"'"+",'"+decription+"')";
+        var query1 ="insert into public.category values('"+cateID+"'"+",'"+catename+"'"+",'"+decription+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
