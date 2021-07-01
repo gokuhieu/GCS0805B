@@ -111,7 +111,7 @@ app.get('/home',(req,res)=>{
     q = url.parse(req.url, true);
     var data=q.query;
     const id = data.id;
-    if(id=='2'){
+    if(id=='1'){
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
             if(err)
@@ -124,7 +124,7 @@ app.get('/home',(req,res)=>{
         }
     })
 }
-    else if(id=='1'){
+    else if(id=='2'){
         query="SELECT * FROM public.category";
         myconect.query(query,(err,result1) =>{
             if(err)
