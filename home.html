@@ -114,16 +114,16 @@
                         <div class="row1"><p><a href="/addcategory" class="btn btn-primary"> New Category</a></p></div>
                         <table class="border1" style="width:100%" >
                           <% namecateid= result1.fields[0].name, namecategory= result1.fields[1].name,decription= result1.fields[2].name %>
-                        <tr class="border1">
-                        <th class="border1"><%= namecateid%></th>
-                        <th class="border1"><%= namecategory%></th> 
-                        <th class="border1"><%= decription%></th>
-                        <th class="border1"></th>
-                        <th class="border1"></th>
+                        <tr>
+                        <th scope="col"><%= namecateid%></th>
+                        <th scope="col"><%= namecategory%></th> 
+                        <th scope="col"><%= decription%></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                         </tr>
                         <% for(var x=0;x < result1.rowCount;x++){%>
                         <tr> 
-                            <td class="border1"><%= result1.rows[x].cateid%> </td> 
+                            <td class="row"><%= result1.rows[x].cateid%> </td> 
                             <td class="border1"><%= result1.rows[x].catename;%></td>
                             <td class="border1"><%= result1.rows[x].catedecs;%></td>
                          </tr>
