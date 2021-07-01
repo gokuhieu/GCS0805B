@@ -54,21 +54,19 @@
         
                 <h1 class="my-4">Hai Son</h1>
                 <div class="list-group">
-                <% $id=1%>
-                  <a href="home/?id=<%id%>" class="list-group-item">Category</a>
+                  <a href="home/?id=1" class="list-group-item">Category</a>
                 </div>
                 <div class="list-group">
-                <% $id=2;%>
-                  <a href="home/?id=<%id%>" class="list-group-item">Product</a>
+                  <a href="home/?id=2" class="list-group-item">Product</a>
                 </div>
               </div>
               
               
               <!-- /.col-lg-3 -->
 
-              <div class="col-lg-9" id="<?php echo $id?>" >
+              <div class="col-lg-9" id="" >
                 <div class="row1">
-                  <% if($idp==2){%>
+                  <% if($idp==1){%>
                     <h2>Product FORM </h2>
                     <div class="row1"><p><a href="/addproduct"> New Product</a></p></div>
                     <table class="border1" style="width:100%" >
@@ -90,7 +88,7 @@
                         <td><%= result.rows[x].price;%></td>
                         <td><%= result.rows[x].description;%></td>
                      </tr>
-                    <%} }elseif($idp==1){%>
+                    <%} }elseif($idp==2){%>
         
                         <h2>Category FORM </h2>
                         <div class="row1"><p><a href="/addcategory"> New Category</a></p></div>

@@ -139,6 +139,9 @@ app.get('/home',(req,res)=>{
     }
         })  
     }
+    else{
+        res.sendFile(path.resolve(__dirname,'./home.html'))
+    }
      
 })
 app.get('/viewcategory',(req,res)=>{
