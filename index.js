@@ -43,7 +43,19 @@ app.get('/addproduct',(req,res)=>{
         
     }
     else{
-        res.sendFile(path.resolve(__dirname,'./addproduct.html'))
+        var query1 ="select cateid,catename from public.category";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+            else{
+                res.render(path.resolve(__dirname,'./addproduct.html'),result);
+            }
+            
+        })
+        
     }
 })
 app.get('/',(req,res)=>{
