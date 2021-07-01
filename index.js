@@ -7,7 +7,6 @@ var router=express.Router();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 var fs = require('fs');
-const { connectsql } = require('./product.js');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
