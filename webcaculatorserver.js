@@ -30,7 +30,7 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    if(pid="")
+    if(pid=="")
     {
         res.sendFile(path.resolve(__dirname,'./addproduct.html'))
     }
