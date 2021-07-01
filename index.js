@@ -96,7 +96,6 @@ app.get('/addcategory',(req,res)=>{
 
 app.get('/viewproduct',(req,res)=>{
     query="SELECT * FROM public.product";
-    var queryresult;
     myconect.query(query,(err,result) =>{
         if(err)
         {
@@ -110,6 +109,20 @@ app.get('/viewproduct',(req,res)=>{
     })
 })
 
+app.get('/viewcategory',(req,res)=>{
+    query="SELECT * FROM public.category";
+    myconect.query(query,(err,result) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+    else{
+
+    console.log(result)
+    res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
+}
+    })
+})
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
