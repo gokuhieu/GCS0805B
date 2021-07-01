@@ -61,9 +61,7 @@ app.get('/addproduct',(req,res)=>{
 app.get('/',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./home.html'))
 })
-app.get('/home',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./home.html'))
-})
+
 
 app.get('/addcustomer',(req,res)=>{
     res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
@@ -108,11 +106,11 @@ app.get('/viewproduct',(req,res)=>{
 }
     })
 })
-app.get('/home/',(req,res)=>{
+app.get('/home',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    const ID = data.id;
+    const id = data.id;
     if(id==1){
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
@@ -123,13 +121,13 @@ app.get('/home/',(req,res)=>{
         else{
     
         console.log(result)
-        res.render(path.join(__dirname,'./viewproduct.html'),{result: result})
+        res.render(path.join(__dirname,'./home.html'),{result: result,idp:id})
         }
     })
 }
     else if(id==2){
         query="SELECT * FROM public.category";
-        myconect.query(query,(err,result) =>{
+        myconect.query(query,(err,result1) =>{
             if(err)
             {
                 console.log(err);
@@ -137,7 +135,7 @@ app.get('/home/',(req,res)=>{
         else{
     
         console.log(result)
-        res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
+        res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id})
     }
         })  
     }
