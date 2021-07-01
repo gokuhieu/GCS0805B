@@ -134,7 +134,6 @@ app.get('/home',(req,res)=>{
             }
         else{
     
-        console.log(result)
         res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id})
     }
         })  
@@ -153,7 +152,6 @@ app.get('/viewcategory',(req,res)=>{
         }
     else{
 
-    console.log(result)
     res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
 }
     })
