@@ -16,9 +16,6 @@
        img {
       max-width:75px;}
       .border1 {border-style: double;}
-      th,td{
-        border-style: double;
-      }
         </style>
 <style>
     a.button {
@@ -113,7 +110,7 @@
         
                         <h2>Category FORM </h2>
                         <div class="row1"><p><a href="/addcategory" class="btn btn-primary"> New Category</a></p></div>
-                        <table class="border" style="width:100%" >
+                        <table class="border1" style="width:100%" >
                           <% namecateid= result1.fields[0].name, namecategory= result1.fields[1].name,decription= result1.fields[2].name %>
                         <tr class="border1">
                         <th class="border1"><%= namecateid%></th>
