@@ -107,11 +107,10 @@ input[type=submit]:hover {
       <label for="pname">Category ID</label>
     </div>
     <div class="col-75">
-      <select name="cate" id="cate" value="">
-          <% for(var i; i< result.rowCount;i++){ %> 
+      <select name="cateid" id="cateid" value="">
+          <% for(var i=0; i< result.rowCount;i++){ %> 
             <option value="<%= result.rows[i].cateid %>"><%= result.rows[i].cateid %>. <%= result.rows[i].catename %> </option>
           <% } %>
-      
       </select>
       <!-- <input type="text" id="cateid" name="cateid" value="" placeholder="Category ID.."> -->
     </div>
