@@ -120,7 +120,6 @@ app.get('/home',(req,res)=>{
             }
         else{
     
-        console.log(result)
         res.render(path.join(__dirname,'./home.html'),{result: result,idp: id})
         }
     })
@@ -139,7 +138,7 @@ app.get('/home',(req,res)=>{
         })  
     }
     else{
-        res.render(path.resolve(__dirname,'./home.html'))
+        res.redirect(path.resolve(__dirname,'./home.html'))
     }
      
 })
