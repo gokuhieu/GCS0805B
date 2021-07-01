@@ -112,8 +112,9 @@
         
                         <h2>Category FORM </h2>
                         <div class="row1"><p><a href="/addcategory" class="btn btn-primary"> New Category</a></p></div>
-                        <table class="border1" style="width:100%" >
+                        <table class="table" style="width:100%" >
                           <% namecateid= result1.fields[0].name, namecategory= result1.fields[1].name,decription= result1.fields[2].name %>
+                          <thead class="thead-dark">
                         <tr>
                         <th scope="col"><%= namecateid%></th>
                         <th scope="col"><%= namecategory%></th> 
@@ -121,12 +122,14 @@
                         <th scope="col"></th>
                         <th scope="col"></th>
                         </tr>
+                        </thead>
                         <% for(var x=0;x < result1.rowCount;x++){%>
                         <tr> 
                             <td class="row"><%= result1.rows[x].cateid%> </td> 
                             <td class="border1"><%= result1.rows[x].catename;%></td>
                             <td class="border1"><%= result1.rows[x].catedecs;%></td>
                          </tr>
+                        </table>
                         <%} } else {}%>
                   </div>
               </div>
