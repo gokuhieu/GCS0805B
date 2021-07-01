@@ -43,7 +43,7 @@ app.get('/addproduct',(req,res)=>{
         
     }
     else{
-        var query1 ="select cateid,catename from public.category";
+        var query1 ="select * from public.category";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
