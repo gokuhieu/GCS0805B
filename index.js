@@ -139,7 +139,7 @@ app.get('/home',(req,res)=>{
         })  
     }
     else{
-        res.sendFile(path.resolve(__dirname,'./home.html'))
+        res.render(path.resolve(__dirname,'./home.html'))
     }
      
 })
