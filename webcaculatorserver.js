@@ -25,16 +25,13 @@ app.get('/addproduct',(req,res)=>{
     q = url.parse(req.url, true);
     var pid="";
     var data=q.query;
-    pid =data.pid;
+    pid = data.pid;
     const pname= data.pname;
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    if(pid=="")
+    if(pid)
     {
-        res.sendFile(path.resolve(__dirname,'./addproduct.html'))
-    }
-    else{
         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
@@ -44,6 +41,10 @@ app.get('/addproduct',(req,res)=>{
             }      
         })
         res.sendFile(path.resolve(__dirname,'./home.html'))
+        
+    }
+    else{
+        res.sendFile(path.resolve(__dirname,'./addproduct.html'))
     }
 
 })
