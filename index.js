@@ -138,7 +138,7 @@ app.get('/home',(req,res)=>{
         })  
     }
     else{
-        res.redirect(path.resolve(__dirname,'./home.html'))
+        res.render(path.resolve(__dirname,'./home.html'),{idp:0})
     }
      
 })
