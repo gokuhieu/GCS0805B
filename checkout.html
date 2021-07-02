@@ -10,24 +10,27 @@
   <title>Check-out/Invoice</title>
  </head>
  <body>
-	<form>
+	<form id="mainform"action="/addinvoice" method="GET">
+    <form id="subform"action="/addproductinvoice" method="GET">
 		<h1>Invoice Information</h1>
 			<label>Invoice ID</label>
-			<input type="text" name="invoiceid" value="" >
+			<input type="text" name="invoiceid" value="" form="mainform">
 			<label>Invoice Date</label>
-			<input type="date" name="invoicedate" value="">
+			<input type="date" name="invoicedate" value="" form="mainform">
+
 		<h1>Invoice Details</h1>
 			<label>Product ID</label>
-			<select name="productid" id="productid" value="" style="width:200px;">
+			<select name="productid" id="productid" value="" style="width:200px;" form="subform">
                 <% for(var i=0; i< result.rowCount;i++){ %> 
                   <option value="<%= result.rows[i].id %>"><%= result.rows[i].id %>. <%= result.rows[i].name %> </option>
                 <% } %>
             </select>
 			<label>Quantity</label>
-			<input type="text" name="quantity" value="" ><br>
-		<a href="/addproduct" class="btn btn-primary">Add Product</a>
-		<input type="submit" value="Submit" class="btn btn-primary">
+			<input type="text" name="quantity" value="" form="subform"><br>
+		<input type="submit" class="btn btn-primary" form="subform">Add Product
+		<input type="submit" value="Submit" class="btn btn-primary" form="mainform">
     <a href="/home" class="btn btn-primary">home</a>
+  </form>
 	</form>		
  </body>
 </html>

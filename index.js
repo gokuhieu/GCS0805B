@@ -163,7 +163,6 @@ app.get('/checkout',(req,res)=>{
             console.log(err);
         }
     else{
-
     res.render(path.join(__dirname,'./checkout.html'),{result: result})
 }
     })
