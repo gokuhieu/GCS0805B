@@ -59,7 +59,7 @@ app.get('/addproduct',(req,res)=>{
     }
 })
 app.get('/',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./home.html'))
+    res.render(path.join(__dirname,'./home.html'),{idp:0})
 })
 
 

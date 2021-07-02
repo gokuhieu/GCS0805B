@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Check-out/Invoice</title>
+ </head>
+ <body>
+	<form>
+		<h1>Invoice Information</h1>
+        <div class="form-group">
+			<label>Invoice ID</label>
+			<input type="text" name="invoiceid" value="" class="form-control">
+        </div>
+        <div class="form-group">
+			<label>Invoice Date</label>
+			<input type="date" name="invoicedate" value="">
+        </div>
+		<h1>Invoice Details</h1>
+        <div class="form-group">
+			<label>Product ID</label>
+			<select name="productid" id="productid" value="">
+                <% for(var i=0; i< result.rowCount;i++){ %> 
+                  <option value="<%= result.rows[i].id %>"><%= result.rows[i].id %>. <%= result.rows[i].name %> </option>
+                <% } %>
+            </select>
+        </div>
+        <div class="form-group">
+			<label>Quantity</label>
+			<input type="text" name="quantity" value="" class="form-control">
+        </div>
+		<a href="">Add Product</a>
+		<input type="submit" value="Submit" class="btn btn-primary">
+	</form>		
+ </body>
+</html>
