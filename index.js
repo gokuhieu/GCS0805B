@@ -171,8 +171,7 @@ app.get('/checkout',(req,res)=>{
                         console.log(err);
                     }
                 else{
-                res.render(path.join(__dirname,'./checkout.html'),{result: result})
-            }               
+                    
                 query1=`SELECT * FROM public.product where product.id = '${data.productid}'`;
                 myconect.query(query1,(err,result1) =>{
                     if(err)
@@ -183,7 +182,9 @@ app.get('/checkout',(req,res)=>{
                     
                 res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result,quantity:data.quantity})
             }
+            
                 })
+            } 
             })
                 break;
             case"submit" :
