@@ -164,7 +164,7 @@ app.get('/checkout',(req,res)=>{
         switch (data.form)
         {
             case "addproduct":
-                query=`SELECT * FROM public.product where id == ${data.productid}`;
+                query=`SELECT * FROM public.product where pubic.product.id = ${data.productid}`;
                 myconect.query(query,(err,result) =>{
                     if(err)
                     {
