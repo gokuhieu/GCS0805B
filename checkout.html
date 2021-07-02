@@ -10,8 +10,8 @@
   <title>Check-out/Invoice</title>
  </head>
  <body>
-	<form name="mainform"action="/addinvoice" method="GET">
-    <form name="subform"action="/addproductinvoice" method="GET">
+	<form id="mainform"action="/addinvoice" method="GET">
+    <form id="subform"action="/addproductinvoice" method="GET">
 		<h1>Invoice Information</h1>
 			<label>Invoice ID</label>
 			<input type="text" name="invoiceid" value="" form="mainform">
@@ -30,7 +30,6 @@
 		<input type="submit" value="Add Product" class="btn btn-primary" form="subform">
 		<input type="submit" value="Submit" class="btn btn-primary" form="mainform">
     <a href="/home" class="btn btn-primary">home</a>
-  </form>
 	</form>		
  </body>
 </html>
