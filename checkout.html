@@ -10,8 +10,8 @@
   <title>Check-out/Invoice</title>
  </head>
  <body>
-	<form action="/addinvoice" method="GET"></form>
-    <form action="/addproductinvoice" method="GET"></form>  
+	<form action="/checkout" method="GET">
+ 
       <div>
         <h1>Invoice Information</h1>
           <label>Invoice ID</label>
@@ -19,8 +19,10 @@
           <label>Invoice Date</label>
           <input type="date" name="invoicedate" value="">
     
-    <div>
 		<h1>Invoice Details</h1>
+    <% for(var i =0;i<result1.rowCount;i++){ %> 
+    <label>product id : <%= result1.rows[i].id %>  product name : <%= result1.rows[i].name %></label>
+    <% } %> 
 			<label>Product ID</label>
 			<select name="productid" id="productid" value="" style="width:200px;" >
                 <% for(var i=0; i< result.rowCount;i++){ %> 
@@ -29,10 +31,11 @@
             </select>
 			<label>Quantity</label>
 			<input type="text" name="quantity" value=""><br>
-      <input type="submit" value="Add Product" class="btn btn-primary"  name="form_addproduct">
-    </div>
-		<input type="submit" value="Submit" class="btn btn-primary" name="form_submit">
+      <input type="submit" value="Addproduct" class="btn btn-primary"  name="form">
+
+		<input type="submit" value="Submit" class="btn btn-primary" name="form">
   </div>
+</form>
     <a href="/home" class="btn btn-primary">home</a>	
  </body>
 </html>

@@ -156,16 +156,45 @@ app.get('/viewcategory',(req,res)=>{
     })
 })
 app.get('/checkout',(req,res)=>{
-    query="SELECT * FROM public.product";
-    myconect.query(query,(err,result) =>{
-        if(err)
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    if(data.form)
+    {
+        switch (data.form)
         {
-            console.log(err);
+            case "addproduct":
+                query=`SELECT * FROM public.product where id == ${data.productid}`;
+                myconect.query(query,(err,result) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.render(path.join(__dirname,'./checkout.html'),{result1: result,quantity:data.quantity})
+            }
+                })
+                break;
+            case"submit" :
+            break;
+            default:
+                
+                break;
+
         }
-    else{
-    res.render(path.join(__dirname,'./checkout.html'),{result: result})
-}
-    })
+    }else{
+        query="SELECT * FROM public.product";
+        myconect.query(query,(err,result) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+        res.render(path.join(__dirname,'./checkout.html'),{result: result})
+    }
+        })
+    }
+
 })
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
