@@ -181,7 +181,7 @@ app.get('/checkout',(req,res)=>{
                     }
                 else{
                     
-                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result=result,quantity:data.quantity})
+                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result,quantity:data.quantity})
             }
                 })
             })
