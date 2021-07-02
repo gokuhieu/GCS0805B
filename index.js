@@ -162,17 +162,29 @@ app.get('/checkout',(req,res)=>{
     {
         switch (data.form)
         {
+            
             case "addproduct":
-                query=`SELECT * FROM public.product where product.id = '${data.productid}'`;
+                query="SELECT * FROM public.product";
                 myconect.query(query,(err,result) =>{
                     if(err)
                     {
                         console.log(err);
                     }
                 else{
-                res.render(path.join(__dirname,'./checkout.html'),{result1: result,quantity:data.quantity})
+                res.render(path.join(__dirname,'./checkout.html'),{result: result})
+            }               
+                query1=`SELECT * FROM public.product where product.id = '${data.productid}'`;
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                    
+                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result=result,quantity:data.quantity})
             }
                 })
+            })
                 break;
             case"submit" :
             break;
