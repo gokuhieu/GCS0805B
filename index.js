@@ -39,7 +39,7 @@ app.get('/addproduct',(req,res)=>{
                 return;
             }      
         })
-        res.sendFile(path.resolve(__dirname,'./home.html'))
+        res.render(path.resolve(__dirname,'./home.html'),{idp:1})
         
     }
     else{
@@ -84,7 +84,7 @@ app.get('/addcategory',(req,res)=>{
                 return;
             }      
         })
-        res.sendFile(path.resolve(__dirname,'./home.html'))
+        res.render(path.resolve(__dirname,'./home.html',{idp:2}))
         
     }
     else{
