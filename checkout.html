@@ -20,9 +20,7 @@
           <input type="date" name="invoicedate" value="">
     
 		<h1>Invoice Details</h1>
-    <% for(var i =0;i<result1.rowCount;i++){ %> 
-    <label>product id : <%= result1.rows[i].id %>  product name : <%= result1.rows[i].name %></label>
-    <% } %> 
+
 			<label>Product ID</label>
 			<select name="productid" id="productid" value="" style="width:200px;" >
                 <% for(var i=0; i< result.rowCount;i++){ %> 
