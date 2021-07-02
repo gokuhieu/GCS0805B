@@ -18,7 +18,7 @@
 			<input type="date" name="invoicedate" value="">
 		<h1>Invoice Details</h1>
 			<label>Product ID</label>
-			<select name="productid" id="productid" value="" style="width:40px;">
+			<select name="productid" id="productid" value="" style="width:150px;">
                 <% for(var i=0; i< result.rowCount;i++){ %> 
                   <option value="<%= result.rows[i].id %>"><%= result.rows[i].id %>. <%= result.rows[i].name %> </option>
                 <% } %>
