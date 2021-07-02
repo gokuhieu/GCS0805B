@@ -155,6 +155,19 @@ app.get('/viewcategory',(req,res)=>{
 }
     })
 })
+app.get('/checkout',(req,res)=>{
+    query="SELECT * FROM public.product";
+    myconect.query(query,(err,result) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+    else{
+
+    res.render(path.join(__dirname,'./checkout.html'),{result: result})
+}
+    })
+})
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
