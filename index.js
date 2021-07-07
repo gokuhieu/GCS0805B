@@ -39,7 +39,7 @@ app.get('/addproduct',(req,res)=>{
                 return;
             }      
         })
-        req.url="/home/?id=2";
+        res.render(path.resolve(__dirname,'./home.html'),{idp:0})
         
     }
     else{
