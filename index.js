@@ -84,7 +84,7 @@ app.get('/addcategory',(req,res)=>{
                 return;
             }      
         })
-        res.render(path.resolve(__dirname,'./home.html',{idp:0}))
+        res.redirect("/home/?id=2")
         
     }
     else{
