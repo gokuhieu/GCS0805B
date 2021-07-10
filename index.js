@@ -39,7 +39,9 @@ app.get('/addproduct',(req,res)=>{
                 return;
             }      
         })
-        res.render(path.resolve(__dirname,'./home.html'),{idp:0})
+        app.set("/home/?id=2",(req,res)=>{
+
+        })
         
     }
     else{
