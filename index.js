@@ -39,9 +39,7 @@ app.get('/addproduct',(req,res)=>{
                 return;
             }      
         })
-        app.set("/home/?id=2",(req,res)=>{
-
-        })
+        res.redirect("/home/?id=1")
         
     }
     else{
