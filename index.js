@@ -10,6 +10,7 @@ var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(fileUpload());
 const connection = require('pg').Pool;
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
@@ -29,9 +30,15 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
+    const image = req.files.pimage;
+    image.mv("/public/images/"+image.name,function(err){
+            if(err){
+                console.log(err)
+            }
+    })
     if(pid)
     {
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
