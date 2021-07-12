@@ -70,12 +70,13 @@ app.post('/addproduct1',(req,res)=>{
     q = url.parse(req.url, true);
     var pid="";
     var data=q.query;
-    pid = req.params.pid;
-    const pname= req.params.pname;
-    const pprice =req.params.pprice;
-    const cateid= req.params.cateid;
-    const decription=req.params.pdecription;
+    pid = req.body.pid;
+    const pname= req.body.pname;
+    const pprice =req.body.pprice;
+    const cateid= req.body.cateid;
+    const decription=req.body.pdecription;
     const image =req.files.pimage;
+    
     if(pid)
     {  
         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
