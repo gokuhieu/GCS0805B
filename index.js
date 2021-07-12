@@ -204,7 +204,7 @@ app.get('/checkout',(req,res)=>{
                         
                     }   
                     query==`insert into public.invoice values('${data.invoiceid}','${data.invoicedate}','${total}')`;
-                    myconect.query(query=,(err,result)=>{
+                    myconect.query(query,(err,result)=>{
                         if (err)
                         {
                             console.log(err);
