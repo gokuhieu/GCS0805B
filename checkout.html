@@ -32,7 +32,7 @@
                         <% for(var x=0;x < result1.rowCount;x++){%>
                         <tr> 
                             <td scope="row"><%= result1.rows[x].id%> </td> 
-                            <td scope="border1"><%= result1.rows[x].name%> </td> 
+                            <td class="border1"><%= result1.rows[x].name%> </td> 
                             <td class="border1"><%= result1.rows[x].price;%></td>
                             <td class="border1"><%= result1.rows[x].quantity;%></td>
                             <td class="border1"><a href="/checkoutdelete/?productid=<%= result1.rows[x].id%>">delete</a></td>
