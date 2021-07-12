@@ -22,6 +22,23 @@ const myconect = new connection({
     ssl: {rejectUnauthorized: false},
     });
 app.get('/addproduct',(req,res)=>{
+
+        var query2 ="select * from public.category";
+        myconect.query(query2,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+            else{
+                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
+            }
+            
+        })
+        
+    
+})
+app.post('/addproduct',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var pid="";
@@ -32,6 +49,12 @@ app.get('/addproduct',(req,res)=>{
     const cateid= data.cateid;
     const decription=data.pdecription;
     const pimage=data.pimage;
+    const image=req.files.pimage;
+    image.mv(path.resolve(__dirname+"/"+image.name),function(err){
+        if(err){
+            console.log(err)
+        }
+    })
     if(pid)
     {
         
@@ -47,29 +70,7 @@ app.get('/addproduct',(req,res)=>{
         res.redirect("/home/?id=1")
         
     }
-    else{
-        var query2 ="select * from public.category";
-        myconect.query(query2,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-            else{
-                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-            }
-            
-        })
-        
-    }
-})
-app.post('/addproduct',(req,res)=>{
-    const image=req.files.pimage;
-    image.mv(path.resolve(__dirname+"/"+image.name),function(err){
-        if(err){
-            console.log(err)
-        }
-    })
+
 })
 
 app.get('/',(req,res)=>{
