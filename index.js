@@ -76,7 +76,7 @@ app.post('/addproduct1',(req,res)=>{
     const cateid= req.body.cateid;
     const decription=req.body.pdecription;
     const image =req.files.pimage;
-    image.mv(path.join(__dirname+"/"+image.name),err=>{
+    image.mv(path.join("/public/images/"+image.name),err=>{
         if(err)
         {
             console.log(err)
