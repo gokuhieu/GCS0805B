@@ -198,12 +198,10 @@ app.get('/checkout',(req,res)=>{
                 for(var i=0;i<=result1.rowCount;i++)
                 {
                     total= total+product.bill(result1.rows[i].price,result1.rows[i].quantity)
-                }
-                console.log(total)
+                }   
         }
-        
             })
-            
+            console.log(total)
             break;
             default:
                 
