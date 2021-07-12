@@ -195,11 +195,30 @@ app.get('/checkout',(req,res)=>{
                     console.log(err);
                 }
             else{
-                for(var i=0;i<result1.rowCount;i++)
+                if(data.invoiceid&& data.invoicedate)
                 {
-                    total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)
-                    console.log(total)
-                }   
+                    
+                    for(var i=0;i<result1.rowCount;i++)
+                    {
+                        total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)
+                        
+                    }   
+                    query=`insert into public.invoice values('${data.invoiceid}','${data.invoicedate}','${total}')`;
+                    myconect.query(query2,(err,result)=>{
+                        if (err)
+                        {
+                            console.log(err);
+                        }
+                    })
+                    query2=`delete from public.product.checkout`;
+                    myconect.query(query2,(err,result2)=>{
+                        if (err)
+                        {
+                            console.log(err);
+                        }
+                    })
+                }
+
         }
             })
             
