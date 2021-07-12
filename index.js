@@ -21,7 +21,7 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-app.post('/addproduct',(req,res)=>{
+app.get('/addproduct',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var pid="";
@@ -31,42 +31,42 @@ app.post('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    const image = req.files.pimage;
+    console.log(data);
     
-    if(pid)
-    {
+    // if(pid)
+    // {
         
-        image.mv("/public/images/"+image.name,function(err){
-                if(err){
-                    console.log(err)
-                }
-            })
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
-        myconect.query(query1,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-        })
-        res.redirect("/home/?id=1")
+    //     image.mv("/public/images/"+image.name,function(err){
+    //             if(err){
+    //                 console.log(err)
+    //             }
+    //         })
+    //     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
+    //     myconect.query(query1,(err,result) =>{
+    //         if(err)
+    //         {
+    //             console.log(err)
+    //             return;
+    //         }      
+    //     })
+    //     res.redirect("/home/?id=1")
         
-    }
-    else{
-        var query2 ="select * from public.category";
-        myconect.query(query2,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-            else{
-                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-            }
+    // }
+    // else{
+    //     var query2 ="select * from public.category";
+    //     myconect.query(query2,(err,result) =>{
+    //         if(err)
+    //         {
+    //             console.log(err)
+    //             return;
+    //         }      
+    //         else{
+    //             res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
+    //         }
             
-        })
+    //     })
         
-    }
+    // }
 })
 
 app.get('/',(req,res)=>{
