@@ -144,7 +144,7 @@ app.get('/home',(req,res)=>{
     }
         })  
     }
-    else if((id=='3')){
+    else if(id=='3'){
         query="SELECT * FROM public.invoice";
         myconect.query(query,(err,result3) =>{
             if(err)
