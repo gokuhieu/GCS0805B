@@ -19,10 +19,26 @@
           <label>Invoice Date</label>
           <input type="date" name="invoicedate" value="">
 		<h1>Invoice Details</h1>
-        <% for(var i=0;i< result1.rowCount;i++){ %> 
-          <label>Product name : <%= result1.rows[i].name %>    Product price : <%= result1.rows[i].price %>  Product quantity : <%= result1.rows[i].quantity %>  </label><br>
+    <table class="table" style="width:100%" >
+      <thead class="thead-dark">
+    <tr>
+    <th scope="col">Product Name</th>
+    <th scope="col">Product price</th> 
+    <th scope="col">quantity</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    </tr>
+    </thead>
+    <% for(var x=0;x< result1.rowCount;x++){ %> 
+
+                        <% for(var x=0;x < result1.rowCount;x++){%>
+                        <tr> 
+                            <td scope="row"><%= result1.rows[x].name%> </td> 
+                            <td class="border1"><%= result1.rows[x].price;%></td>
+                            <td class="border1"><%= result1.rows[x].quantity;%></td>
+                         </tr>
+                        </table>
           <%} %>
-          <br>
 			<label>Product ID</label>
       <% var x=0; %> 
 			<select name="productid" id="productid " value="" style="width:200px;" >
@@ -36,7 +52,6 @@
       <br>
 
 		<input type="submit" value="submit" class="btn btn-primary" name="form">
-  </div>
 </form>
     <% x++ %> 
     <a href="/home" class="btn btn-primary">home</a>	
