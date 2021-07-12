@@ -6,6 +6,7 @@ const path = require('path');
 var router=express.Router();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+const fileUpload = require('express-fileupload')
 var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
