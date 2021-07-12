@@ -32,7 +32,7 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    const pimage= req.files;
+    const pimage= req.files.pimage;
     if(pid)
     {
         
