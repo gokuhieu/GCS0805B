@@ -31,15 +31,12 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
+    const pimage=data.pimage;
     if(pid)
     {
-        const image=req.files.pimage;
-        image.mv("/public/images/"+image.name,function(err){
-                if(err){
-                    console.log(err)
-                }
-            })
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
+        
+       
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+pimage+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
@@ -65,6 +62,14 @@ app.get('/addproduct',(req,res)=>{
         })
         
     }
+})
+app.post('/addproduct',(req,res)=>{
+    const image=req.files.pimage;
+    image.mv("/public/images/"+image.name,function(err){
+        if(err){
+            console.log(err)
+        }
+    })
 })
 
 app.get('/',(req,res)=>{
