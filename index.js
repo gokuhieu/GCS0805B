@@ -198,7 +198,7 @@ app.get('/checkout',(req,res)=>{
                 res.redirect("/checkout")
                 break;
             case"submit" :
-            query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+            query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
             var total=0;
             myconect.query(query1,(err,result1) =>{
                 result3=result1
@@ -318,6 +318,22 @@ app.get('/invoicedelete',(req,res)=>{
                     }
                 else{
                 res.redirect('/home/?id=3')
+            }
+            
+                })
+})
+app.get('/checkoutdelete',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    query1=`delete from public.checkout where proid = '${data.productid}'`;
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.redirect('/checkout')
             }
             
                 })
