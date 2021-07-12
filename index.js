@@ -223,7 +223,7 @@ app.get('/checkout',(req,res)=>{
                     }
                 else{
                 
-                query1=`select name,price,checkout.quantity from public.product,public.checkout where product.id = 'checkout.proid'`;
+                query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
                 productid=data.productid
                 myconect.query(query1,(err,result1) =>{
                     result3=result1
