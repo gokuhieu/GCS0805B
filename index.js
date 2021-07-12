@@ -201,8 +201,7 @@ app.get('/checkout',(req,res)=>{
     if(data.form)
     {
         switch (data.form)
-        {
-            
+        {      
             case "addproduct":
                 if(data.productid && data.quantity)
                 {
