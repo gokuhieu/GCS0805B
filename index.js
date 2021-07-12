@@ -21,7 +21,7 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-app.get('/addproduct',(req,res)=>{
+app.post('/addproduct',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var pid="";
@@ -31,11 +31,11 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-
+    const image = req.files.pimage;
     
     if(pid)
     {
-        const image = req.files.pimage;
+        
         image.mv("/public/images/"+image.name,function(err){
                 if(err){
                     console.log(err)
@@ -68,6 +68,7 @@ app.get('/addproduct',(req,res)=>{
         
     }
 })
+
 app.get('/',(req,res)=>{
     res.render(path.join(__dirname,'./home.html'),{idp:0})
 })
