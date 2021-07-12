@@ -201,7 +201,7 @@ app.get('/checkout',(req,res)=>{
                 }   
         }
             })
-            console.log(total)
+            res.send(total)
             break;
             default:
                 
