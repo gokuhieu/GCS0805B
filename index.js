@@ -204,6 +204,17 @@ app.get('/checkout',(req,res)=>{
         {
             
             case "addproduct":
+                if(data.productid && data.quantity)
+                {
+                    query=`insert into public.checkout values('${data.productid}',${data.quantity})`;
+                    myconect.query(query,(err,result) =>{
+                        if(err)
+                        {
+                            console.log(err);
+                        }
+                    else{}
+                    })
+                }
                 query="SELECT * FROM public.product";
                 myconect.query(query,(err,result) =>{
                     if(err)
@@ -211,34 +222,28 @@ app.get('/checkout',(req,res)=>{
                         console.log(err);
                     }
                 else{
-                    
-                    if(productid==data.productid)
+                
+                query1=`select name,price,checkout.quantity from public.product,public.checkout where product.id = 'checkout.proid'`;
+                productid=data.productid
+                myconect.query(query1,(err,result1) =>{
+                    result3=result1
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                    var i=0;
+                    for(var x=0;x<=i;x++)
                     {
                         
-                    }else{
-                        productid=data.productid
-                        query1=`SELECT * FROM public.product where product.id = '${productid}'`;
-                        
-                        myconect.query(query1,(err,result1) =>{
-                            if(err)
-                            {
-                                console.log(err);
-                            }
-                        else{
-                            var i=0;
-                            for(var x=0;x<=i;x++)
-                            {
-                                
-                                i++
-                            }
-                        res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result,quantity:data.quantity})
+                        i++
                     }
-                    
-                        })
-                    }
-                    
-                } 
+                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
+            }
+            
                 })
+            } 
+            })
                 break;
             case"submit" :
             break;
