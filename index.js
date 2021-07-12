@@ -4,6 +4,7 @@ const app = express();
 var url = require('url');
 const path = require('path');
 var router=express.Router();
+var product= require('./product.js')
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
@@ -64,38 +65,6 @@ app.get('/addproduct',(req,res)=>{
         
     }
 })
-// app.post('/addproduct1',(req,res)=>{
-//     var q="";
-//     var pimage 
-//     q = url.parse(req.url, true);
-//     var pid="";
-//     var data=q.query;
-//     pid = req.body.pid;
-//     const pname= req.body.pname;
-//     const pprice =req.body.pprice;
-//     const cateid= req.body.cateid;
-//     const decription=req.body.pdecription;
-//     const image =req.files.pimage;
-//     image.mv(path.join("/public/images/"+image.name),err=>{
-//         if(err)
-//         {
-//             console.log(err)
-//         }
-//     })
-//     if(pid)
-//     {  
-//         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
-//         myconect.query(query1,(err,result) =>{
-//             if(err)
-//             {
-//                 console.log(err)
-//                 return;
-//             }      
-//         })
-//         res.redirect("/home/?id=1")
-        
-//     }
-// })
 
 app.get('/',(req,res)=>{
     res.render(path.join(__dirname,'./home.html'),{idp:0})
@@ -217,6 +186,24 @@ app.get('/checkout',(req,res)=>{
                 res.redirect("/checkout")
                 break;
             case"submit" :
+            query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+            var total=0;
+            myconect.query(query1,(err,result1) =>{
+                result3=result1
+                if(err)
+                {
+                    console.log(err);
+                }
+            else{
+                for(var i=0;i<=result1.rowCount;i++)
+                {
+                    total= total+product.bill(result1.rows[i].price,result1.rows[i].quantity)
+                }
+                console.log(total)
+        }
+        
+            })
+            
             break;
             default:
                 
