@@ -24,7 +24,8 @@
           <%} %>
           <br>
 			<label>Product ID</label>
-			<select name="productid" id="productid" value="" style="width:200px;" >
+      <% var x=0; %> 
+			<select name="productid" id="productid<%= x %> " value="" style="width:200px;" >
                 <% for(var i=0; i< result.rowCount;i++){ %> 
                   <option value="<%= result.rows[i].id %>"><%= result.rows[i].id %>. <%= result.rows[i].name %> </option>
                 <% } %>
@@ -37,6 +38,7 @@
 		<input type="submit" value="submit" class="btn btn-primary" name="form">
   </div>
 </form>
+    <% x++ %> 
     <a href="/home" class="btn btn-primary">home</a>	
  </body>
 </html>
