@@ -144,6 +144,18 @@ app.get('/home',(req,res)=>{
     }
         })  
     }
+    else if((id=='3')){
+        query="SELECT * FROM public.invoice";
+        myconect.query(query,(err,result1) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+        res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id})
+    }
+        })  
+    }
     else{
         res.render(path.resolve(__dirname,'./home.html'),{idp:0})
     }
@@ -217,7 +229,7 @@ app.get('/checkout',(req,res)=>{
                             console.log(err);
                         }
                     })
-                    res.redirect("/home/?id=0")
+                    res.redirect("/home/?id=3")
                 }
 
         }

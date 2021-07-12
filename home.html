@@ -134,7 +134,29 @@
                             <td class="border1"><%= result1.rows[x].catedecs;%></td>
                          </tr>
                         </table>
-                        <%} } else {}%>
+                        <%} } else if(idp=3){%>
+                          <h2>history invoice FORM </h2>
+                        <div class="row1"><p><a href="/checkout" class="btn btn-primary"> check out</a></p></div>
+                        <table class="table" style="width:100%" >
+  
+                          <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Invoice ID</th>
+                        <th scope="col">Invoice Date</th> 
+                        <th scope="col">total (VND)</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <% for(var x=0;x < result3.rowCount;x++){%>
+                        <tr> 
+                            <td scope="row"><%= result3.rows[x].invoiceid%> </td> 
+                            <td class="border1"><%= result3.rows[x].date;%></td>
+                            <td class="border1"><%= result3.rows[x].total;%></td>
+                         </tr>
+                        </table>
+
+                        <%}else{}%>
                   </div>
               </div>
               <!-- /.col-lg-9 -->
