@@ -197,7 +197,7 @@ app.get('/checkout',(req,res)=>{
             else{
                 for(var i=0;i<result1.rowCount;i++)
                 {
-                    total= total+result1.rows[i].price*result1.rows[i].quantity
+                    total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)
                 }   
         }
             })
