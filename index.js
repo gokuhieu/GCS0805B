@@ -193,6 +193,7 @@ app.get('/viewcategory',(req,res)=>{
 }
     })
 })
+var productid
 app.get('/checkout',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -211,20 +212,33 @@ app.get('/checkout',(req,res)=>{
                     }
                 else{
                     
-                query1=`SELECT * FROM public.product where product.id = '${data.productid}'`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
+                    if(productid==data.productid)
                     {
-                        console.log(err);
+                        
+                    }else{
+                        productid=data.productid
+                        query1=`SELECT * FROM public.product where product.id = '${productid}'`;
+                        
+                        myconect.query(query1,(err,result1) =>{
+                            if(err)
+                            {
+                                console.log(err);
+                            }
+                        else{
+                            var i=0;
+                            for(var x=0;x<=i;x++)
+                            {
+                                
+                                i++
+                            }
+                        res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result,quantity:data.quantity})
                     }
-                else{
                     
-                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result,quantity:data.quantity})
-            }
-            
+                        })
+                    }
+                    
+                } 
                 })
-            } 
-            })
                 break;
             case"submit" :
             break;
