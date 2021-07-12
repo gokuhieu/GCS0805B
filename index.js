@@ -31,10 +31,25 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    console.log(data);
+    const image=data.pimage;
     if(pid)
     {
-        console.log(data);
+        
+        image.mv("/public/images/"+image.name,function(err){
+                if(err){
+                    console.log(err)
+                }
+            })
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image+"')";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+        })
+        res.redirect("/home/?id=1")
+        
     }
     else{
         var query2 ="select * from public.category";
@@ -49,41 +64,8 @@ app.get('/addproduct',(req,res)=>{
             }
             
         })
+        
     }
-    // if(pid)
-    // {
-        
-    //     image.mv("/public/images/"+image.name,function(err){
-    //             if(err){
-    //                 console.log(err)
-    //             }
-    //         })
-    //     var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
-    //     myconect.query(query1,(err,result) =>{
-    //         if(err)
-    //         {
-    //             console.log(err)
-    //             return;
-    //         }      
-    //     })
-    //     res.redirect("/home/?id=1")
-        
-    // }
-    // else{
-    //     var query2 ="select * from public.category";
-    //     myconect.query(query2,(err,result) =>{
-    //         if(err)
-    //         {
-    //             console.log(err)
-    //             return;
-    //         }      
-    //         else{
-    //             res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-    //         }
-            
-    //     })
-        
-    // }
 })
 
 app.get('/',(req,res)=>{
