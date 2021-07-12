@@ -37,7 +37,7 @@ app.get('/addproduct',(req,res)=>{
     {
         
        
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+pimage.name+"')";
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
@@ -64,38 +64,38 @@ app.get('/addproduct',(req,res)=>{
         
     }
 })
-app.post('/addproduct1',(req,res)=>{
-    var q="";
-    var pimage 
-    q = url.parse(req.url, true);
-    var pid="";
-    var data=q.query;
-    pid = req.body.pid;
-    const pname= req.body.pname;
-    const pprice =req.body.pprice;
-    const cateid= req.body.cateid;
-    const decription=req.body.pdecription;
-    const image =req.files.pimage;
-    image.mv(path.join("/public/images/"+image.name),err=>{
-        if(err)
-        {
-            console.log(err)
-        }
-    })
-    if(pid)
-    {  
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
-        myconect.query(query1,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-        })
-        res.redirect("/home/?id=1")
+// app.post('/addproduct1',(req,res)=>{
+//     var q="";
+//     var pimage 
+//     q = url.parse(req.url, true);
+//     var pid="";
+//     var data=q.query;
+//     pid = req.body.pid;
+//     const pname= req.body.pname;
+//     const pprice =req.body.pprice;
+//     const cateid= req.body.cateid;
+//     const decription=req.body.pdecription;
+//     const image =req.files.pimage;
+//     image.mv(path.join("/public/images/"+image.name),err=>{
+//         if(err)
+//         {
+//             console.log(err)
+//         }
+//     })
+//     if(pid)
+//     {  
+//         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
+//         myconect.query(query1,(err,result) =>{
+//             if(err)
+//             {
+//                 console.log(err)
+//                 return;
+//             }      
+//         })
+//         res.redirect("/home/?id=1")
         
-    }
-})
+//     }
+// })
 
 app.get('/',(req,res)=>{
     res.render(path.join(__dirname,'./home.html'),{idp:0})
