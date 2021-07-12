@@ -64,7 +64,7 @@ app.get('/addproduct',(req,res)=>{
         
     }
 })
-app.post('/addproduct',(req,res)=>{
+app.post('/addproduct1',(req,res)=>{
     var q="";
     var pimage 
     q = url.parse(req.url, true);
