@@ -232,12 +232,6 @@ app.get('/checkout',(req,res)=>{
                         console.log(err);
                     }
                 else{
-                    var i=0;
-                    for(var x=0;x<=i;x++)
-                    {
-                        
-                        i++
-                    }
                 res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
             }
             
