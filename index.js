@@ -65,7 +65,7 @@ app.get('/addproduct',(req,res)=>{
 })
 app.post('/addproduct',(req,res)=>{
     const image=req.files.pimage;
-    image.mv(path.resolve(__dirname+"/public/"+image.name),function(err){
+    image.mv(path.resolve(__dirname+"/"+image.name),function(err){
         if(err){
             console.log(err)
         }
