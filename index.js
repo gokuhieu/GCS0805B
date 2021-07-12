@@ -198,10 +198,8 @@ app.get('/checkout',(req,res)=>{
                 res.redirect("/checkout")
                 break;
             case"submit" :
-            query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
             var total=0;
             myconect.query(query1,(err,result1) =>{
-                result3=result1
                 if(err)
                 {
                     console.log(err);
@@ -257,7 +255,7 @@ app.get('/checkout',(req,res)=>{
                     console.log(err);
                 }
             else{
-                query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+                query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
                 myconect.query(query1,(err,result1) =>{
                     if(err)
                     {
