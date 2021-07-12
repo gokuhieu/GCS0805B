@@ -32,7 +32,24 @@ app.get('/addproduct',(req,res)=>{
     const cateid= data.cateid;
     const decription=data.pdecription;
     console.log(data);
-    
+    if(pid)
+    {
+        console.log(data);
+    }
+    else{
+        var query2 ="select * from public.category";
+        myconect.query(query2,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+            else{
+                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
+            }
+            
+        })
+    }
     // if(pid)
     // {
         
