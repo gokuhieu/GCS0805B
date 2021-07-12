@@ -1,14 +1,7 @@
 
-const connectsql =(query1) =>{
-    var queryresult;
+const bill =(proprice,quantity) =>{
 
-    myconect.query(query1,(err,result) =>{
-        if(err)
-        {
-            console.log(err)
-            return;
-        }      
-        queryresult=result;
-    })
+var result= proprice*quantity
+return result;
 }
-exports.connectsql=connectsql;
+exports.bill=bill;
