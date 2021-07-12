@@ -46,7 +46,6 @@ app.post('/addproduct',(req,res)=>{
     const pprice =req.params.pprice;
     const cateid= req.params.cateid;
     const decription=req.params.pdecription;
-    const pimage=req.file.pimage;
     app.post('/addproduct',(req,res)=>{
         const image=req.files.pimage;
         image.mv(path.resolve(__dirname+"/"+image.name),function(err){
@@ -59,7 +58,7 @@ app.post('/addproduct',(req,res)=>{
     {
         
        
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+pimage+"')";
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
