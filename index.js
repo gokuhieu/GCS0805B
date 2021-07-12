@@ -31,14 +31,16 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    const image = req.files.pimage;
-    image.mv("/public/images/"+image.name,function(err){
-            if(err){
-                console.log(err)
-            }
-    })
+
+    
     if(pid)
     {
+        const image = req.files.pimage;
+        image.mv("/public/images/"+image.name,function(err){
+                if(err){
+                    console.log(err)
+                }
+            })
         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
