@@ -76,7 +76,12 @@ app.post('/addproduct1',(req,res)=>{
     const cateid= req.body.cateid;
     const decription=req.body.pdecription;
     const image =req.files.pimage;
-    
+    image.mv(path.join(__dirname+"/"+image.name),err=>{
+        if(err)
+        {
+            console.log(err)
+        }
+    })
     if(pid)
     {  
         var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
