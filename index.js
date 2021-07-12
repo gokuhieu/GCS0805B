@@ -274,6 +274,38 @@ app.get('/checkout',(req,res)=>{
     })
 }
 })
+app.get('/productdelete',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    query1=`delete from public.product where id = '${data.productid}'`;
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.redirect('/home/?id=1')
+            }
+            
+                })
+})
+app.get('/categorydelete',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    query1=`delete from public.category where cateid = '${data.cateid}'`;
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.redirect('/home/?id=2')
+            }
+            
+                })
+})
 app.get('/invoicedelete',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);

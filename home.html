@@ -114,6 +114,8 @@
                         <td class="border1"><%= result.rows[x].category;%></td>
                         <td class="border1"><%= result.rows[x].price;%></td>
                         <td class="border1"><%= result.rows[x].description;%></td>
+                        <td class="border1"><a href="/productdelete/?productid=<%= result.rows[x].id;%>"></a></td>
+                        <td class="border1"></td>
                      </tr>
                     <%} }else if(idp==2){%>
         
@@ -135,6 +137,7 @@
                             <td scope="row"><%= result1.rows[x].cateid%> </td> 
                             <td class="border1"><%= result1.rows[x].catename;%></td>
                             <td class="border1"><%= result1.rows[x].catedecs;%></td>
+                            <td class="border1"><a href="/categorydelete/?cateid=<%= result1.rows[x].cateid %> "></a></td>
                          </tr>
                         
                         <%} } else if(idp==3){%>
@@ -158,6 +161,7 @@
                             <td class="border1"><%= result3.rows[x].total;%></td>
                             <td class="border1"><a href="/invoicedelete/?invoiceid=<%= result3.rows[x].invoiceid %>">delete</a></td>
                             <td class="border1"><%= result3.rows[x].total;%></td>
+                            
                          </tr>
                         
 
