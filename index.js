@@ -212,34 +212,32 @@ app.get('/checkout',(req,res)=>{
                         {
                             console.log(err);
                         }
-                    else{
-                        query="SELECT * FROM public.product";
-                        myconect.query(query,(err,result) =>{
-                            if(err)
-                            {
-                                console.log(err);
-                            }
-                        else{
-                        
-                        query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
-                        productid=data.productid
-                        myconect.query(query1,(err,result1) =>{
-                            result3=result1
-                            if(err)
-                            {
-                                console.log(err);
-                            }
-                        else{
-                        res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
-                    }
-                    
-                        })
-                    } 
-                    })
-                    }
+                    else{}
                     })
                 }
-
+                query="SELECT * FROM public.product";
+                myconect.query(query,(err,result) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                
+                query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+                productid=data.productid
+                myconect.query(query1,(err,result1) =>{
+                    result3=result1
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
+            }
+            
+                })
+            } 
+            })
                 break;
             case"submit" :
             break;
