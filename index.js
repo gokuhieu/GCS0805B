@@ -21,7 +21,34 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-    app.get('/addproduct',(req,res)=>{
+app.get('/addproduct',(req,res)=>{
+    
+    var q="";
+    q = url.parse(req.url, true);
+    var pid="";
+    var data=q.query;
+    pid = data.pid;
+    const pname= data.pname;
+    const pprice =data.pprice;
+    const cateid= data.cateid;
+    const decription=data.pdecription;
+    const pimage= req.files;
+    if(pid)
+    {
+        
+       
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+pimage.name+"')";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+        })
+        res.redirect("/home/?id=1")
+        
+    }
+    else{
         var query2 ="select * from public.category";
         myconect.query(query2,(err,result) =>{
             if(err)
@@ -34,42 +61,6 @@ const myconect = new connection({
             }
             
         })
-    })
-app.post('/addproduct',(req,res)=>{
-    
-    // var q="";
-    // q = url.parse(req.url, true);
-    var pid="";
-    // var data=q.query;
-    pid = req.params.pid;
-    const pname= req.params.pname;
-    const pprice =req.params.pprice;
-    const cateid= req.params.cateid;
-    const decription=req.params.pdecription;
-    
-        const image=req.files.pimage;
-        image.mv(path.resolve(__dirname+"/"+image.name),function(err){
-            if(err){
-                console.log(err)
-            }
-    })
-    if(pid)
-    {
-        
-       
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
-        myconect.query(query1,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-        })
-        res.redirect("/home/?id=1")
-        
-    }
-    else{
-      
         
     }
 })
