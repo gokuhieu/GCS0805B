@@ -198,10 +198,12 @@ app.get('/checkout',(req,res)=>{
                 for(var i=0;i<result1.rowCount;i++)
                 {
                     total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)
+                    console.log(total)
                 }   
         }
             })
-            console.log(total)
+            
+            
             break;
             default:
                 
