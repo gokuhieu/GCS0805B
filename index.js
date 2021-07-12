@@ -210,13 +210,14 @@ app.get('/checkout',(req,res)=>{
                             console.log(err);
                         }
                     })
-                    query2=`delete from product.checkout`;
+                    query2=`delete from public.checkout`;
                     myconect.query(query2,(err,result2)=>{
                         if (err)
                         {
                             console.log(err);
                         }
                     })
+                    res.redirect("/home/?id=0")
                 }
 
         }
