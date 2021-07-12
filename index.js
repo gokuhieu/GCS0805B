@@ -258,9 +258,7 @@ app.get('/checkout',(req,res)=>{
                 }
             else{
                 query1=`select product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
-                productid=data.productid
                 myconect.query(query1,(err,result1) =>{
-                    result3=result1
                     if(err)
                     {
                         console.log(err);
@@ -275,6 +273,22 @@ app.get('/checkout',(req,res)=>{
     }
     })
 }
+})
+app.get('/invoicedelete',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    query1=`delete from public.invoice where invoiceid = '${data.invoiceid}'`;
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err);
+                    }
+                else{
+                res.redirect('/home/?id=3')
+            }
+            
+                })
 })
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
