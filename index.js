@@ -24,6 +24,7 @@ const myconect = new connection({
 app.get('/addproduct',(req,res)=>{
     
     var q="";
+    var pimage 
     q = url.parse(req.url, true);
     var pid="";
     var data=q.query;
@@ -32,7 +33,6 @@ app.get('/addproduct',(req,res)=>{
     const pprice =data.pprice;
     const cateid= data.cateid;
     const decription=data.pdecription;
-    const pimage= req.files.pimage;
     if(pid)
     {
         
@@ -64,7 +64,32 @@ app.get('/addproduct',(req,res)=>{
         
     }
 })
-
+app.post('/addproduct',(req,res)=>{
+    var q="";
+    var pimage 
+    q = url.parse(req.url, true);
+    var pid="";
+    var data=q.query;
+    pid = req.params.pid;
+    const pname= req.params.pname;
+    const pprice =req.params.pprice;
+    const cateid= req.params.cateid;
+    const decription=req.params.pdecription;
+    const image =req.files.pimage;
+    if(pid)
+    {  
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"'"+",'"+image.name+"')";
+        myconect.query(query1,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+        })
+        res.redirect("/home/?id=1")
+        
+    }
+})
 
 app.get('/',(req,res)=>{
     res.render(path.join(__dirname,'./home.html'),{idp:0})
