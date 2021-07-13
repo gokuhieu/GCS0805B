@@ -229,14 +229,7 @@ app.get('/checkout',(req,res)=>{
                 console.log(err);
             }
         else{
-            query1=`SELECT * FROM public.product where product.id = '0'`;
-            myconect.query(query1,(err,result1) =>{
-                if(err)
-                {
-                    console.log(err);
-                }
-            else{
-                query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+                 query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
                 myconect.query(query1,(err,result1) =>{
                     if(err)
                     {
@@ -247,8 +240,7 @@ app.get('/checkout',(req,res)=>{
             }
             
                 })
-    }
-        })
+       
     }
     })
 }
