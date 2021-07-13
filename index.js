@@ -210,8 +210,7 @@ app.get('/checkout',(req,res)=>{
                     
                     for(var i=0;i<result1.rowCount;i++)
                     {
-                        total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)
-                        
+                        total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
                     query=`insert into public.invoice values('${data.invoiceid}','${data.invoicedate}','${total}')`;
                     myconect.query(query,(err,result)=>{
@@ -238,7 +237,6 @@ app.get('/checkout',(req,res)=>{
             default:
                 
                 break;
-
         }
     }else{
         query="SELECT * FROM public.product";
