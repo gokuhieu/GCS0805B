@@ -57,11 +57,11 @@ app.post('/addproduct1',(req,res)=>{
         if(err){
             console.log(err)
         }
-        pimage=result.public_id;
+        console.log(result)
     })
     if(pid)
     {  
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+pimage+"','"+decription+"')";
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+pimage+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
