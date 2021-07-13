@@ -12,7 +12,7 @@ var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
-app.use(fileUpload());
+app.use(fileupload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
@@ -55,7 +55,7 @@ app.post('/addproduct1',(req,res)=>{
     const decription=req.body.pdecription;
         if(pid)
         {  
-            cloudinary.uploader.upload(req.files.pimage.path,(err,result) =>{
+            cloudinary.uploader.upload(req.files.pimage.tempFilePath,(err,result) =>{
                 if(err){
                     console.log(err)
                 }
