@@ -51,7 +51,7 @@ app.post('/addproduct1',(req,res)=>{
     const pname= req.body.pname;
     const pprice =req.body.pprice;
     const cateid= req.body.cateid;
-    var pimage =req.files.pimage;
+    var pimage =req.files.pimage.name;
     const decription=req.body.pdecription;
     cloudinary.uploader.upload(pimage,(err,result) =>{
         if(err){
