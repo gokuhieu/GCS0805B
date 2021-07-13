@@ -28,10 +28,22 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-app.post('/addproduct',(req,res)=>{
+app.get('/addproduct',(req, res) => {
+    var query2 ="select * from public.category";
+        myconect.query(query2,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+            else{
+                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
+            }
+            
+        }) 
+})
+app.post('/addproduct1',(req,res)=>{
     var q="";
-    
-
     q = url.parse(req.url, true);
     var pid="";
     var data=q.query;
@@ -62,18 +74,7 @@ app.post('/addproduct',(req,res)=>{
     
     }
     else{
-        var query2 ="select * from public.category";
-        myconect.query(query2,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-            else{
-                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-            }
-            
-        }) 
+        
     }
 })
 
