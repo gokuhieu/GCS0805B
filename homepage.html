@@ -115,7 +115,7 @@
                     <a href=""><%= result1.rows[i].name %> </a>
                   </h4>
                   <h5> <%= result1.rows[i].price %> </h5>
-                  <p class="card-text"><% if(strlen(result1.rows[i].description)>100){for(var x=0;x<=100;x++){result1.rows[i].description[x];} ;}else{result1.rows[i].description;}%></p>
+                  <p class="card-text"><% if(strlen(result1.rows[i].description))>100){for(var x=0;x<=100;x++){result1.rows[i].description[x];} ;}else{result1.rows[i].description;}%></p>
                 </div>
               </div>
             </div>
