@@ -190,12 +190,13 @@ app.get('/checkout',(req,res)=>{
                 res.redirect("/checkout")
                 break;
             case"submit" :
-            var total=0;
+            
             var q="";
             q = url.parse(req.url, true);
             var data=q.query;
                 if(data.invoiceid) 
             {
+                var total=0;
                 query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
                     myconect.query(query,(err,result1)=>{
                         if(err)
