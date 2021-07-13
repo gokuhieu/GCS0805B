@@ -4,7 +4,6 @@ const app = express();
 var url = require('url');
 const path = require('path');
 var product= require('./product.js')
-var connect= require('./connectdb.js')
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
@@ -32,10 +31,17 @@ const myconect = new connection({
     });
 app.get('/addproduct',(req, res) => {
     var query2 ="select * from public.category";
-    var result = connect.query(query2)
-
+        myconect.query(query2,(err,result) =>{
+            if(err)
+            {
+                console.log(err)
+                return;
+            }      
+            else{
                 res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-
+            }
+            
+        }) 
 })
 app.post('/addproduct1',(req,res)=>{
     var q="";
