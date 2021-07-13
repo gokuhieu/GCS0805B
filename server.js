@@ -332,7 +332,7 @@ app.get('/homepage',(req,res)=>{
             console.log(err);
         }
     else{
-            res.render(path.join(__dirname+'/homepage.html'),{result: result})
+            res.render(path.join(__dirname,'/homepage.html'),{result: result})
         }
 
     })
@@ -345,7 +345,7 @@ app.get('/homepage',(req,res)=>{
                 console.log(err);
             }
         else{
-            res.render(path.join(__dirname+'/homepage.html'),{result1: result1})
+            res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
             }
     
         })
@@ -357,7 +357,7 @@ app.get('/homepage',(req,res)=>{
                 console.log(err);
             }
         else{
-                res.render(path.join(__dirname+'/homepage.html'),{result1: result1})
+                res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
             }
     
         })
