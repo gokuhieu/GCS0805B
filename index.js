@@ -10,6 +10,7 @@ const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
 var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
+const toLocaleString =require('intl')("vi_VN", {timeZone: "Asia/Saigon"})
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
@@ -201,7 +202,7 @@ app.get('/checkout',(req,res)=>{
                     {
                         total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
-                    query=`insert into public.invoice values('${data.invoiceid}','${data.invoicedate.toLocaleString("vi_VN", {timeZone: "Asia/Saigon"})}','${total}')`;
+                    query=`insert into public.invoice values('${data.invoiceid}','${toLocaleString(data.invoicedate)}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
                         {
