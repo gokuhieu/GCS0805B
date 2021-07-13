@@ -53,14 +53,12 @@ app.post('/addproduct1',(req,res)=>{
     const cateid= req.body.cateid;
     var pimage =req.files.pimage.name;
     const decription=req.body.pdecription;
-    cloudinary.uploader.upload(path.join(__dirname+"/"+pimage),(err,result) =>{
-        if(err){
-            console.log(err)
-        }
-        
         if(pid)
         {  
-    
+            cloudinary.uploader.upload(pimage,(err,result) =>{
+                if(err){
+                    console.log(err)
+                }
             var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.public_id+"')";
             myconect.query(query1,(err,result1) =>{
                 if(err)
@@ -71,7 +69,6 @@ app.post('/addproduct1',(req,res)=>{
             })
             res.redirect("/home/?id=1")
             
-        
         }
 
         
