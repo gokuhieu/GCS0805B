@@ -7,7 +7,7 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-const query =(query =>{
+var query =(query =>{
 
     myconect.query(query,(err,result) =>{
         if(err)

@@ -32,7 +32,8 @@ const myconect = new connection({
     });
 app.get('/addproduct',(req, res) => {
     var query2 ="select * from public.category";
-    res.render(path.resolve(__dirname,'./addproduct.html'),{result: connect.query(query2)});
+    var result=connect.query(query2);
+    res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
  
 })
 app.post('/addproduct1',(req,res)=>{
