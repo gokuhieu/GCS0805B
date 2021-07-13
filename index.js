@@ -15,6 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
+var nDate = new Date().toLocaleString('vi-VN', {
+    timeZone: 'Asia/Saigon'
+});
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
     api_key: '779499346745353', 
@@ -199,14 +202,12 @@ app.get('/checkout',(req,res)=>{
                         {
                             console.log(err)
                         }
-else{
+                    else{
                     for(var i=0;i<result1.rowCount;i++)
                     {
                         total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
-                    var nDate = new Date().toLocaleString('vi-VN', {
-                        timeZone: 'Asia/Saigon'
-                    });
+
                     query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
