@@ -204,7 +204,7 @@ app.get('/checkout',(req,res)=>{
                     var total=0;
                     for(var i=0;i<result1.rowCount;i++)
                     {
-                        total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
+                        total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
                     }   
                     query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
                     myconect.query(query,(err,result)=>{
