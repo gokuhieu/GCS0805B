@@ -3,14 +3,10 @@ const express = require("express");
 const app = express();
 var url = require('url');
 const path = require('path');
-var router=express.Router();
-var cookieParser = require('cookie-parser')
 var product= require('./product.js')
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
-var fs = require('fs');
-var format = require('intl')
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
