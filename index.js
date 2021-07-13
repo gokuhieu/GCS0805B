@@ -15,6 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
+var session = require('express-session');
+app.use(cookieParser());
+app.use(session({secret: "321321132"}));
 var nDate = new Date().toLocaleString('vi-VN', {
     timeZone: 'Asia/Saigon'
 });
@@ -174,6 +177,7 @@ app.get('/checkout',(req,res)=>{
         switch (data.form)
         {      
             case "addproduct":
+                req.session.checkout
                 if(data.productid && data.quantity)
                 {
                     query=`insert into public.checkout values('${data.productid}',${data.quantity})`;
