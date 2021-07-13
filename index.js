@@ -65,15 +65,12 @@ app.post('/addproduct1',(req,res)=>{
                 {
                     console.log(err)
                     return;
-                }      
+                }   
+                res.redirect("/home/?id=1")   
             })
-            res.redirect("/home/?id=1")
-            
-        }
-
         
     })
-
+        }
 })
 
 app.get('/',(req,res)=>{
