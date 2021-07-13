@@ -59,7 +59,7 @@ app.post('/addproduct1',(req,res)=>{
                 if(err){
                     console.log(err)
                 }
-            var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.public_id+"')";
+            var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.url+"')";
             myconect.query(query1,(err,result1) =>{
                 if(err)
                 {
