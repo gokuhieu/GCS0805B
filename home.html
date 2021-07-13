@@ -110,9 +110,14 @@
                         <td class="border1"><%= result.rows[x].name;%></td>
                         <td class="border1"><%= result.rows[x].category;%></td>
                         <td class="border1"><%= result.rows[x].price;%></td>
-                        <td class="border1"><img src="<%= result.rows[x].image%>" alt="photo"></td>
+                        
+                          <td class="border1"><div id="img_div">
+                          </div><img src="<%= result.rows[x].image%>" alt="photo"></div>
+                          </td>
+                      
                         <td class="border1"><%= result.rows[x].description;%></td>
                         <td class="border1"><a href="/productdelete/?productid=<%= result.rows[x].id;%>">delete</a></td>
+                        
                         <td class="border1"></td>
                      </tr>
                     <%} }else if(idp==2){%>
