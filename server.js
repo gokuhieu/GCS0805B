@@ -328,7 +328,7 @@ app.get('/homepage',(req,res)=>{
     if(data.productid)
     {
         query=`select * from public.category`;
-        query1=`select * from public.product where category= `+data.productid;
+        query1=`select * from public.product where category= `+data.productid.tostring();
         myconect.query(query,(err,result) =>{
             if(err)
             {
