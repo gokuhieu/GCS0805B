@@ -12,7 +12,7 @@ var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
-app.use(fileupload({useTempFiles: true}))
+app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
