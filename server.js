@@ -330,7 +330,7 @@ app.get('/homepage',(req,res)=>{
     if(data.productid)
     {
         query=`select * from public.category`;
-        query1=`select * from public.product where id=${data.productid}`;
+        query1=`select * from public.product where id='${data.productid}'`;
         myconect.query(query,(err,result) =>{
             if(err)
             {
