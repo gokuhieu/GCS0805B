@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
 var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
-const toLocaleString =require('intl')("vi_VN", {timeZone: "Asia/Saigon"})
+var toLocaleString =require('intl')("vi_VN", {timeZone: "Asia/Saigon"})
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
