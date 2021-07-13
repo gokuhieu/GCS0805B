@@ -195,13 +195,18 @@ app.get('/checkout',(req,res)=>{
             {
                 query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
                     myconect.query(query,(err,result1)=>{
-                var nDate = new Date().toLocaleString('vi-VN', {
-                    timeZone: 'Asia/Saigon'
-                  });
+                        if(err)
+                        {
+                            console.log(err)
+                        }
+else{
                     for(var i=0;i<result1.rowCount;i++)
                     {
                         total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
+                    var nDate = new Date().toLocaleString('vi-VN', {
+                        timeZone: 'Asia/Saigon'
+                    });
                     query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
@@ -217,7 +222,8 @@ app.get('/checkout',(req,res)=>{
                         }
                     })
                     res.redirect("/home/?id=3")        
-                })  
+                }
+                    })
                 } 
             break;
             default:
