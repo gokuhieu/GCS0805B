@@ -57,26 +57,26 @@ app.post('/addproduct1',(req,res)=>{
         if(err){
             console.log(err)
         }
-        pimage=result.public_id
-    })
-    if(pid)
-    {  
         
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+pimage+"')";
-        myconect.query(query1,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-        })
-        res.redirect("/home/?id=1")
-        
+        if(pid)
+        {  
     
-    }
-    else{
+            var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.public_id+"')";
+            myconect.query(query1,(err,result1) =>{
+                if(err)
+                {
+                    console.log(err)
+                    return;
+                }      
+            })
+            res.redirect("/home/?id=1")
+            
         
-    }
+        }
+
+        
+    })
+
 })
 
 app.get('/',(req,res)=>{
