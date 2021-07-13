@@ -11,6 +11,7 @@
     "url": "git+https://github.com/gokuhieu/GCS0805B.git"
   },
   "dependencies": {
+    "cloudinary": "^1.26.2",
     "ejs": "^3.1.5",
     "ejs-lint": "^1.2.0",
     "express": "^4.17.1",

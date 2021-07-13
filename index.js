@@ -11,8 +11,14 @@ const fileUpload = require('express-fileupload')
 var fs = require('fs');
 app.engine('html', require('ejs').renderFile);
 app.use(bodyParser.urlencoded({ extended: true })); 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload());
+var cloudinary = require('cloudinary').v2;
+cloudinary.config({ 
+    cloud_name: 'hmdahuj7l', 
+    api_key: '779499346745353', 
+    api_secret: 'AIHCfCxi9ZX23i93z41om9PlwYc' 
+  });
 const connection = require('pg').Pool;
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
@@ -22,23 +28,28 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-app.get('/addproduct',(req,res)=>{
-    
+app.post('/addproduct',(req,res)=>{
     var q="";
-    var pimage 
+    
+
     q = url.parse(req.url, true);
     var pid="";
     var data=q.query;
-    pid = data.pid;
-    const pname= data.pname;
-    const pprice =data.pprice;
-    const cateid= data.cateid;
-    const decription=data.pdecription;
+    pid = req.body.pid;
+    const pname= req.body.pname;
+    const pprice =req.body.pprice;
+    const cateid= req.body.cateid;
+    var pimage =req.body.pimage;
+    const decription=req.body.pdecription;
+    cloudinary.uploader.upload(pimage,(err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        pimage=result.public_id;
+    })
     if(pid)
-    {
-        
-       
-        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"')";
+    {  
+        var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+pimage+"','"+decription+"')";
         myconect.query(query1,(err,result) =>{
             if(err)
             {
@@ -48,6 +59,7 @@ app.get('/addproduct',(req,res)=>{
         })
         res.redirect("/home/?id=1")
         
+    
     }
     else{
         var query2 ="select * from public.category";
@@ -61,8 +73,7 @@ app.get('/addproduct',(req,res)=>{
                 res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
             }
             
-        })
-        
+        }) 
     }
 })
 
@@ -71,9 +82,6 @@ app.get('/',(req,res)=>{
 })
 
 
-app.get('/addcustomer',(req,res)=>{
-    res.sendFile(path.resolve(__dirname,'./addcustomer.html'))
-})
 app.get('/addcategory',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -100,19 +108,6 @@ app.get('/addcategory',(req,res)=>{
     }
 })
 
-app.get('/viewproduct',(req,res)=>{
-    query="SELECT * FROM public.product";
-    myconect.query(query,(err,result) =>{
-        if(err)
-        {
-            console.log(err);
-        }
-    else{
-    console.log(result)
-    res.render(path.join(__dirname,'./viewproduct.html'),{result: result})
-}
-    })
-})
 app.get('/home',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -121,30 +116,28 @@ app.get('/home',(req,res)=>{
     if(id=='1'){
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
-            if(err)
-            {
+        if(err)
+        {
                 console.log(err);
-            }
-        else{
-    
+        }else {
         res.render(path.join(__dirname,'./home.html'),{result: result,idp: id})
         }
     })
 }
-    else if(id=='2'){
+    else if(id=='2')
+    {
         query="SELECT * FROM public.category";
         myconect.query(query,(err,result1) =>{
-            if(err)
-            {
+        if(err)
+        {
                 console.log(err);
-            }
-        else{
-    
+        }else{
         res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id})
-    }
+        }
         })  
     }
-    else if(id=='3'){
+    else if(id=='3')
+    {
         query="SELECT * FROM public.invoice";
         myconect.query(query,(err,result3) =>{
             if(err)
@@ -153,13 +146,12 @@ app.get('/home',(req,res)=>{
             }
         else{
         res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id})
-    }
-        })  
+        }
+    })  
     }
     else{
         res.render(path.resolve(__dirname,'./home.html'),{idp:0})
-    }
-     
+    }  
 })
 app.get('/viewcategory',(req,res)=>{
     query="SELECT * FROM public.category";
@@ -168,13 +160,11 @@ app.get('/viewcategory',(req,res)=>{
         {
             console.log(err);
         }
-    else{
-
-    res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
-}
+        else{
+        res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
+        }
     })
 })
-var productid
 app.get('/checkout',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -192,7 +182,9 @@ app.get('/checkout',(req,res)=>{
                         {
                             console.log(err);
                         }
-                    else{}
+                    else{
+ 
+                    }
                     })
                 }
                 res.redirect("/checkout")
@@ -200,13 +192,14 @@ app.get('/checkout',(req,res)=>{
             case"submit" :
             var total=0;
             myconect.query(query1,(err,result1) =>{
-                if(err)
-                {
+            if(err)
+            {
                     console.log(err);
-                }
-            else{
+            }
+            else
+            {
                 if(data.invoiceid&& data.invoicedate)
-                {
+            {
                     
                     for(var i=0;i<result1.rowCount;i++)
                     {
