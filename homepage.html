@@ -115,7 +115,7 @@
                     <a href=""><%= result1.rows[i].name %> </a>
                   </h4>
                   <h5> <%= result1.rows[i].price %> </h5>
-                  <p class="card-text"><%= result1.rows[i].description %></p>
+                  <p class="card-text"><%= result1.rows[i].description.substring(0,100) %></p>
                 </div>
               </div>
             </div>
