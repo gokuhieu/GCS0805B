@@ -202,7 +202,7 @@ app.get('/checkout',(req,res)=>{
                     {
                         total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
-                    query=`insert into public.invoice values('${data.invoiceid}','${format.DateTimeFormat(("vi_VN", {timeZone: "Asia/Saigon"})).format(data.invoicedate)}','${total}')`;
+                    query=`insert into public.invoice values('${data.invoiceid}','${format.DateTimeFormat(['ban', 'id']).format(data.invoicedate)}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
                         {
