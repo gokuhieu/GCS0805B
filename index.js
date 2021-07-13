@@ -201,7 +201,7 @@ app.get('/checkout',(req,res)=>{
                     {
                         total= total+parseInt(result1.rows[i].price)*parseInt(result1.rows[i].quantity)     
                     }   
-                    query=`insert into public.invoice values('${data.invoiceid}','${data.invoicedate}','${total}')`;
+                    query=`insert into public.invoice values('${data.invoiceid}','${data.invoicedate.toLocaleString("vi_VN", {timeZone: "Asia/Saigon"})}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
                         {
