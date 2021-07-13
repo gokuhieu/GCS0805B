@@ -321,7 +321,7 @@ app.get('/checkoutdelete',(req,res)=>{
             
                 })
 })
-app.get('/homepage',(req,res)=>{
+app.get('/homepage',(req,res, next)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
@@ -329,7 +329,7 @@ app.get('/homepage',(req,res)=>{
     myconect.query(query,(err,result) =>{
         if(err)
         {
-            console.log(err);
+            next(err);
         }
     else{
             res.render(path.join(__dirname,'/homepage.html'),{result: result})
@@ -342,7 +342,7 @@ app.get('/homepage',(req,res)=>{
         myconect.query(query,(err,result1) =>{
             if(err)
             {
-                console.log(err);
+                next(err);
             }
         else{
             res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
@@ -354,7 +354,7 @@ app.get('/homepage',(req,res)=>{
         myconect.query(query,(err,result1) =>{
             if(err)
             {
-                console.log(err);
+                next(err);
             }
         else{
                 res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
