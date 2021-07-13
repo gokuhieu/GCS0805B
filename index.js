@@ -52,25 +52,29 @@ app.post('/addproduct1',(req,res)=>{
     const pname= req.body.pname;
     const pprice =req.body.pprice;
     const cateid= req.body.cateid;
-    var pimage =req.files.pimage.name;
     const decription=req.body.pdecription;
         if(pid)
         {  
-            cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 400, height: 500},(err,result) =>{
-                if(err){
-                    console.log(err)
-                }
-            var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.url+"')";
-            myconect.query(query1,(err,result1) =>{
-                if(err)
-                {
-                    console.log(err)
-                    return;
-                }   
-                res.redirect("/home/?id=1")   
-            })
-        
-    })
+            try {
+                cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 400, height: 500},(err,result) =>{
+                    if(err){
+                        console.log(err)
+                    }
+                var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.url+"')";
+                myconect.query(query1,(err,result1) =>{
+                    if(err)
+                    {
+                        console.log(err)
+                        return;
+                    }   
+                    res.redirect("/home/?id=1")   
+                })
+            
+        })
+            } catch (error) {
+                console.log(error)
+            }
+
         }
 })
 
