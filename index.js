@@ -196,9 +196,8 @@ app.get('/checkout',(req,res)=>{
             var data=q.query;
                 if(data.invoiceid) 
             {
-                
                 query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
-                    myconect.query(query,(err,result1)=>{
+                    myconect.query(query1,(err,result1)=>{
                         if(err)
                         {
                             console.log(err)
