@@ -325,12 +325,10 @@ app.get('/homepage',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    
-  
     if(data.productid)
     {
         query=`select * from public.category`;
-        query1=`select * from public.product where category='${data.category}'`;
+        query1=`select * from public.product where category= `+data.productid;
         myconect.query(query,(err,result) =>{
             if(err)
             {
