@@ -57,7 +57,7 @@ app.post('/addproduct1',(req,res)=>{
         if(err){
             console.log(err)
         }
-        console.log(result)
+        pimage=result.public_id
     })
     if(pid)
     {  
