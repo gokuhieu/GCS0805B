@@ -16,9 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
-
-var cart = new Cart(req.session.cart);
-var checkout = new Checkout(req.session.checkout ? req.session.checkout : {});
 var nDate = new Date().toLocaleString('vi-VN', {
     timeZone: 'Asia/Saigon'
 });
