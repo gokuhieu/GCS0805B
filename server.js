@@ -321,6 +321,49 @@ app.get('/checkoutdelete',(req,res)=>{
             
                 })
 })
+app.get('/homepage',(req,res)=>{
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
+    query=`select * from public.category`;
+    myconect.query(query,(err,result) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+    else{
+            res.render(path.join(__dirname+'/homepage.html'),{result: result})
+        }
+
+    })
+    if(data.productid)
+    {
+        query=`select * from public.product where id=${data.productid}`;
+        myconect.query(query,(err,result1) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+            res.render(path.join(__dirname+'/homepage.html'),{result1: result1})
+            }
+    
+        })
+    }else{
+        query=`select * from public.product`;
+        myconect.query(query,(err,result1) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+                res.render(path.join(__dirname+'/homepage.html'),{result1: result1})
+            }
+    
+        })
+    }
+    
+})
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
