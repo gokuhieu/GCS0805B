@@ -340,7 +340,7 @@ app.get('/homepage',(req,res, next)=>{
     {
         query=`select * from public.product where id=${data.productid}`;
         myconect.query(query,(err1,result1) =>{
-            if(err)
+            if(err1)
             {
                 console.log(err1);
             }
@@ -352,7 +352,7 @@ app.get('/homepage',(req,res, next)=>{
     }else{
         query=`select * from public.product`;
         myconect.query(query,(err1,result1) =>{
-            if(err)
+            if(err1)
             {
                 next(err1);
             }
