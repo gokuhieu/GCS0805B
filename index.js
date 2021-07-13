@@ -191,8 +191,10 @@ app.get('/checkout',(req,res)=>{
             var q="";
             q = url.parse(req.url, true);
             var data=q.query;
-                if(data.invoiceid)
+                if(data.invoiceid) 
             {
+                query1=`select * from public.checkout`;
+                    myconect.query(query,(err,result1)=>{
                 var nDate = new Date().toLocaleString('vi-VN', {
                     timeZone: 'Asia/Saigon'
                   });
@@ -214,7 +216,8 @@ app.get('/checkout',(req,res)=>{
                             console.log(err);
                         }
                     })
-                    res.redirect("/home/?id=3")          
+                    res.redirect("/home/?id=3")        
+                })  
                 } 
             break;
             default:
