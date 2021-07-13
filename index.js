@@ -55,7 +55,7 @@ app.post('/addproduct1',(req,res)=>{
     const decription=req.body.pdecription;
         if(pid)
         {  
-            cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 300, height: 400},(err,result) =>{
+            cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 400, height: 500},(err,result) =>{
                 if(err){
                     console.log(err)
                 }
