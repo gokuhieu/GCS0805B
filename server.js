@@ -329,7 +329,7 @@ app.get('/homepage',(req,res, next)=>{
     myconect.query(query,(err,result) =>{
         if(err)
         {
-            next(err);
+            console.log(err);
         }
     else{
             res.render(path.join(__dirname,'/homepage.html'),{result: result})
@@ -339,10 +339,10 @@ app.get('/homepage',(req,res, next)=>{
     if(data.productid)
     {
         query=`select * from public.product where id=${data.productid}`;
-        myconect.query(query,(err,result1) =>{
+        myconect.query(query,(err1,result1) =>{
             if(err)
             {
-                next(err);
+                console.log(err1);
             }
         else{
             res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
@@ -351,10 +351,10 @@ app.get('/homepage',(req,res, next)=>{
         })
     }else{
         query=`select * from public.product`;
-        myconect.query(query,(err,result1) =>{
+        myconect.query(query,(err1,result1) =>{
             if(err)
             {
-                next(err);
+                next(err1);
             }
         else{
                 res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
