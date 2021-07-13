@@ -178,7 +178,7 @@ app.get('/checkout',(req,res)=>{
                 
                 if(data.productid && data.quantity)
                 {
-                    query=`insert into public.checkout(checkout.proid,checkout.quantity) values('${data.productid}',${data.quantity})`;
+                    query=`insert into public.checkout(proid,quantity) values('${data.productid}',${data.quantity})`;
                     myconect.query(query,(err,result) =>{
                         if(err)
                         {
