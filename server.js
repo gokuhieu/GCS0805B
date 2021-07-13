@@ -321,46 +321,55 @@ app.get('/checkoutdelete',(req,res)=>{
             
                 })
 })
-app.get('/homepage',(req,res, next)=>{
+app.get('/homepage',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    query=`select * from public.category`;
-    myconect.query(query,(err,result) =>{
-        if(err)
-        {
-            console.log(err);
-        }
-    else{
-            res.render(path.join(__dirname,'/homepage.html'),{result: result})
-        }
-
-    })
+    
+  
     if(data.productid)
     {
-        query=`select * from public.product where id=${data.productid}`;
-        myconect.query(query,(err1,result1) =>{
+        query=`select * from public.category`;
+        query1=`select * from public.product where id=${data.productid}`;
+        myconect.query(query,(err,result) =>{
+            if(err)
+            {
+                console.log(err);
+            }
+        else{
+        myconect.query(query1,(err1,result1) =>{
             if(err1)
             {
                 console.log(err1);
             }
         else{
-            res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
+            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
             }
     
         })
+        }
+    })
     }else{
-        query=`select * from public.product`;
-        myconect.query(query,(err1,result1) =>{
-            if(err1)
+        query=`select * from public.category`;
+        myconect.query(query,(err,result) =>{
+            if(err)
             {
-                next(err1);
+                console.log(err);
             }
         else{
-                res.render(path.join(__dirname,'/homepage.html'),{result1: result1})
+        query1=`select * from public.product`;
+        myconect.query(query1,(err1,result1) =>{
+            if(err1)
+            {
+                console.log(err1);
+            }
+        else{
+                res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
             }
     
         })
+    }
+})
     }
     
 })
