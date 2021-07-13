@@ -1,3 +1,4 @@
+const query =(query =>{
 const connection = require('pg').Pool;
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
@@ -7,12 +8,12 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-var query =(query =>{
+
 
     myconect.query(query,(err,result) =>{
         if(err)
         {
-            return(err);
+            return err;
         }      
         else{
             return result;
