@@ -37,6 +37,7 @@ app.get('/addproduct',(req, res) => {
         myconect.query(query2,(err,result) =>{
             if(err)
             {
+                
                 console.log(err)
                 return;
             }      
