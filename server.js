@@ -8,13 +8,16 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
 app.engine('html', require('ejs').renderFile);
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
-var nDate = new Date().toLocaleString('vi-VN', {
-    timeZone: 'Asia/Saigon'
-});
+app.use(session({
+    resave: true, 
+    saveUninitialized: true, 
+    secret: 'somesecret', 
+    cookie: { maxAge: 60000 }}));
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
     api_key: '779499346745353', 
@@ -89,7 +92,6 @@ app.get('/addcategory',(req,res)=>{
     var data=q.query;
     const cateID = data.cateid;
     const catename= data.catename;
-    const cateid= data.cateid;
     const decription=data.catedecription;
     if(cateID)
     {
@@ -166,6 +168,7 @@ app.get('/viewcategory',(req,res)=>{
         }
     })
 })
+
 app.get('/checkout',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -178,6 +181,7 @@ app.get('/checkout',(req,res)=>{
                 
                 if(data.productid && data.quantity)
                 {
+                  
                     query=`insert into public.checkout(proid,quantity) values('${data.productid}',${data.quantity})`;
                     myconect.query(query,(err,result) =>{
                         if(err)
@@ -206,6 +210,9 @@ app.get('/checkout',(req,res)=>{
                         }
                     else{
                     var total=0;
+                    var nDate = new Date().toLocaleString('vi-VN', {
+                        timeZone: 'Asia/Saigon'
+                    });
                     for(var i=0;i<result1.rowCount;i++)
                     {
                         total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
