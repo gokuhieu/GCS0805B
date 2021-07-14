@@ -12,11 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
-app.use(session({
-    resave: true, 
-    saveUninitialized: true, 
-    secret: 'somesecret', 
-    cookie: { maxAge: 60000 }}));
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
     api_key: '779499346745353', 
