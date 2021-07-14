@@ -10,14 +10,35 @@
   <title>Check-out/Invoice</title>
  </head>
  <body>
-	<form action="/checkout1" method="GET">
+	<form action="/checkout" method="GET">
  
       <div>
         <h1>Invoice Information</h1>
           <label>Invoice ID</label>
           <input type="text" name="invoiceid" value="">
 		<h1>Invoice Details</h1>
-
+    <table class="table" style="width:100%" >
+      <thead class="thead-dark">
+    <tr>
+    <th scope="col">Product ID</th>
+    <th scope="col">Product Name</th>
+    <th scope="col">Product price</th> 
+    <th scope="col">quantity</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    </tr>
+    </thead>
+                        <% for(var x=0;x < result1.rowCount;x++){%>
+                        <tr> 
+                            <td scope="row"><%= result1.rows[x].id%> </td> 
+                            <td class="border1"><%= result1.rows[x].name%> </td> 
+                            <td class="border1"><%= result1.rows[x].price;%></td>
+                            <td class="border1"><%= result1.rows[x].quantity;%></td>
+                            <td class="border1"><a href="/checkoutdelete/?productid=<%= result1.rows[x].id%>">delete</a></td>
+                         </tr>
+                        
+          <%} %>
+        </table>
 			<label>Product ID</label>
 			<select name="productid" id="productid " value="" style="width:200px;" >
                 <% for(var i=0; i< result.rowCount;i++){ %> 
