@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
 app.engine('html', require('ejs').renderFile);
-app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
