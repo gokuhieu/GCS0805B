@@ -26,12 +26,12 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
+
 app.get('/addproduct',(req, res) => {
     var query2 ="select * from public.category";
         myconect.query(query2,(err,result) =>{
             if(err)
             {
-                
                 console.log(err)
                 return;
             }      
@@ -42,10 +42,7 @@ app.get('/addproduct',(req, res) => {
         }) 
 })
 app.post('/addproduct1',(req,res)=>{
-    var q="";
-    q = url.parse(req.url, true);
     var pid="";
-    var data=q.query;
     pid = req.body.pid;
     const pname= req.body.pname;
     const pprice =req.body.pprice;
@@ -173,10 +170,8 @@ app.get('/checkout',(req,res)=>{
         switch (data.form)
         {      
             case "addproduct":
-                
                 if(data.productid && data.quantity)
                 {
-                  
                     query=`insert into public.checkout(proid,quantity) values('${data.productid}',${data.quantity})`;
                     myconect.query(query,(err,result) =>{
                         if(err)
@@ -184,7 +179,6 @@ app.get('/checkout',(req,res)=>{
                             console.log(err);
                         }
                     else{
- 
                     }
                     })
                 }
@@ -264,16 +258,16 @@ app.get('/productdelete',(req,res)=>{
     q = url.parse(req.url, true);
     var data=q.query;
     query1=`delete from public.product where id = '${data.productid}'`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                else{
-                res.redirect('/home/?id=1')
-            }
+        myconect.query(query1,(err,result1) =>{
+        if(err)
+        {
+                console.log(err);
+        }
+        else{
+        res.redirect('/home/?id=1')
+        }
             
-                })
+     })
 })
 app.get('/categorydelete',(req,res)=>{
     var q="";
