@@ -14,8 +14,6 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
-var session;
-const oneDay = 1000 * 60 * 60 * 24;
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
