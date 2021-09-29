@@ -118,6 +118,7 @@ app.get('/addcategory',(req,res)=>{
 
 app.get('/home',(req,res)=>{
     var q="";
+    session=req.session;
     q = url.parse(req.url, true);
     var data=q.query;
     const id = data.id;
@@ -128,7 +129,7 @@ app.get('/home',(req,res)=>{
         {
                 console.log(err);
         }else {
-        res.render(path.join(__dirname,'./home.html'),{result: result,idp: id})
+        res.render(path.join(__dirname,'./home.html'),{result: result,idp: id,username:session.userid})
         }
     })
 }
@@ -140,7 +141,7 @@ app.get('/home',(req,res)=>{
         {
                 console.log(err);
         }else{
-        res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id})
+        res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id,username:session.userid})
         }
         })  
     }
@@ -153,12 +154,12 @@ app.get('/home',(req,res)=>{
                 console.log(err);
             }
         else{
-        res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id})
+        res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id,username:session.userid})
         }
     })  
     }
     else{
-        res.render(path.resolve(__dirname,'./home.html'),{idp:0})
+        res.render(path.resolve(__dirname,'./home.html'),{idp:0,username:session.userid})
     }  
 })
 app.get('/viewcategory',(req,res)=>{
