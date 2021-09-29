@@ -377,7 +377,7 @@ app.get('/homepage',(req,res)=>{
     }
     
 })
-app.get("/login",req,res=>{
+app.get("/login",(req,res)=>{
     session=req.session;
     if(session.userid){
         res.render(path.join(__dirname,'/home.html'),{status:session.userid})
@@ -385,7 +385,7 @@ app.get("/login",req,res=>{
     res.sendFile('/login.html',{root:__dirname})
 
 })
-app.get("/user",req,res=>{
+app.get("/user",(req,res)=>{
     query ="SELECT * FROM public.account";
     myconect.query(query,(err,result) =>{
         if(err1)
