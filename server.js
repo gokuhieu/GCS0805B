@@ -412,7 +412,7 @@ app.post("/user",(req,res)=>{
 })
 })
 app.get("/logout",(req,res) => {
-    req.session.destroy();
+    req.session= null;
     res.redirect('/');
 });
 app.listen(port, () => {
