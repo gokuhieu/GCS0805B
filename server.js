@@ -15,11 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
 var cloudinary = require('cloudinary').v2;
+var session;
+const oneDay = 1000 * 60 * 60 * 24;
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
     api_key: '779499346745353', 
     api_secret: 'AIHCfCxi9ZX23i93z41om9PlwYc' 
-  });
+});
 
 app.set('trust proxy', 1);
 const connection = require('pg').Pool;
@@ -31,29 +33,30 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-    var session;
-    const oneDay = 1000 * 60 * 60 * 24;
-    app.use(sessions({
-        secure: true,
-        secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-        saveUninitialized:true,
-        cookie: { maxAge: oneDay },
-        resave: false 
-    }));
+
+app.use(sessions({
+    secure: true,
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+
 app.get('/addproduct',(req, res) => {
     var query2 ="select * from public.category";
-        myconect.query(query2,(err,result) =>{
-            if(err)
-            {
-                console.log(err)
-                return;
-            }      
-            else{
-                res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
-            }
+    myconect.query(query2,(err,result) =>{
+        if(err)
+        {
+            console.log(err)
+            return;
+        }      
+        else{
+            res.render(path.resolve(__dirname,'./addproduct.html'),{result: result});
+        }
             
-        }) 
+    }) 
 })
+
 app.post('/addproduct1',(req,res)=>{
     var pid="";
     pid = req.body.pid;
@@ -61,29 +64,28 @@ app.post('/addproduct1',(req,res)=>{
     const pprice =req.body.pprice;
     const cateid= req.body.cateid;
     const decription=req.body.pdecription;
-        if(pid)
-        {  
-            try {
-                cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 400, height: 500},(err,result) =>{
-                    if(err){
-                        console.log(err)
-                    }
+    if(pid)
+    {  
+        try {
+            cloudinary.uploader.upload(req.files.pimage.tempFilePath,{ width: 400, height: 500},(err,result) =>{
+                if(err){
+                    console.log(err)
+                }
                 var query1 ="insert into public.product values('"+pid+"'"+",'"+pname+"'"+",'"+cateid+"'"+",'"+pprice+"'"+",'"+decription+"','"+result.url+"')";
                 myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err)
-                        return;
-                    }   
+                if(err)
+                {
+                    console.log(err)
+                     return;
+                }   
                     res.redirect("/home/?id=1")   
                 })
-            
-        })
-            } catch (error) {
-                console.log(error)
-            }
-
+            })
+        } catch (error) {
+            console.log(error)
         }
+
+    }
 })
 
 app.get('/',(req,res)=>{
@@ -96,7 +98,6 @@ app.get('/',(req,res)=>{
         res.redirect("/homepage")
     }
 })
-
 
 app.get('/addcategory',(req,res)=>{
     var q="";
@@ -116,7 +117,6 @@ app.get('/addcategory',(req,res)=>{
             }      
         })
         res.redirect("/home/?id=2")
-        
     }
     else{
         res.sendFile(path.resolve(__dirname,'./addcategory.html'))
@@ -133,24 +133,24 @@ app.get('/home',(req,res)=>{
     if(id=='1'){
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
-        if(err)
-        {
+            if(err)
+            {
                 console.log(err);
-        }else {
-        res.render(path.join(__dirname,'./home.html'),{result: result,idp: id,username:session.userid})
-        }
-    })
-}
+            }else {
+                res.render(path.join(__dirname,'./home.html'),{result: result,idp: id,username:session.userid})
+            }
+        })
+    }
     else if(id=='2')
     {
         query="SELECT * FROM public.category";
         myconect.query(query,(err,result1) =>{
-        if(err)
-        {
+            if(err)
+            {
                 console.log(err);
-        }else{
-        res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id,username:session.userid})
-        }
+            }else{
+                res.render(path.join(__dirname,'./home.html'),{result1: result1,idp:id,username:session.userid})
+            }
         })  
     }
     else if(id=='3')
@@ -161,10 +161,10 @@ app.get('/home',(req,res)=>{
             {
                 console.log(err);
             }
-        else{
-        res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id,username:session.userid})
-        }
-    })  
+            else{
+                res.render(path.join(__dirname,'./home.html'),{result3: result3,idp:id,username:session.userid})
+            }
+        })  
     }
     else{
         res.render(path.resolve(__dirname,'./home.html'),{idp:0,username:session.userid})
@@ -174,6 +174,7 @@ else {
     res.redirect("/homepage")
 }
 })
+
 app.get('/viewcategory',(req,res)=>{
     query="SELECT * FROM public.category";
     myconect.query(query,(err,result) =>{
@@ -182,7 +183,7 @@ app.get('/viewcategory',(req,res)=>{
             console.log(err);
         }
         else{
-        res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
+            res.render(path.join(__dirname,'./viewcategory.html'),{result: result})
         }
     })
 })
@@ -204,8 +205,8 @@ app.get('/checkout',(req,res)=>{
                         {
                             console.log(err);
                         }
-                    else{
-                    }
+                         else{
+                        }
                     })
                 }
                 res.redirect("/checkout")
@@ -214,46 +215,45 @@ app.get('/checkout',(req,res)=>{
             var q="";
             q = url.parse(req.url, true);
             var data=q.query;
-                if(data.invoiceid) 
+            if(data.invoiceid) 
             {
                 query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
-                    myconect.query(query1,(err,result1)=>{
-                        if(err)
-                        {
-                            console.log(err)
-                        }
-                    else{
-                    var total=0;
-                    var nDate = new Date().toLocaleString('vi-VN', {
-                        timeZone: 'Asia/Saigon'
-                    });
-                    for(var i=0;i<result1.rowCount;i++)
+                myconect.query(query1,(err,result1)=>{
+                    if(err)
                     {
-                        total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
-                    }   
-                    query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
-                    myconect.query(query,(err,result)=>{
-                        if (err)
+                        console.log(err)
+                    }
+                    else{
+                        var total=0;
+                        var nDate = new Date().toLocaleString('vi-VN', {
+                            timeZone: 'Asia/Saigon'
+                        });
+                        for(var i=0;i<result1.rowCount;i++)
                         {
-                            console.log(err);
-                        }
-                    })
-                    query2=`delete from public.checkout`;
-                    myconect.query(query2,(err,result2)=>{
-                        if (err)
-                        {
-                            console.log(err);
-                        }
-                    })
-                    res.redirect("/home/?id=3")        
-                }
-                    })
-                } 
+                            total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
+                        }   
+                        query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
+                        myconect.query(query,(err,result)=>{
+                            if (err)
+                            {
+                                console.log(err);
+                            }
+                        })
+                        query2=`delete from public.checkout`;
+                        myconect.query(query2,(err,result2)=>{
+                            if (err)
+                            {
+                                console.log(err);
+                            }
+                        })
+                        res.redirect("/home/?id=3")        
+                    }
+                })
+            } 
             break;
             default:
                 break;
-            }
-        
+        }
     }else{
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
@@ -261,87 +261,88 @@ app.get('/checkout',(req,res)=>{
             {
                 console.log(err);
             }
-        else{
-                 query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
+            else
+            {
+                query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
                 myconect.query(query1,(err,result1) =>{
                     if(err)
                     {
                         console.log(err);
                     }
-                else{
-                res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
+                    else{
+                        res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
+                    }
+                }) 
             }
-            
-                })
-       
+        })
     }
-    })
-}
 })
+
 app.get('/productdelete',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     query1=`delete from public.product where id = '${data.productid}'`;
-        myconect.query(query1,(err,result1) =>{
+    myconect.query(query1,(err,result1) =>{
         if(err)
         {
-                console.log(err);
+            console.log(err);
         }
         else{
-        res.redirect('/home/?id=1')
-        }
-            
-     })
+            res.redirect('/home/?id=1')
+        }       
+    })
 })
+
 app.get('/categorydelete',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     query1=`delete from public.category where cateid = '${data.cateid}'`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                else{
-                res.redirect('/home/?id=2')
-            }
+    myconect.query(query1,(err,result1) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.redirect('/home/?id=2')
+        }
             
-                })
+    })
 })
+
 app.get('/invoicedelete',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     query1=`delete from public.invoice where invoiceid = '${data.invoiceid}'`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                else{
-                res.redirect('/home/?id=3')
-            }
-            
-                })
+    myconect.query(query1,(err,result1) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.redirect('/home/?id=3')
+        }
+    })
 })
+
 app.get('/checkoutdelete',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     query1=`delete from public.checkout where proid = '${data.productid}'`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                else{
-                res.redirect('/checkout')
-            }
-            
-                })
+    myconect.query(query1,(err,result1) =>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else{
+            res.redirect('/checkout')
+        }  
+    })
 })
+
 app.get('/homepage',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -356,19 +357,18 @@ app.get('/homepage',(req,res)=>{
             {
                 console.log(err);
             }
-        else{
-        myconect.query(query1,(err1,result1) =>{
-            if(err1)
-            {
-                console.log(err1);
+            else{
+                myconect.query(query1,(err1,result1) =>{
+                    if(err1)
+                    {
+                        console.log(err1);
+                    }
+                    else{
+                        res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
+                    }
+                })
             }
-        else{
-            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
-            }
-    
         })
-        }
-    })
     }else{
         query=`select * from public.category`;
         myconect.query(query,(err,result) =>{
@@ -376,26 +376,25 @@ app.get('/homepage',(req,res)=>{
             {
                 console.log(err);
             }
-        else{
-        query1=`select * from public.product`;
-        myconect.query(query1,(err1,result1) =>{
-            if(err1)
-            {
-                console.log(err1);
+            else{
+                query1=`select * from public.product`;
+                myconect.query(query1,(err1,result1) =>{
+                    if(err1)
+                    {
+                        console.log(err1);
+                    }
+                    else{
+                        res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
+                    }
+                })
             }
-        else{
-                res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
-            }
-    
         })
     }
-})
-    }
     
 })
+
 app.get("/login",(req,res)=>{
     session=req.session;
-    
     if(session.userid){
         if(session.usertype=="1")
         {
@@ -404,9 +403,11 @@ app.get("/login",(req,res)=>{
         {
             res.redirect("/homepage")
         }
-    }else
-    res.render(path.join(__dirname,'/login.html'),{status:""})
+    }else{
+        res.render(path.join(__dirname,'/login.html'),{status:""})
+    }
 })
+
 app.post("/user",(req,res)=>{
     query ="SELECT * FROM public.account";
     myconect.query(query,(err,result) =>{
@@ -414,43 +415,46 @@ app.post("/user",(req,res)=>{
         {
             console.log(err);
         }
-    else{
-        for(var i=0;i<result.rowCount;i++)
-        {     
-    if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
-        session=req.session;
-        session.userid=req.body.username;
-        session.usertype="1";
-        break;
-        
-    }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
-        session=req.session;
-        session.userid=req.body.username;
-        session.usertype="2";
-        break;
-    }
-    else{ 
-    }
-}  
-if(session.usertype)
-{
-    if(session.usertype=="1"){
-        res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
-    }
-    else if(session.usertype=="2"){res.redirect("/homepage")}
-    else{
-        res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
-    }
-}else{
-    res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
-}
-}
+        else
+        {
+            for(var i=0;i<result.rowCount;i++)
+            {     
+                if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
+                    session=req.session;
+                    session.userid=req.body.username;
+                    session.usertype="1";
+                    break;
+                }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
+                    session=req.session;
+                    session.userid=req.body.username;
+                    session.usertype="2";
+                    break;
+                }
+            }  
+            if(session.usertype)
+            {
+                if(session.usertype=="1"){
+                    res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
+                }
+                else if(session.usertype=="2")
+                {
+                    res.redirect("/homepage")
+                }
+                else{
+                    res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
+                }
+            }else{
+            res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
+            }
+        }
+    })
 })
-})
+
 app.get("/logout",(req,res) => {
     req.session= null;
     res.redirect('/homepage');
 });
+
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
