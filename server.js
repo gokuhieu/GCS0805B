@@ -423,11 +423,13 @@ app.post("/user",(req,res)=>{
         session.userid=req.body.username;
         session.usertype="1";
         res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
-    }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
+        break;
+    }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
         session=req.session;
         session.userid=req.body.username;
         session.usertype="2";
         res.redirect("/homepage")
+        break;
     }
     else{
         res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
