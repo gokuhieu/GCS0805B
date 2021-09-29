@@ -404,7 +404,6 @@ app.get("/login",(req,res)=>{
         {
             res.redirect("/homepage")
         }
-       
     }else
     res.render(path.join(__dirname,'/login.html'),{status:""})
 })
@@ -432,9 +431,10 @@ app.post("/user",(req,res)=>{
         break;
     }
     else{
-        res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
+        
     }
 }  
+res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
 }
 })
 })
