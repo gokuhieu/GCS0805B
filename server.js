@@ -88,7 +88,13 @@ app.post('/addproduct1',(req,res)=>{
 
 app.get('/',(req,res)=>{
     session =req.session;
-    res.render(path.join(__dirname,'./home.html'),{idp:0,username:session.userid})
+    if(req.session.usertype=="1")
+    {
+        res.render(path.join(__dirname,'./home.html'),{idp:0,username:session.userid})
+    }
+    else{
+        res.redirect("/homepage")
+    }
 })
 
 
@@ -123,6 +129,7 @@ app.get('/home',(req,res)=>{
     q = url.parse(req.url, true);
     var data=q.query;
     const id = data.id;
+    if(req.session.usertype=="1"){
     if(id=='1'){
         query="SELECT * FROM public.product";
         myconect.query(query,(err,result) =>{
@@ -162,6 +169,10 @@ app.get('/home',(req,res)=>{
     else{
         res.render(path.resolve(__dirname,'./home.html'),{idp:0,username:session.userid})
     }  
+}
+else {
+    res.redirect("/homepage")
+}
 })
 app.get('/viewcategory',(req,res)=>{
     query="SELECT * FROM public.category";
@@ -402,6 +413,7 @@ app.post("/user",(req,res)=>{
     if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
         session=req.session;
         session.userid=req.body.username;
+        session.usertype="1";
         res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
     }
     else{
