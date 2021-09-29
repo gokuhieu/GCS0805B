@@ -386,7 +386,7 @@ app.get("/login",(req,res)=>{
     if(session.userid){
         res.redirect("/home")
     }else
-    res.sendFile('/login.html',{root:__dirname})
+    res.render(path.join(__dirname,'/login.html'),{status:""})
 
 })
 app.post("/user",(req,res)=>{
@@ -405,7 +405,7 @@ app.post("/user",(req,res)=>{
         res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
     }
     else{
-        res.send('Invalid username or password');
+        res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
     }
 }  
 }
