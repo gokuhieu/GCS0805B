@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const sessions = require('cookie-session');
 const port = process.env.PORT || 3000;
-
+var invoiceid=0;
 const fileUpload = require('express-fileupload')
 app.engine('html', require('ejs').renderFile);
 app.use(express.urlencoded({ extended: true })); 
@@ -203,8 +203,8 @@ app.get('/checkout',(req,res)=>{
             var q="";
             q = url.parse(req.url, true);
             var data=q.query;
-                if(data.invoiceid) 
-            {
+
+                invoiceid++;
                 query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
                     myconect.query(query1,(err,result1)=>{
                         if(err)
@@ -220,7 +220,7 @@ app.get('/checkout',(req,res)=>{
                     {
                         total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
                     }   
-                    query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
+                    query=`insert into public.invoice values('${invoiceid}','${nDate}','${total}')`;
                     myconect.query(query,(err,result)=>{
                         if (err)
                         {
@@ -237,7 +237,7 @@ app.get('/checkout',(req,res)=>{
                     res.redirect("/home/?id=3")        
                 }
                     })
-                } 
+                
             break;
             default:
                 break;
