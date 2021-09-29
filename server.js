@@ -6,7 +6,7 @@ const path = require('path');
 var product= require('./product.js')
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
-const sessions = require('express-session');
+const sessions = require('cookie-session');
 const port = process.env.PORT || 3000;
 
 const fileUpload = require('express-fileupload')
@@ -41,7 +41,6 @@ const myconect = new connection({
     app.use(sessions({
         secure: true,
         secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-        store: new RedisStore(),
         saveUninitialized:true,
         cookie: { maxAge: oneDay },
         resave: false 
