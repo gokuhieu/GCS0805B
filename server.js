@@ -87,7 +87,8 @@ app.post('/addproduct1',(req,res)=>{
 })
 
 app.get('/',(req,res)=>{
-    res.render(path.join(__dirname,'./home.html'),{idp:0})
+    session =req.session;
+    res.render(path.join(__dirname,'./home.html'),{idp:0,username:session.userid})
 })
 
 
