@@ -382,7 +382,7 @@ app.get('/homepage',(req,res)=>{
 app.get("/login",(req,res)=>{
     session=req.session;
     if(session.userid){
-        res.render(path.join(__dirname,'/home.html'),{status:session.userid})
+        res.redirect("/home")
     }else
     res.sendFile('/login.html',{root:__dirname})
 
@@ -400,7 +400,7 @@ app.post("/user",(req,res)=>{
     if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
         session=req.session;
         session.userid=req.body.username;
-        res.render(path.join(__dirname,'/home.html'),{username:result.rows[i].username})
+        res.sendFile(path.join(__dirname,'/home.html'),{username:result.rows[i].username})
     }
     else{
         res.send('Invalid username or password');
