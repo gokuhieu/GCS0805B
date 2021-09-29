@@ -392,7 +392,7 @@ app.get("/user",req,res=>{
         for(var i=0;i<result.rowCount;i++)
         {
             
-    if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&rows[i].type =="1"){
+    if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
         session=req.session;
         session.userid=req.body.username;
         res.redirect('/home')
