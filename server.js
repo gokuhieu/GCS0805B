@@ -390,7 +390,7 @@ app.get("/login",(req,res)=>{
 app.post("/user",(req,res)=>{
     query ="SELECT * FROM public.account";
     myconect.query(query,(err,result) =>{
-        if(err1)
+        if(err)
         {
             console.log(err);
         }
