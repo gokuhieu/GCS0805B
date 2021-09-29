@@ -371,6 +371,40 @@ app.get('/homepage',(req,res)=>{
     }
     
 })
+app.get("/login",req,res=>{
+    session=req.session;
+    if(session.userid){
+        res.render(path.join(__dirname,'/home.html'),{status:session.userid})
+    }else
+    res.sendFile('/login.html',{root:__dirname})
+
+})
+app.get("/user",req,res=>{
+    query ="SELECT * FROM public.account";
+    myconect.query(query,(err,result) =>{
+        if(err1)
+        {
+            console.log(err);
+        }
+    else{
+            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
+       
+        for(var i=0;i<result.rowCount;i++)
+        {
+            
+    if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&rows[i].type =="1"){
+        session=req.session;
+        session.userid=req.body.username;
+        res.redirect('/home')
+    }
+    else{
+        res.send('Invalid username or password');
+    }
+}  
+}
+})
+
+})
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
