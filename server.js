@@ -5,18 +5,23 @@ var url = require('url');
 const path = require('path');
 var product= require('./product.js')
 const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
 const port = process.env.PORT || 3000;
 const fileUpload = require('express-fileupload')
 app.engine('html', require('ejs').renderFile);
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true })); 
 app.use('/public/images',express.static((__dirname+ '/public/images')))
 app.use(fileUpload({useTempFiles: true}))
+var session;
+const oneDay = 1000 * 60 * 60 * 24;
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
     cloud_name: 'hmdahuj7l', 
     api_key: '779499346745353', 
     api_secret: 'AIHCfCxi9ZX23i93z41om9PlwYc' 
   });
+
 const connection = require('pg').Pool;
 const myconect = new connection({
     user: 'zzdduyaaxgfqab',
@@ -184,8 +189,7 @@ app.get('/checkout',(req,res)=>{
                 }
                 res.redirect("/checkout")
                 break;
-            case"submit" :
-            
+            case"submit" :   
             var q="";
             q = url.parse(req.url, true);
             var data=q.query;
