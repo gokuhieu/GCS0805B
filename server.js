@@ -422,12 +422,12 @@ app.post("/user",(req,res)=>{
         session.userid=req.body.username;
         session.usertype="1";
        
-        
+        break;
     }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
         session=req.session;
         session.userid=req.body.username;
         session.usertype="2";
-        
+        break;
     }
     else{ 
     }
