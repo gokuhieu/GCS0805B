@@ -20,12 +20,7 @@ cloudinary.config({
     api_key: '779499346745353', 
     api_secret: 'AIHCfCxi9ZX23i93z41om9PlwYc' 
   });
-  app.use(function(req,res,next){
-    if(!req.session){
-        return next(new Error('Oh no')) //handle error
-    }
-    next() //otherwise continue
-    });
+
 app.set('trust proxy', 1);
 const connection = require('pg').Pool;
 const myconect = new connection({
