@@ -346,6 +346,7 @@ app.get('/homepage',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
+    session=req.session;
     if(data.productid)
     {
         query=`select * from public.category`;
@@ -362,7 +363,7 @@ app.get('/homepage',(req,res)=>{
                 console.log(err1);
             }
         else{
-            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
+            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
             }
     
         })
@@ -383,7 +384,7 @@ app.get('/homepage',(req,res)=>{
                 console.log(err1);
             }
         else{
-                res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
+                res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result,username:req.session.userid})
             }
     
         })
@@ -394,11 +395,18 @@ app.get('/homepage',(req,res)=>{
 })
 app.get("/login",(req,res)=>{
     session=req.session;
+    
     if(session.userid){
-        res.redirect("/home")
+        if(session.usertype=="1")
+        {
+            res.redirect("/home")
+        }else if(session.usertype=="2")
+        {
+            res.redirect("/homepage")
+        }
+       
     }else
     res.render(path.join(__dirname,'/login.html'),{status:""})
-
 })
 app.post("/user",(req,res)=>{
     query ="SELECT * FROM public.account";
@@ -415,6 +423,11 @@ app.post("/user",(req,res)=>{
         session.userid=req.body.username;
         session.usertype="1";
         res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
+    }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
+        session=req.session;
+        session.userid=req.body.username;
+        session.usertype="1";
+        res.redirect("/homepage")
     }
     else{
         res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
@@ -425,7 +438,7 @@ app.post("/user",(req,res)=>{
 })
 app.get("/logout",(req,res) => {
     req.session= null;
-    res.redirect('/');
+    res.redirect('/homepage');
 });
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
