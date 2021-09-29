@@ -410,9 +410,8 @@ app.post("/user",(req,res)=>{
 }  
 }
 })
-
 })
-app.get('/logout',(req,res) => {
+app.get("/logout",(req,res) => {
     req.session.destroy();
     res.redirect('/');
 });
