@@ -412,6 +412,10 @@ app.post("/user",(req,res)=>{
 })
 
 })
+app.get('/logout',(req,res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
