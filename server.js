@@ -385,7 +385,7 @@ app.get("/login",(req,res)=>{
     res.sendFile('/login.html',{root:__dirname})
 
 })
-app.get("/user",(req,res)=>{
+app.post("/user",(req,res)=>{
     query ="SELECT * FROM public.account";
     myconect.query(query,(err,result) =>{
         if(err1)
