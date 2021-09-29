@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 const port = process.env.PORT || 3000;
+
 const fileUpload = require('express-fileupload')
 app.engine('html', require('ejs').renderFile);
 app.use(express.urlencoded({ extended: true })); 
@@ -31,7 +32,14 @@ const myconect = new connection({
     port: 5432,
     ssl: {rejectUnauthorized: false},
     });
-
+    var session;
+    const oneDay = 1000 * 60 * 60 * 24;
+    app.use(sessions({
+        secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+        saveUninitialized:true,
+        cookie: { maxAge: oneDay },
+        resave: false 
+    }));
 app.get('/addproduct',(req, res) => {
     var query2 ="select * from public.category";
         myconect.query(query2,(err,result) =>{
