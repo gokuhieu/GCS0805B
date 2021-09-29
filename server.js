@@ -395,11 +395,8 @@ app.post("/user",(req,res)=>{
             console.log(err);
         }
     else{
-            res.render(path.join(__dirname,'/homepage.html'),{result1: result1,result: result})
-       
         for(var i=0;i<result.rowCount;i++)
-        {
-            
+        {     
     if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
         session=req.session;
         session.userid=req.body.username;
