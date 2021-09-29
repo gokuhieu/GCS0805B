@@ -432,11 +432,16 @@ app.post("/user",(req,res)=>{
     else{ 
     }
 }  
-if(session.usertype=="1"){
-    res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
-}
-else if(session.usertype=="2"){res.redirect("/homepage")}
-else{
+if(session.usertype)
+{
+    if(session.usertype=="1"){
+        res.render(path.join(__dirname,'/home.html'),{username:session.userid,idp:0})
+    }
+    else if(session.usertype=="2"){res.redirect("/homepage")}
+    else{
+        res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
+    }
+}else{
     res.render(path.join(__dirname,'/login.html'),{status:"wrong username or password"})
 }
 }
