@@ -400,7 +400,7 @@ app.post("/user",(req,res)=>{
     if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="1"){
         session=req.session;
         session.userid=req.body.username;
-        res.render(path.join(__dirname,'/home.html'),{userid:result.rows[i].username})
+        res.render(path.join(__dirname,'/home.html'),{username:result.rows[i].username})
     }
     else{
         res.send('Invalid username or password');
