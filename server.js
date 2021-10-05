@@ -455,6 +455,21 @@ app.get("/logout",(req,res) => {
     res.redirect('/homepage');
 });
 
+app.get("/cart",(req,res) => {
+    if(req.body.pid)
+    {
+        session=req.session;
+        session.cart=req.body.pid;
+        var cart =session.cart;
+        var displaycart={items:[],total:0}
+        var total=0;
+        for(var items in displaycart)
+        {
+            displaycart.items.push(cart[items])
+            // total += (cart[items].qty*cart[items].price)
+        }
+    }
+})
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
