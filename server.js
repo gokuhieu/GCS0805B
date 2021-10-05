@@ -423,13 +423,13 @@ app.post("/user",(req,res)=>{
                     session=req.session;
                     session.userid=req.body.username;
                     session.usertype="1";
-                    session.cart={items:[],total:2}
+                    session.cart={items:[],total:0,quantity:[]}
                     break;
                 }else if(req.body.username ==  result.rows[i].username && req.body.password == result.rows[i].password&&result.rows[i].type =="2"){
                     session=req.session;
                     session.userid=req.body.username;
                     session.usertype="2";
-                    session.cart={items:[],total:2}
+                    session.cart={items:[],total:0,quantity:[]}
                     break;
                 }
             }  

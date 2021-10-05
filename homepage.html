@@ -119,6 +119,11 @@
                   </h4>
                   <h5> <%= result1.rows[i].price %> </h5>
                   <p class="card-text"><%= result1.rows[i].description.substring(0,100)+"..." %></p>
+                  <form action="/cart"action="GET">
+                  <input type="hidden"name="productid"value="<%= result1.rows[i].id %>">
+                  <input type="hidden" name ="quantity"value="1">
+                  <input type="submit" value="cart">
+                </form>
                     <a href="/cart/?productid=<%= result1.rows[i].id %>">add cart</a>
                 </div>
               </div>
