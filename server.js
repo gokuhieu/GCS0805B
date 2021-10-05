@@ -459,18 +459,18 @@ app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-        session=req.session;
-        session.cart=data.productid;
+    session=req.session;
+    session.cart=data.productid;
         
-        var displaycart={items:[],total:1}
-        var total=0;
-        // for(var items in session.cart)
-        // {
-        //     displaycart.items.push(session.cart[items])
-        //     // total += (cart[items].qty*cart[items].price)
+    var displaycart={items:[],total:1}
+    var total=0;
+    // for(var items in session.cart)
+    // {
+    //     displaycart.items.push(session.cart[items])
+    //     // total += (cart[items].qty*cart[items].price)
             
-        // }
-        res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
+    // }
+    res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
     
     
 })
