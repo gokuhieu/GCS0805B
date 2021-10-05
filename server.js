@@ -467,6 +467,7 @@ app.get("/cart",(req,res) => {
        res.render(path.join(__dirname,'/cart.html'),{cart:displaycard})
     }
     else{
+        total=0;
         res.redirect("/login")
     }
    
