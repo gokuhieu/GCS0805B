@@ -459,19 +459,25 @@ app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    session=req.session;
-    session.cart=data.productid;
-        
-    var displaycart={items:[],total:0}
-    var total=0;
-    for(var items in session.cart)
+    if(session)
     {
-        displaycart.items.push(session.cart[items])
-        // total += (cart[items].qty*cart[items].price)
-        displaycart.total++;
-            
+        session.cart=data.productid;
+        
+        var displaycart={items:[],total:0}
+        var total=0;
+        for(var items in session.cart)
+        {
+            displaycart.items.push(session.cart[items])
+            // total += (cart[items].qty*cart[items].price)
+            displaycart.total++;
+                
+        }
+        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
     }
-    res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
+    else{
+        res.redirect("/login")
+    }
+   
     
     
 })
