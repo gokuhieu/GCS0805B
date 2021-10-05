@@ -463,18 +463,19 @@ app.get("/cart",(req,res) => {
     
     if(session.userid)
     {
-        session.cart= data.productid;
+        session.cart= [];
         var displaycart={items:[],total:2}
-        for(var item in session.cart)
+        var total=0;
+        for(var i =0;i<total;i++)
         {
-            displaycart.items.push(session.cart[item])
+            session.cart.push(data.productid)
             // total += (cart[items].qty*cart[items].price)
-            
+            total++;
                 
         }
         console.log(session.cart)
         console.log(displaycart)
-        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
+        res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
     }
     else{
         res.redirect("/login")
