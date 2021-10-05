@@ -1,7 +1,8 @@
 var total=0;
-var additems =(item) =>{
-    
 var item1=[]
+const additems =(item) =>{
+    
+
 
 for(var i=0;i<total;i++)
     {
