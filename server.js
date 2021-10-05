@@ -464,7 +464,7 @@ app.get("/cart",(req,res) => {
     if(session.userid)
     {
        displaycard.items.push(data.productid) 
-       res.render(path.join(__dirname,'/cart'),{cart:displaycard})
+       res.render(path.join(__dirname,'/cart.html'),{cart:displaycard})
     }
     else{
         res.redirect("/login")
