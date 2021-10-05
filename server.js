@@ -4,6 +4,7 @@ const app = express();
 var url = require('url');
 const path = require('path');
 var product= require('./product.js')
+var additems= require('./cart.js')
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const sessions = require('cookie-session');
@@ -463,19 +464,9 @@ app.get("/cart",(req,res) => {
     
     if(session.userid)
     {
-        session.cart= [];
-        var displaycart={items:[],total:2}
-        var total=0;
-        for(var i =0;i<total;i++)
-        {
-            session.cart.push(data.productid)
-            // total += (cart[items].qty*cart[items].price)
-            total++;
-                
-        }
-        console.log(session.cart)
-        console.log(displaycart)
-        res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
+        var cart = additems(data.productid)
+
+        res.render(path.join(__dirname,'/cart.html'),{cart: cart})
     }
     else{
         res.redirect("/login")
