@@ -462,13 +462,13 @@ app.get("/cart",(req,res) => {
     session=req.session;
     session.cart=data.productid;
         
-    var displaycart={items:[],total:1}
+    var displaycart={items:[],total:0}
     var total=0;
     for(var items in session.cart)
     {
         displaycart.items.push(session.cart[items])
         // total += (cart[items].qty*cart[items].price)
-        // displaycart.total++;
+        displaycart.total++;
             
     }
     res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
