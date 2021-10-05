@@ -464,7 +464,7 @@ app.get("/cart",(req,res) => {
     {
         session.cart=data.productid;
         
-        var displaycart={items:[],total:0}
+        var displaycart={items:[],total:2}
         var total=0;
         for(var item in session.cart)
         {
@@ -473,7 +473,7 @@ app.get("/cart",(req,res) => {
             displaycart.total++;
                 
         }
-        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart.items})
+        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
     }
     else{
         res.redirect("/login")
