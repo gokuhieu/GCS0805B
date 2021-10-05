@@ -454,26 +454,25 @@ app.get("/logout",(req,res) => {
     req.session= null;
     res.redirect('/homepage');
 });
-
+var total=0;
 app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     session=req.session;
+    
     if(session.userid)
     {
-        session.cart=data.productid;
-        
+        session.cart= [];
         var displaycart={items:[],total:2}
-        var total=0;
-        for(var item in session.cart)
+        for(var i=0;i<total;i++)
         {
-            displaycart.items.push(session.cart[item])
+            session.cart.push(data.productid)
             // total += (cart[items].qty*cart[items].price)
-            displaycart.total++;
+            total ++;
                 
         }
-        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
+        res.render(path.join(__dirname,'/cart.html'),{totalcart: session.cart})
     }
     else{
         res.redirect("/login")
