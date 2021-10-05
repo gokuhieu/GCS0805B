@@ -474,7 +474,7 @@ app.get("/cart",(req,res) => {
         }
         console.log(session.cart)
         console.log(displaycart)
-        res.render(path.join(__dirname,'/cart.html'),{totalcart: displaycart})
+        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
     }
     else{
         res.redirect("/login")
