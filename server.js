@@ -459,7 +459,7 @@ app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    if(session)
+    if(req.session)
     {
         session.cart=data.productid;
         
