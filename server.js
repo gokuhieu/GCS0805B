@@ -465,15 +465,16 @@ app.get("/cart",(req,res) => {
     {
         session.cart= data.producid;
         var displaycart={items:[],total:2}
-        for(var i=0;i<total;i++)
+        for(var item in session.cart)
         {
-            
+            displaycart.items.push(session.cart[item])
             // total += (cart[items].qty*cart[items].price)
-            total ++;
+            
                 
         }
         console.log(session.cart)
-        res.render(path.join(__dirname,'/cart.html'),{totalcart: session.cart})
+        console.log(displaycart)
+        res.render(path.join(__dirname,'/cart.html'),{totalcart: displaycart})
     }
     else{
         res.redirect("/login")

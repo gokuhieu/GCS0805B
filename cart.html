@@ -8,8 +8,8 @@
 </head>
 <body>
     <h1>hello</h1>
-    <% for(var items in totalcart.cart) {%>
-    <p><%= items %> </p> 
+    <% for(var i = 0; i < cart.total;i++) {%>
+    <p><%= cart.items[i] %> </p> 
     <% } %> 
 </body>
 </html>
