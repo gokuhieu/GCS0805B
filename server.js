@@ -463,11 +463,11 @@ app.get("/cart",(req,res) => {
     
     if(session.userid)
     {
-        session.cart= [];
+        session.cart= data.producid;
         var displaycart={items:[],total:2}
         for(var i=0;i<total;i++)
         {
-            session.cart.push(data.productid)
+            
             // total += (cart[items].qty*cart[items].price)
             total ++;
                 
