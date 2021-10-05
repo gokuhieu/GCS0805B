@@ -466,9 +466,9 @@ app.get("/cart",(req,res) => {
         
         var displaycart={items:[],total:0}
         var total=0;
-        for(var items in session.cart)
+        for(var item in session.cart)
         {
-            displaycart.items.push(session.cart[items])
+            displaycart.items.push(session.cart[item])
             // total += (cart[items].qty*cart[items].price)
             displaycart.total++;
                 
