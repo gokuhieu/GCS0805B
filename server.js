@@ -472,6 +472,7 @@ app.get("/cart",(req,res) => {
             total ++;
                 
         }
+        console.log(session.cart)
         res.render(path.join(__dirname,'/cart.html'),{totalcart: session.cart})
     }
     else{
