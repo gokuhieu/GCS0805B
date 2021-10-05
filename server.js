@@ -456,17 +456,22 @@ app.get("/logout",(req,res) => {
 });
 var total=0;
 var displaycard={items:[],total:2}
-session.cart ={items:[],total:0}
+
 app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     session=req.session;
+    var cart =session.cart;
     
     if(session.userid)
     {
-        session.cart.items.push(data.productid) 
-       res.render(path.join(__dirname,'/cart.html'),{cart:session.cart})
+        for(var item in cart)
+        {
+            displaycard.items.push(cart[item]) 
+        }
+       
+       res.render(path.join(__dirname,'/cart.html'),{cart:displaycard})
     }
     else{
         total=0;
@@ -476,6 +481,7 @@ app.get("/cart",(req,res) => {
     
     
 })
+
 app.listen(port, () => {
     console.log(`Application started and Listening on port ${port}`);
 });
