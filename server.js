@@ -456,15 +456,17 @@ app.get("/logout",(req,res) => {
 });
 var total=0;
 var displaycard={items:[],total:2}
+session.cart ={items:[],total:0}
 app.get("/cart",(req,res) => {
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
     session=req.session;
+    
     if(session.userid)
     {
-       displaycard.items.push(data.productid) 
-       res.render(path.join(__dirname,'/cart.html'),{cart:displaycard})
+        session.cart.items.push(data.productid) 
+       res.render(path.join(__dirname,'/cart.html'),{cart:session.cart})
     }
     else{
         total=0;
