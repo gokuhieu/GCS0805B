@@ -456,8 +456,7 @@ app.get("/logout",(req,res) => {
 });
 
 app.get("/cart",(req,res) => {
-    if(req.body.pid)
-    {
+
         session=req.session;
         session.cart=req.body.pid;
         
@@ -470,7 +469,7 @@ app.get("/cart",(req,res) => {
             
         // }
         res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
-    }
+    
     
 })
 app.listen(port, () => {
