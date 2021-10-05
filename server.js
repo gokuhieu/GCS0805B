@@ -4,7 +4,6 @@ const app = express();
 var url = require('url');
 const path = require('path');
 var product= require('./product.js')
-var additems= require('./cart.js')
 const bodyParser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const sessions = require('cookie-session');
