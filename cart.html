@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello </h1>
-    <p><%= cart %> </p> 
-    
+    <h1>hello</h1>
+    <% for(var i = 0; i <cart.total; i++) {%>
+    <p><%= cart.items[i] %> </p> 
+    <% } %> 
 </body>
 </html>
