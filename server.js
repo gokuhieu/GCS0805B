@@ -473,7 +473,7 @@ app.get("/cart",(req,res) => {
             displaycart.total++;
                 
         }
-        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
+        res.render(path.join(__dirname,'/cart.html'),{cart: displaycart.items})
     }
     else{
         res.redirect("/login")
