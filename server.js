@@ -458,7 +458,7 @@ app.get("/logout",(req,res) => {
 app.get("/cart",(req,res) => {
 
         session=req.session;
-        session.cart=req.body.pid;
+        session.cart=req.body.productid;
         
         var displaycart={items:[],total:1}
         var total=0;
