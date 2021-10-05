@@ -463,7 +463,7 @@ app.get("/cart",(req,res) => {
     
     if(session.userid)
     {
-        session.cart= data.producid;
+        session.cart= data.productid;
         var displaycart={items:[],total:2}
         for(var item in session.cart)
         {
