@@ -467,10 +467,11 @@ app.get("/cart",(req,res) => {
     for(var items in session.cart)
     {
         displaycart.items.push(session.cart[items])
-        total += (cart[items].qty*cart[items].price)
+        // total += (cart[items].qty*cart[items].price)
+        // displaycart.total++;
             
     }
-    res.render(path.join(__dirname,'/cart.html'),{cart: session.cart})
+    res.render(path.join(__dirname,'/cart.html'),{cart: displaycart})
     
     
 })
