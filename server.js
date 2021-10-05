@@ -456,9 +456,11 @@ app.get("/logout",(req,res) => {
 });
 
 app.get("/cart",(req,res) => {
-
+    var q="";
+    q = url.parse(req.url, true);
+    var data=q.query;
         session=req.session;
-        session.cart=req.body.productid;
+        session.cart=data.productid;
         
         var displaycart={items:[],total:1}
         var total=0;
