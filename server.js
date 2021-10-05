@@ -467,7 +467,7 @@ app.get("/cart",(req,res) => {
         {
             displaycart.items.push(cart[items])
             // total += (cart[items].qty*cart[items].price)
-            displaycart.total++;
+            
         }
         res.render(path.join(__dirname,'/cart.html'),{cart:displaycart})
     }
