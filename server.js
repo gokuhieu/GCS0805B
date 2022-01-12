@@ -187,7 +187,7 @@ app.get('/viewcategory',(req,res)=>{
         }
     })
 })
-const productid
+var productid = 2;
 app.get('/checkout',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
@@ -196,7 +196,7 @@ app.get('/checkout',(req,res)=>{
         productid=data.productid
         res.render(path.join(__dirname,'./cart.html'))
     }else{
-        
+
     }
    
 })
