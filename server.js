@@ -187,95 +187,18 @@ app.get('/viewcategory',(req,res)=>{
         }
     })
 })
-
+const productid
 app.get('/checkout',(req,res)=>{
     var q="";
     q = url.parse(req.url, true);
     var data=q.query;
-    if(data.form)
-    {
-        switch (data.form)
-        {      
-            case "addproduct":
-                if(data.productid && data.quantity)
-                {
-                    query=`insert into public.checkout(proid,quantity) values('${data.productid}',${data.quantity})`;
-                    myconect.query(query,(err,result) =>{
-                        if(err)
-                        {
-                            console.log(err);
-                        }
-                         else{
-                        }
-                    })
-                }
-                res.redirect("/checkout")
-                break;
-            case"submit" :   
-            var q="";
-            q = url.parse(req.url, true);
-            var data=q.query;
-            if(data.invoiceid) 
-            {
-                query1=`select product.price,product.id,checkout.quantity from public.checkout,public.product where product.id=checkout.proid`;
-                myconect.query(query1,(err,result1)=>{
-                    if(err)
-                    {
-                        console.log(err)
-                    }
-                    else{
-                        var total=0;
-                        var nDate = new Date().toLocaleString('vi-VN', {
-                            timeZone: 'Asia/Saigon'
-                        });
-                        for(var i=0;i<result1.rowCount;i++)
-                        {
-                            total= total+product.bill(parseInt(result1.rows[i].price),parseInt(result1.rows[i].quantity))     
-                        }   
-                        query=`insert into public.invoice values('${data.invoiceid}','${nDate}','${total}')`;
-                        myconect.query(query,(err,result)=>{
-                            if (err)
-                            {
-                                console.log(err);
-                            }
-                        })
-                        query2=`delete from public.checkout`;
-                        myconect.query(query2,(err,result2)=>{
-                            if (err)
-                            {
-                                console.log(err);
-                            }
-                        })
-                        res.redirect("/home/?id=3")        
-                    }
-                })
-            } 
-            break;
-            default:
-                break;
-        }
+    if(data.productid){
+        productid=data.productid
+        res.render(path.join(__dirname,'./cart.html'))
     }else{
-        query="SELECT * FROM public.product";
-        myconect.query(query,(err,result) =>{
-            if(err)
-            {
-                console.log(err);
-            }
-            else
-            {
-                query1=`select product.id,product.name,product.price,checkout.quantity from public.product,public.checkout where public.product.id = public.checkout.proid`;
-                myconect.query(query1,(err,result1) =>{
-                    if(err)
-                    {
-                        console.log(err);
-                    }
-                    else{
-                        res.render(path.join(__dirname,'./checkout.html'),{result1: result1,result: result})
-                    }
-                }) 
-            }
-        })
+        
     }
+   
 })
 
 app.get('/productdelete',(req,res)=>{
