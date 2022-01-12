@@ -197,7 +197,7 @@ app.get('/checkout',(req,res)=>{
         res.render(path.join(__dirname,'./cart.html'))
         console.log(productid)
     }else{
-
+        console.log("error")
     }
    
 })
