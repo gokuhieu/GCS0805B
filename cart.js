@@ -1,16 +1,14 @@
-var total=0;
-var item1=[]
-const additems =(item) =>{
-    
-
-
-for(var i=0;i<total;i++)
+class Cart{
+total=0;
+items=[]
+    construct(items)
     {
-        item1.push(item)
+        items.push(items)
     }
-    return item1;
+    thanhtoan(){
+        total=total+quantity*price
+
+
+    }
+
 }
-exports.additems=additems;
-    
-    
-    

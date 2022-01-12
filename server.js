@@ -468,15 +468,13 @@ app.get("/cart",(req,res) => {
     if(session.userid)
     {
        session.cart.items.push(data.productid) 
+       session.cart.quantity.push(data.quantity);
        res.render(path.join(__dirname,'/cart.html'),{cart:session.cart})
     }
     else{
-        total=0;
+        
         res.redirect("/login")
     }
-   
-    
-    
 })
 
 app.listen(port, () => {
