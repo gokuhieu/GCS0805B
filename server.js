@@ -195,6 +195,7 @@ app.get('/checkout',(req,res)=>{
     if(data.productid){
         productid=data.productid
         res.render(path.join(__dirname,'./cart.html'))
+        console.log(productid)
     }else{
 
     }
