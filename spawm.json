@@ -1,0 +1,194 @@
+{
+	"rows":[
+	{"name":"Su Tailed Spirit Gen 1","time":{"hour":1,"minute":10},"location":"Dunes","tyle":"1/25"}
+	,{"name":"Bankai Akuma","time":{"hour":1,"minute":10},"location":"Dawn Hideout","tyle":"1/30"}
+	,{"name":"Shark Sword (Samehada)","time":{"hour":1,"minute":10},"location":"Dawn Hideout","tyle":"1/12"}
+	,{"name":"Narumaki Barrage","time":{"hour":1,"minute":15},"location":"Great Narumaki Bridge","tyle":"1/50"}
+	,{"name":"SL2 Slayer Blade","time":{"hour":1,"minute":15},"location":"Dawn Hideout","tyle":"1/15"}
+	,{"name":"Santa Platinum Winter","time":{"hour":1,"minute":15},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Toad Cursed Spirit","time":{"hour":1,"minute":20},"location":"Tempest","tyle":"1 / 250"}
+	,{"name":"Dunes Chi Blade","time":{"hour":1,"minute":25},"location":"Dunes","tyle":"1/25"}
+	,{"name":"Chi Rod Toss (Chakra Rod Toss)","time":{"hour":1,"minute":25},"location":"Storm","tyle":"1/16"}
+	,{"name":"Air Style: Odama Spirit Bomb (Odama Rasengan)","time":{"hour":1,"minute":30},"location":"Training","tyle":"1/8"}
+	,{"name":"Spirit Spear (Blossom Spear)","time":{"hour":1,"minute":30},"location":"Training","tyle":"1/7"}
+	,{"name":"Moon Staff","time":{"hour":1,"minute":30},"location":"Forest of Embers","tyle":"1/60"}
+	,{"name":"Bubble Flute","time":{"hour":1,"minute":40},"location":"Haze","tyle":"1/45"}
+	,{"name":"Apollo Blade","time":{"hour":1,"minute":45},"location":"Great Narumaki Bridge","tyle":"1/60"}
+	,{"name":"Hidden Suprise (Thousand Years)","time":{"hour":1,"minute":50},"location":"Training","tyle":"1/20"}
+	,{"name":"Narumaki Vanishing Clone","time":{"hour":2,"minute":10},"location":"Great Narumaki Bridge","tyle":"1/25"}
+	,{"name":"Mao Tailed Spirit Gen 1","time":{"hour":2,"minute":10},"location":"Tempest","tyle":"1/25"}
+	,{"name":"Borumaki","time":{"hour":2,"minute":10},"location":"Dunes","tyle":"1/30"}
+	,{"name":"SL2 Bomb Blade","time":{"hour":2,"minute":15},"location":"Dunes","tyle":"1/15"}
+	,{"name":"Bat Cursed Spirit (Cursed Seal of Heaven)","time":{"hour":2,"minute":15},"location":"Forest of Embers","tyle":"1/15"}
+	,{"name":"Rab Style: Prison","time":{"hour":2,"minute":15},"location":"Haze","tyle":"1/8"}
+	,{"name":"Divination Spirit","time":{"hour":2,"minute":20},"location":"Ember 250 YC","tyle":"1 / 120"}
+	,{"name":"Saberu Tanto (White Fang Tanto)","time":{"hour":2,"minute":20},"location":"Training","tyle":"1/5"}
+	,{"name":"Spider Cursed Spirit","time":{"hour":2,"minute":20},"location":"Training","tyle":"1/35"}
+	,{"name":"Plate Of Curry","time":{"hour":2,"minute":25},"location":"Jejunes","tyle":"1/60"}
+	,{"name":"Nimbus Chi Blade","time":{"hour":2,"minute":25},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Cobra Spirit Awaken (Snake Sage)","time":{"hour":2,"minute":35},"location":"Obelisk","tyle":"1/50"}
+	,{"name":"Demon Toss","time":{"hour":2,"minute":35},"location":"Haze","tyle":"1/12"}
+	,{"name":"Spirit Bomb-Shuriken Rush (Rasenshuriken Rush)","time":{"hour":2,"minute":40},"location":"Ember","tyle":"1/10"}
+	,{"name":"Demon Warp (Demon Substitution)","time":{"hour":2,"minute":40},"location":"Forest of Embers","tyle":"1/6"}
+	,{"name":"Shock Style: Dual Electro (Dual Raikiri)","time":{"hour":2,"minute":45},"location":"Forest of Embers","tyle":"1/25"}
+	,{"name":"Super Odama Spirit Bomb (Super Odama Rasengan)","time":{"hour":2,"minute":45},"location":"Forest of Embers","tyle":"1/16"}
+	,{"name":"Spirit Bomb-Shuriken Toss (Rasenshuriken Toss)","time":{"hour":2,"minute":45},"location":"Nimbus","tyle":"1/14"}
+	,{"name":"Frog Spirit Awaken (Toad Sage)","time":{"hour":2,"minute":45},"location":"Ember","tyle":"1/25"}
+	,{"name":"Demonic Spirit (Demon Hunter)","time":{"hour":2,"minute":45},"location":"Haze","tyle":"1/8"}
+	,{"name":"Finite Heal Spirit (Hundread seals)","time":{"hour":2,"minute":45},"location":"Training","tyle":"1/16"}
+	,{"name":"Chi Kunai (Chakra Kunai)","time":{"hour":2,"minute":45},"location":"Ember","tyle":"1/5"}
+	,{"name":"Shadow Snowman","time":{"hour":2,"minute":45},"location":"Obelisk","tyle":"1/5"}
+	,{"name":"Vanishing Image","time":{"hour":2,"minute":45},"location":"Ember","tyle":"1/15"}
+	,{"name":"Mastered Frog Spirit","time":{"hour":2,"minute":45},"location":"Ember","tyle":"1/30"}
+	,{"name":"Dual Senko (Hokage Spec)","time":{"hour":3,"minute":50},"location":"Ember","tyle":"1 / 100"}
+	,{"name":"Isu Tailed Spirit Gen 1","time":{"hour":3,"minute":10},"location":"Haze","tyle":"1/25"}
+	,{"name":"Ghost Azarashi","time":{"hour":3,"minute":10},"location":"Dunes","tyle":"1/30"}
+	,{"name":"Heavenly Wall (Rashomon)","time":{"hour":3,"minute":10},"location":"Obelisk","tyle":"1/55"}
+	,{"name":"Mao Tailed Spirit (Two Tails)","time":{"hour":3,"minute":10},"location":"Nimbus","tyle":"1/45"}
+	,{"name":"Senko Kunai (Raijin Kunai)","time":{"hour":3,"minute":10},"location":"Ember","tyle":"1/15"}
+	,{"name":"Wood Vanishing Image","time":{"hour":3,"minute":10},"location":"Nimbus","tyle":"1/35"}
+	,{"name":"Rab Style: Warp","time":{"hour":3,"minute":13},"location":"Obelisk","tyle":"1/15"}
+	,{"name":"SL2 Senko Kunai","time":{"hour":3,"minute":15},"location":"Ember","tyle":"1/25"}
+	,{"name":"Sun Staff","time":{"hour":3,"minute":15},"location":"Training","tyle":"1/55"}
+	,{"name":"Bat Toss Halloween (Bat Shuriken)","time":{"hour":3,"minute":20},"location":"Storm","tyle":"1/50"}
+	,{"name":"Liquid Control","time":{"hour":3,"minute":20},"location":"Haze","tyle":"1/25"}
+	,{"name":"Narumaki Vanishing Multi Clone","time":{"hour":3,"minute":25},"location":"Great Narumaki Bridge","tyle":"1/40"}
+	,{"name":"Haze Chi Blade","time":{"hour":3,"minute":25},"location":"Haze","tyle":"1/25"}
+	,{"name":"Bankai Blade (Gaiden Kusanagi v2)","time":{"hour":3,"minute":25},"location":"Training","tyle":"1/60"}
+	,{"name":"Su Tailed Spirit (One Tail)","time":{"hour":3,"minute":30},"location":"Dunes","tyle":"1/35"}
+	,{"name":"Inner Gate Spirit (Eight Inner Gates)","time":{"hour":3,"minute":30},"location":"Ember","tyle":"1/14"}
+	,{"name":"Snake Summon","time":{"hour":3,"minute":35},"location":"Tempest","tyle":"1 / 120"}
+	,{"name":"Dio Senko Blade","time":{"hour":3,"minute":35},"location":"Ember","tyle":"1/45"}
+	,{"name":"Shockslam Technique","time":{"hour":3,"minute":35},"location":"Obelisk","tyle":"1/25"}
+	,{"name":"Shock Style: Electro Blade (Raikiri Blade)","time":{"hour":3,"minute":55},"location":"Ember","tyle":"1/12"}
+	,{"name":"Sun Tailed Spirit Gen 1","time":{"hour":4,"minute":10},"location":"Obelisk","tyle":"1/25"}
+	,{"name":"Light Jokei","time":{"hour":4,"minute":10},"location":"Obelisk","tyle":"1/30"}
+	,{"name":"Kokotsu Blade","time":{"hour":4,"minute":10},"location":"Obelisk","tyle":"1/20"}
+	,{"name":"Firebolt Broomstick","time":{"hour":4,"minute":10},"location":"Dunes","tyle":"1/25"}
+	,{"name":"SL2 Shindai Prime Blade","time":{"hour":4,"minute":15},"location":"Dawn Hideout","tyle":"1/50"}
+	,{"name":"Senko: Spirit Bomb (Namikaze: Rasengan)","time":{"hour":4,"minute":15},"location":"Ember","tyle":"1/16"}
+	,{"name":"Heaven Blade (Shichiseiken)","time":{"hour":4,"minute":15},"location":"Tempest","tyle":"1/50"}
+	,{"name":"Shindai Umpire Fan","time":{"hour":4,"minute":15},"location":"Dawn Hideout","tyle":"1/60"}
+	,{"name":"Rice Cake","time":{"hour":4,"minute":20},"location":"Jejunes","tyle":"1/60"}
+	,{"name":"Rab Tailed Spirit","time":{"hour":4,"minute":20},"location":"Tempest","tyle":"1/20"}
+	,{"name":"Shindai Prime Blade","time":{"hour":4,"minute":25},"location":"Shindai Valley","tyle":"1/80"}
+	,{"name":"Dread (Deidara) Companion","time":{"hour":4,"minute":25},"location":"Dunes","tyle":"1/12"}
+	,{"name":"Vanishing Spirit Bomb (Vanishing Rasengan)","time":{"hour":4,"minute":25},"location":"Forest of Embers","tyle":"1/35"}
+	,{"name":"Christmas Shizen","time":{"hour":4,"minute":25},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Dunes Fate Spirit","time":{"hour":4,"minute":30},"location":"Dunes","tyle":"1/20"}
+	,{"name":"Ama (Konan)","time":{"hour":4,"minute":40},"location":"Storm","tyle":"1/16"}
+	,{"name":"Vanishing Clone: Barrage (Shadow Clone Barrage)","time":{"hour":4,"minute":40},"location":"Ember","tyle":"1/13"}
+	,{"name":"Firework Katana","time":{"hour":4,"minute":45},"location":"Ember","tyle":"1/15"}
+	,{"name":"Ku Tailed Spirit Gen 1","time":{"hour":5,"minute":10},"location":"Dawn Hideout","tyle":"1/25"}
+	,{"name":"Narumaki","time":{"hour":5,"minute":10},"location":"Great Narumaki Bridge","tyle":"1/30"}
+	,{"name":"Satori Blade (Gaiden Kusanagi)","time":{"hour":5,"minute":10},"location":"Ember","tyle":"1/30"}
+	,{"name":"Flame Control","time":{"hour":5,"minute":10},"location":"Ember","tyle":"1/25"}
+	,{"name":"Rykan Blade","time":{"hour":5,"minute":10},"location":"Haze","tyle":"1/45"}
+	,{"name":"SL2 Dual Lightening","time":{"hour":5,"minute":15},"location":"Haze","tyle":"1/10"}
+	,{"name":"Candy Blade","time":{"hour":5,"minute":15},"location":"Haze","tyle":"1/25"}
+	,{"name":"Water Vanishing Image","time":{"hour":5,"minute":15},"location":"Obelisk","tyle":"1/35"}
+	,{"name":"Body Replacement","time":{"hour":5,"minute":20},"location":"Haze","tyle":"1/40"}
+	,{"name":"Snail Spirit Awaken (Slug Sage)","time":{"hour":5,"minute":20},"location":"Obelisk","tyle":"1/40"}
+	,{"name":"Raion Blade (Shippuden Kusanagi)","time":{"hour":5,"minute":25},"location":"Obelisk","tyle":"1/14"}
+	,{"name":"Ember Fate Spirit","time":{"hour":5,"minute":25},"location":"Ember","tyle":"1/20"}
+	,{"name":"Captain Jokei","time":{"hour":5,"minute":30},"location":"Obelisk","tyle":"1 / 500"}
+	,{"name":"Reality Talk (Talk no Jutsu)","time":{"hour":5,"minute":35},"location":"Storm","tyle":"1/50"}
+	,{"name":"Specialist Spirit (Weapon Art)","time":{"hour":5,"minute":35},"location":"Ember","tyle":"1/45"}
+	,{"name":"Senko: Storm (Namikaze: Chidori)","time":{"hour":5,"minute":40},"location":"Obelisk","tyle":"1/60"}
+	,{"name":"Shiver Tanto (Shisui Tanto)","time":{"hour":5,"minute":45},"location":"Forest of Embers","tyle":"1/30"}
+	,{"name":"Electro Blade (Sword of Thunder)","time":{"hour":5,"minute":50},"location":"Dunes","tyle":"1/12"}
+	,{"name":"Sei Tailed Spirit Gen 1","time":{"hour":6,"minute":10},"location":"Dawn Hideout","tyle":"1/25"}
+	,{"name":"PTS Deva","time":{"hour":6,"minute":10},"location":"Tempest","tyle":"1/30"}
+	,{"name":"Kor Tailed Spirit (Nine Tails)","time":{"hour":6,"minute":10},"location":"Ember","tyle":"1/60"}
+	,{"name":"Super Serum","time":{"hour":6,"minute":15},"location":"Jejunes","tyle":"1/60"}
+	,{"name":"SL2 Thread Blade","time":{"hour":6,"minute":15},"location":"Haze","tyle":"1/20"}
+	,{"name":"Shizen Raijin (Senju Raijin)","time":{"hour":6,"minute":15},"location":"Ember","tyle":"1/9"}
+	,{"name":"Dual Chi Rods (Chakra Rods)","time":{"hour":6,"minute":20},"location":"Storm","tyle":"1/25"}
+	,{"name":"Haze Fate Spirit","time":{"hour":6,"minute":20},"location":"Haze","tyle":"1/20"}
+	,{"name":"Air Style Fan (Giant Folding Fan)","time":{"hour":6,"minute":25},"location":"Dunes","tyle":"1/2"}
+	,{"name":"Exploding Vanishing Image","time":{"hour":6,"minute":30},"location":"Forest of Embers","tyle":"1/40"}
+	,{"name":"Sleigh Bomb","time":{"hour":6,"minute":35},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Dagai Sword (Kunai Blade)","time":{"hour":6,"minute":40},"location":"Dunes","tyle":"1/4"}
+	,{"name":"Heavenly Spirit (Seven Heavenly Breaths)","time":{"hour":6,"minute":45},"location":"Dunes","tyle":"1/55"}
+	,{"name":"Rab Style: Meteorite","time":{"hour":6,"minute":55},"location":"Obelisk","tyle":"1/25"}
+	,{"name":"Chu Tailed Spirit Gen 1","time":{"hour":7,"minute":10},"location":"Shindai Valley","tyle":"1/25"}
+	,{"name":"Raion Rengoku","time":{"hour":7,"minute":10},"location":"Forest of Embers","tyle":"1/45"}
+	,{"name":"Chu Tailed Spirit (Seven Tail","time":{"hour":7,"minute":10},"location":"Dunes","tyle":"1/30"}
+	,{"name":"SL2 Grass Tanto","time":{"hour":7,"minute":15},"location":"Obelisk","tyle":"1/30"}
+	,{"name":"Bankai (Itachi)","time":{"hour":7,"minute":15},"location":"Forest of Embers","tyle":"1/30"}
+	,{"name":"Air Control","time":{"hour":7,"minute":15},"location":"Dunes","tyle":"1/25"}
+	,{"name":"Sleigh Summon","time":{"hour":7,"minute":15},"location":"Ember","tyle":"1/25"}
+	,{"name":"Tree Illusion Technique","time":{"hour":7,"minute":15},"location":"Ember","tyle":"1/20"}
+	,{"name":"Nimbus Sword (Cleaver Sword)","time":{"hour":7,"minute":25},"location":"Nimbus","tyle":"1/20"}
+	,{"name":"Obelisk Fate Spirit","time":{"hour":7,"minute":30},"location":"Obelisk","tyle":"1/20"}
+	,{"name":"Cloak Spirit (Lightning Cloak)","time":{"hour":7,"minute":35},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Sound Flute","time":{"hour":7,"minute":40},"location":"Obelisk","tyle":"1/30"}
+	,{"name":"Riser Akuma Blade","time":{"hour":7,"minute":44},"location":"Tempest","tyle":"1/80"}
+	,{"name":"Cobra Stretch Mode","time":{"hour":7,"minute":45},"location":"Tempest","tyle":"1/60"}
+	,{"name":"Samurai Tanto (Mifune)","time":{"hour":7,"minute":45},"location":"Nimbus","tyle":"1/6"}
+	,{"name":"Shindo Blade (Omoi Blade)","time":{"hour":7,"minute":55},"location":"Nimbus","tyle":"1/8"}
+	,{"name":"Renshiki","time":{"hour":8,"minute":10},"location":"Obelisk","tyle":"1/45"}
+	,{"name":"Nimbus Fate Spirit","time":{"hour":8,"minute":10},"location":"Nimbus","tyle":"1/20"}
+	,{"name":"Gai Tailed Spirit Gen 1","time":{"hour":8,"minute":10},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Confusion Illusion Technique","time":{"hour":8,"minute":10},"location":"Storm","tyle":"1/20"}
+	,{"name":"SL2 Heaven Blade","time":{"hour":8,"minute":15},"location":"Dawn Hideout","tyle":"1/20"}
+	,{"name":"Puppet Platinum Halloween","time":{"hour":8,"minute":20},"location":"Dunes","tyle":"1/60"}
+	,{"name":"Mastered Rabbit Spirit","time":{"hour":8,"minute":20},"location":"Dunes","tyle":"44579"}
+	,{"name":"Reaper Spirit (Reaper Death Seal)","time":{"hour":8,"minute":25},"location":"Forest of Embers","tyle":"1/70"}
+	,{"name":"Gai Tailed Spirit (Eight Tails)","time":{"hour":8,"minute":25},"location":"Nimbus","tyle":"1/50"}
+	,{"name":"Pika Blade","time":{"hour":8,"minute":32},"location":"Tempest","tyle":"1/70"}
+	,{"name":"Slayer Blade (Executioner Blade)","time":{"hour":8,"minute":40},"location":"Haze","tyle":"1/20"}
+	,{"name":"Riserdawn (Hiramekarei)","time":{"hour":8,"minute":55},"location":"Haze","tyle":"1/8"}
+	,{"name":"Kor Tailed Spirit Gen 1","time":{"hour":9,"minute":10},"location":"Ember","tyle":"1/25"}
+	,{"name":"Riser Akuma","time":{"hour":9,"minute":10},"location":"Haze","tyle":"1/30"}
+	,{"name":"Hamaxe (Kabutowari)","time":{"hour":9,"minute":10},"location":"Haze","tyle":"1/6"}
+	,{"name":"Eagle Companion (Hawk Summoning)","time":{"hour":9,"minute":15},"location":"Nimbus","tyle":"23743"}
+	,{"name":"Acrobat Style","time":{"hour":9,"minute":15},"location":"Nimbus","tyle":"1/15"}
+	,{"name":"Dual Lightning (Kiba Blades)","time":{"hour":9,"minute":20},"location":"Haze","tyle":"1/6"}
+	,{"name":"Shock Control","time":{"hour":9,"minute":25},"location":"Nimbus","tyle":"1/25"}
+	,{"name":"Gingerbread Man","time":{"hour":9,"minute":25},"location":"Dunes","tyle":"1 / 100k"}
+	,{"name":"Thread Blade (Nuibari)","time":{"hour":9,"minute":30},"location":"Haze","tyle":"1/10"}
+	,{"name":"Isu Tailed Spirit (3 Tails)","time":{"hour":9,"minute":30},"location":"Haze","tyle":"1/35"}
+	,{"name":"Fire Shuriken","time":{"hour":9,"minute":30},"location":"Forest of Embers","tyle":"1/15"}
+	,{"name":"Alpihirama Blade (Hashirama Blade)","time":{"hour":9,"minute":40},"location":"Obelisk","tyle":"1/14"}
+	,{"name":"Regret (Pain)","time":{"hour":9,"minute":45},"location":"Storm","tyle":"1/20"}
+	,{"name":"Dual-Bladed Scythe","time":{"hour":9,"minute":45},"location":"Haze","tyle":"1/2"}
+	,{"name":"Ice Shuriken","time":{"hour":10,"minute":5},"location":"Haze","tyle":"1/25"}
+	,{"name":"Kor Tailed Spirit Gen 1","time":{"hour":10,"minute":10},"location":"Dawn Hideout","tyle":"1/50"}
+	,{"name":"Rykan Shizen","time":{"hour":10,"minute":10},"location":"Haze","tyle":"1/40"}
+	,{"name":"Sei Tailed Spirit (Six Tails)","time":{"hour":10,"minute":10},"location":"Haze","tyle":"1/40"}
+	,{"name":"Lightning Shurikens","time":{"hour":10,"minute":10},"location":"Training","tyle":"1/25"}
+	,{"name":"Firework Subjutsu","time":{"hour":10,"minute":20},"location":"Dunes","tyle":"1/15"}
+	,{"name":"Triple Cobalt Blade (Garian Blade)","time":{"hour":10,"minute":25},"location":"Obelisk","tyle":"1/6"}
+	,{"name":"Ash (Darui)","time":{"hour":10,"minute":30},"location":"Nimbus","tyle":"1/16"}
+	,{"name":"Scarecrow Seal Halloween (Scarecrow Death Seal)","time":{"hour":10,"minute":35},"location":"Dunes","tyle":"1/80"}
+	,{"name":"Stone Buster","time":{"hour":10,"minute":40},"location":"Obelisk","tyle":"1/10"}
+	,{"name":"Satori Akuma","time":{"hour":11,"minute":10},"location":"Training","tyle":"1/30"}
+	,{"name":"Umpire Guitar","time":{"hour":11,"minute":10},"location":"Obelisk","tyle":"1/45"}
+	,{"name":"SL2 Chi Kunai","time":{"hour":11,"minute":15},"location":"Ember","tyle":"1/15"}
+	,{"name":"Toad Summon","time":{"hour":11,"minute":20},"location":"Tempest","tyle":"1/80"}
+	,{"name":"Peekaboo Jutsu","time":{"hour":11,"minute":20},"location":"Training","tyle":"1/69"}
+	,{"name":"Grass Tanto (Grass Kusanagi)","time":{"hour":11,"minute":20},"location":"Dawn Hideout","tyle":"1/16"}
+	,{"name":"Obelisk Chi Blade","time":{"hour":11,"minute":25},"location":"Obelisk","tyle":"1/25"}
+	,{"name":"Savage Blade","time":{"hour":11,"minute":25},"location":"Obelisk","tyle":"1/4"}
+	,{"name":"Sun Tailed Spirit (Four Tails)","time":{"hour":11,"minute":30},"location":"Obelisk","tyle":"1/45"}
+	,{"name":"Medical Mode Transfer","time":{"hour":11,"minute":35},"location":"Ember","tyle":"1/35"}
+	,{"name":"Two Bladed Scythe","time":{"hour":11,"minute":40},"location":"Obelisk","tyle":"1/2"}
+	,{"name":"Shindai Akuma","time":{"hour":11,"minute":45},"location":"Dawn Hideout","tyle":"1/60"}
+	,{"name":"Umpire Fan (Gunbai)","time":{"hour":0,"minute":0},"location":"Dawn Hideout","tyle":"1/30"}
+	,{"name":"Heroes Water","time":{"hour":0,"minute":10},"location":"Jejunes","tyle":"1/60"}
+	,{"name":"Shiver Akuma","time":{"hour":0,"minute":10},"location":"Ember","tyle":"1/30"}
+	,{"name":"Bomb Blade (Shibuki)","time":{"hour":0,"minute":10},"location":"Haze","tyle":"1/15"}
+	,{"name":"Ku Tailed Spirit (Five Tails)","time":{"hour":0,"minute":10},"location":"Obelisk","tyle":"1/50"}
+	,{"name":"SL2 Nimbus Sword","time":{"hour":0,"minute":15},"location":"Nimbus","tyle":"1/15"}
+	,{"name":"Great Spiraling Spirit Bomb","time":{"hour":0,"minute":15},"location":"Great Narumaki Bridge","tyle":"1/50"}
+	,{"name":"Reptile Cursed Spirit","time":{"hour":0,"minute":20},"location":"Storm","tyle":"1/30"}
+	,{"name":"Akuma Eternal Hand","time":{"hour":0,"minute":20},"location":"Ember","tyle":"1/70"}
+	,{"name":"Ember Chi Blade","time":{"hour":0,"minute":25},"location":"Ember","tyle":"1/25"}
+	,{"name":"Multi-Vanishing Clone (Multi-Shadow Clones)","time":{"hour":0,"minute":25},"location":"Ember","tyle":"1/12"}
+	,{"name":"Clown Trap Halloween","time":{"hour":0,"minute":25},"location":"Nimbus","tyle":"1/55"}
+	,{"name":"Stone Control","time":{"hour":0,"minute":35},"location":"Obelisk","tyle":"1/25"}
+	,{"name":"Demon-Scythe (Triple Bladed Scythe)","time":{"hour":0,"minute":40},"location":"Dawn Hideout","tyle":"1/8"}
+	,{"name":"Reality Style: Warp","time":{"hour":0,"minute":45},"location":"Ember","tyle":"1/50"}
+	]	
+}
